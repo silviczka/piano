@@ -1,19 +1,28 @@
 import keyBindIconOn from "./img/keyBindIcon.svg";
 import keyBindIconOff from "./img/keyBindIconOff.svg";
+import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 
 const KeyBindLabelBtn = ({ areKeyBindLabelsVisible, onLabelClick }) => {
   return (
     <>
-      <img
-        src={areKeyBindLabelsVisible ? keyBindIconOn : keyBindIconOff}
-        alt={
+      <NavIconTooltip
+        text={
           areKeyBindLabelsVisible
-            ? "keyBind-labels-enabled-icon"
-            : "keyBind-labels-disabled-icon"
+            ? "Klávesové zkratky zobrazeny."
+            : "Klávesové zkratky vypnuty."
         }
-        onClick={onLabelClick}
-        className="menu-icon"
-      />
+      >
+        <img
+          src={areKeyBindLabelsVisible ? keyBindIconOn : keyBindIconOff}
+          alt={
+            areKeyBindLabelsVisible
+              ? "keyBind-labels-enabled-icon"
+              : "keyBind-labels-disabled-icon"
+          }
+          onClick={onLabelClick}
+          className="menu-icon"
+        />
+      </NavIconTooltip>
     </>
   );
 };

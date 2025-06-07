@@ -1,0 +1,26 @@
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  display: none;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-color);
+  color: var(--text-color-dark);
+  font-family: var(--font-quaternary);
+  padding: 0.375rem 0.625rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  z-index: 999;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.tooltip-container:hover .tooltip-text {
+  display: inherit;
+}

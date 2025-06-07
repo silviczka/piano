@@ -1,11 +1,14 @@
 import midiEnabledIcon from "./img/midiEnabled.svg";
 import midiDisabledIcon from "./img/midiDisabled.svg";
 import midiPromptIcon from "./img/midiPrompt.svg";
+import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 
 const MidiListener = () => {
   return (
     <>
-      <img src={midiEnabledIcon} alt="midi-icon" className="menu-icon" />
+      <NavIconTooltip text="MIDI rozhraní povoleno.">
+        <img src={midiEnabledIcon} alt="midi-icon" className="menu-icon" />
+      </NavIconTooltip>
     </>
   );
 };

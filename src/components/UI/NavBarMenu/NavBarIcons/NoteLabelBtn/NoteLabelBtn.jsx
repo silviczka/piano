@@ -1,17 +1,28 @@
 import labelIconEnabled from "./img/noteLabelEnabled.svg";
 import labelIconDisabled from "./img/noteLabelDisabled.svg";
+import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 
 const NoteLabelBtn = ({ areNoteLabelsVisible, onLabelClick }) => {
   return (
     <>
-      <img
-        src={areNoteLabelsVisible ? labelIconEnabled : labelIconDisabled}
-        alt={
-          areNoteLabelsVisible ? "labels-enabled-icon" : "labels-disabled-icon"
+      <NavIconTooltip
+        text={
+          areNoteLabelsVisible
+            ? "Názvy not zobrazeny."
+            : "Názvy not nezobrazeny."
         }
-        onClick={onLabelClick}
-        className="menu-icon"
-      />
+      >
+        <img
+          src={areNoteLabelsVisible ? labelIconEnabled : labelIconDisabled}
+          alt={
+            areNoteLabelsVisible
+              ? "labels-enabled-icon"
+              : "labels-disabled-icon"
+          }
+          onClick={onLabelClick}
+          className="menu-icon"
+        />
+      </NavIconTooltip>
     </>
   );
 };
