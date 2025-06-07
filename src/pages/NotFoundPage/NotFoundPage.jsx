@@ -1,5 +1,5 @@
 import "./NotFoundPage.css";
-import PageTemplate from "../../components/UI/NavBarMenu/PageTemplate/PageTemplate";
+import PageTemplate from "../../components/UI/PageTemplate/PageTemplate";
 
 const NotFoundPage = () => {
   return (
