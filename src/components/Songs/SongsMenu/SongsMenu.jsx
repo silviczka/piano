@@ -24,7 +24,7 @@ const SongsMenu = ({
             height="42"
             viewBox="0 0 42 42"
             fill="none"
-            // onClick={handleOnBackBtnClick}
+            onClick={handleOnBackBtnClick}
           >
             <rect
               x="0"
@@ -65,7 +65,7 @@ const SongsMenu = ({
                   }
                   img={song.header.img}
                   // onSongSelect={onSongSelect}
-                  // onSongClick={handleSelectMelody}
+                  onSongClick={handleOnBackBtnClick}
                   tracks={song.tracks[0].events}
                 />
               ))}
