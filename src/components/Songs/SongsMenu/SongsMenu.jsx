@@ -1,41 +1,74 @@
-import './SongsMenu.css';
-import songsIcon from './img/songs.svg';
-import { useState } from 'react';
+import "./SongsMenu.css";
+import { useState } from "react";
 
-const SongsMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleSelectMelody = (id, name) => {
+const SongsMenu = ({
+  isMenuOpen,
+  handleSelectMelody,
+  handleOnBackBtnClick,
+}) => {
+  /*  const handleSelectMelody = (id, name) => {
     onSelect(id);
     setselectedMelody(name);
     setIsMenuOpen(!isMenuOpen);
-  };
-  return (
-    <div>
-      <img src={songsIcon} alt="songs-icon" onClick={toggleDropdown} />
-      <div className={isMenuOpen ? 'melody-menu' : 'melody-menu menu--closed'}>
-        <div className="melodies">
-          <div className="melodies-header">
-            <div className="title">Vyber si píšničku a začni hrát.</div>
-          </div>
+  }; */
 
-          <div className="melodies-wrapper">
-            <div className="melodies-item">
-              {/*          {melodies.map((melody, index) => (
-                <Melody
-                  key={index}
-                  id={index}
-                  onMelodySelect={handleSelectMelody}
-                  name={melody.header.title}
-                />
-              ))} */}
-            </div>
-          </div>
+  return (
+    <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
+      <div className="songs">
+        <div className="songs-header">
+          <svg
+            className="back-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="42"
+            height="42"
+            viewBox="0 0 42 42"
+            fill="none"
+            onClick={handleOnBackBtnClick}
+          >
+            <rect
+              x="0"
+              y="0"
+              width="42"
+              height="42"
+              rx="5"
+              fill="rgba(11, 159, 175, 1)"
+            />
+            <path
+              d="M20 13L13 21L20 29"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M30 21H13"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <div className="songs-title">Vyber si píšničku a začni hrát.</div>
         </div>
+
+        {/*         <div className="songs-wrapper">
+          <div className="songs-item">
+            {songs.map((song, index) => (
+              <Song
+                key={index}
+                id={index}
+                name={song.header.title}
+                totalTime={
+                  song.tracks[0].events[song.tracks[0].events.length - 1].time
+                }
+                img={song.header.img}
+                onSongSelect={onSongSelect}
+                onSongClick={handleSelectMelody}
+                tracks={song.tracks[0].events}
+              />
+            ))}
+          </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
-import './GameLogic.css';
-import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
-import Keyboard from '../Piano/Keyboard/Keyboard';
-import usePCKeyHandlers from '../../hooks/usePCKeyHandlers';
-import NotesAnimation from '../NotesAnimation/NotesAnimation';
-import { HITZONE_CENTER_PCT } from '../constants/constants';
-import { useState } from 'react';
+import "./GameLogic.css";
+import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
+import Keyboard from "../Piano/Keyboard/Keyboard";
+import NotesAnimation from "../NotesAnimation/NotesAnimation";
+import { HITZONE_CENTER_PCT } from "../constants/constants";
+import loadSongList from "../../utils/loadSongList";
+import { useState, useEffect } from "react";
 
 const GameLogic = () => {
   const [hitZoneCenter, setHitZoneCenter] = useState(
@@ -13,10 +13,21 @@ const GameLogic = () => {
   const [areKeyBindLabelsVisible, setKeyBindLabelsVisible] = useState(true);
   const [showNoteColors, setShowNoteColors] = useState(true);
   const [areNoteLabelsVisible, setNoteLabelsVisible] = useState(true);
+  const [isPaused, setIsPaused] = useState(true);
+  const [isResuming, setIsResuming] = useState(false);
+  const [songList, setSongList] = useState([]);
+  const [loadedSong, setLoadedSong] = useState(null);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
+  const handleSongsMenuClick = () => {
+    if (!isPaused) togglePause();
+  };
+
+  useEffect(() => {
+    loadSongList(setLoadedSong, setSongList);
+  }, []);
 
   return (
     <div className="game-page">
@@ -28,6 +39,8 @@ const GameLogic = () => {
           onNoteColorClick={toggleNoteColors}
           areNoteLabelsVisible={areNoteLabelsVisible}
           onLabelClick={toggleLabels}
+          onSongsMenuClick={handleSongsMenuClick}
+          disabled={isResuming}
         />
       </div>
       <NotesAnimation hitZoneCenter={hitZoneCenter} />

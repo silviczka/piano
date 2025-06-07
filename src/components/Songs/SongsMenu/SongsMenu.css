@@ -1,4 +1,4 @@
-.melodies {
+.songs {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.title {
+.songs-title {
   font-family: 'Titan One', cursive;
   font-size: 2rem;
   color: #262D42;
@@ -20,66 +20,50 @@
   background-color: #D0F0EF;
 }
 
-.melodies-header {
+.songs-header {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  position: relative;
 }
 
-.melodies-item {
+.songs-item {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 2rem;
 }
 
-.melodies-item:hover {
+.songs-item:hover {
   cursor: pointer;
 }
 
-.melodies-wrapper {
+.songs-wrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 0 2rem 2rem;
 }
 
-
-.melody {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
+.back-icon {
   transition: transform 0.3s;
-  flex: 1;
-  max-width: calc(100% / 3 - 2rem);
+  position: absolute;
+  top: calc(50% - 1.3125em);
+  left: 2rem
 }
 
-.melody:hover {
+.back-icon:hover {
   transform: scale(1.05);
-
 }
 
-.melody-footer {
-  background-color: rgba(11, 159, 175, 1);
-  font-family: 'Happy Monkey', cursive;
-  color: white;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  padding: 1rem;
-}
-
-.melody:hover {
-  background-color: #73e194;
-}
-
-.melody:active {
-  background-color: #069f25;
-}
-
-.menu--closed .melodies {
+.songs-menu__closed {
   display: none;
+}
+
+.songs-menu__opened {
+  display: block;
 }

@@ -5,8 +5,8 @@ import RestartBtn from "../NavBarIcons/RestartBtn/RestartBtn";
 import KeyBindLabelBtn from "../NavBarIcons/KeyBindLabelBtn/KeyBindLabelBtn";
 import NoteLabelBtn from "../NavBarIcons/NoteLabelBtn/NoteLabelBtn";
 import ColorToggleBtn from "../NavBarIcons/ColorToggleBtn/ColorToggleBtn";
-import SongsMenu from "../NavBarIcons/SongsMenu/SongsMenu";
 import MidiListener from "../NavBarIcons/MidiListener/MidiListener";
+import SongsBtn from "../NavBarIcons/SongsBtn/SongsBtn";
 
 const NavBar = ({
   onKeyBindLabelClick,
@@ -15,6 +15,8 @@ const NavBar = ({
   onNoteColorClick,
   areNoteLabelsVisible,
   onLabelClick,
+  onSongsMenuClick,
+  disabled,
 }) => {
   return (
     <nav className="game-nav">
@@ -33,7 +35,7 @@ const NavBar = ({
         onNoteColorClick={onNoteColorClick}
         areColorsEnabled={areColorsEnabled}
       />
-      <SongsMenu />
+      <SongsBtn onSongsMenuClick={onSongsMenuClick} disabled={disabled} />
       <MidiListener />
     </nav>
   );
