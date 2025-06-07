@@ -2,7 +2,7 @@ import './GameLogic.css';
 import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
 import Keyboard from '../Piano/Keyboard/Keyboard';
 import NotesAnimation from '../NotesAnimation/NotesAnimation';
-import { HITZONE_CENTER_PCT } from '../constants/constants';
+import { HITZONE_CENTER_PCT } from '../../constants/constants';
 import loadSongList from '../../utils/loadSongList';
 import { useState, useEffect } from 'react';
 import './GameLogic.css';
