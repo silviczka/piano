@@ -3,22 +3,20 @@ import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
 import Keyboard from '../Piano/Keyboard/Keyboard';
 import usePCKeyHandlers from '../../hooks/usePCKeyHandlers';
 import NotesAnimation from '../NotesAnimation/NotesAnimation';
+import { HITZONE_CENTER_PCT } from '../constants/constants';
 import { useState } from 'react';
 
 const GameLogic = () => {
-  const hitThreshold = 80; // +/- tolerance in px
-  const hitZoneCenterPct = 50; // Midpoint of the hit zone
   const [hitZoneCenter, setHitZoneCenter] = useState(
-    (window.innerWidth * hitZoneCenterPct) / 100,
+    (window.innerWidth * HITZONE_CENTER_PCT) / 100,
   );
   const [areKeyBindLabelsVisible, setKeyBindLabelsVisible] = useState(true);
+  const [showNoteColors, setShowNoteColors] = useState(true);
+  const [areNoteLabelsVisible, setNoteLabelsVisible] = useState(true);
+
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
-
-  const handleKeyDown = (event) => {};
-
-  const handleKeyUp = (event) => {};
-
-  usePCKeyHandlers(handleKeyDown, handleKeyUp);
+  const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
+  const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
 
   return (
     <div className="game-page">
@@ -26,13 +24,13 @@ const GameLogic = () => {
         <NavBar
           areKeyBindLabelsVisible={areKeyBindLabelsVisible}
           onKeyBindLabelClick={toggleKeyBindLabels}
+          areColorsEnabled={showNoteColors}
+          onNoteColorClick={toggleNoteColors}
+          areNoteLabelsVisible={areNoteLabelsVisible}
+          onLabelClick={toggleLabels}
         />
       </div>
-      <NotesAnimation
-        notes={notes}
-        hitThreshold={hitThreshold}
-        hitZoneCenter={hitZoneCenter}
-      />
+      <NotesAnimation hitZoneCenter={hitZoneCenter} />
       <Keyboard areKeyBindLabelsVisible={areKeyBindLabelsVisible} />
     </div>
   );

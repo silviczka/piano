@@ -1,12 +1,15 @@
 import labelIconEnabled from "./img/noteLabelEnabled.svg";
 import labelIconDisabled from "./img/noteLabelDisabled.svg";
 
-const NoteLabelBtn = () => {
+const NoteLabelBtn = ({ areNoteLabelsVisible, onLabelClick }) => {
   return (
     <>
       <img
-        src={labelIconEnabled}
-        alt={"labels-enabled-icon"}
+        src={areNoteLabelsVisible ? labelIconEnabled : labelIconDisabled}
+        alt={
+          areNoteLabelsVisible ? "labels-enabled-icon" : "labels-disabled-icon"
+        }
+        onClick={onLabelClick}
         className="menu-icon"
       />
     </>

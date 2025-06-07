@@ -1,12 +1,13 @@
 import colorEnabledIcon from "./img/keyColorEnabled.svg";
 import colorDisabledIcon from "./img/keyColorDisabled.svg";
 
-const ColorToggleBtn = () => {
+const ColorToggleBtn = ({ areColorsEnabled, onNoteColorClick }) => {
   return (
     <>
       <img
-        src={colorEnabledIcon}
-        alt="colors-enabled-icon"
+        src={areColorsEnabled ? colorEnabledIcon : colorDisabledIcon}
+        alt={areColorsEnabled ? "colors-enabled-icon" : "colors-disabled-icon"}
+        onClick={onNoteColorClick}
         className="menu-icon"
       />
     </>

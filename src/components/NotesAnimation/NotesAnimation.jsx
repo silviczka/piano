@@ -3,8 +3,9 @@ import { AnimatePresence } from 'motion/react';
 import Stave from '../Stave/Stave';
 import NotesVisual from './NotesVisual';
 import HitZone from './HitZone';
+import { HIT_THRESHOLD } from '../constants/constants';
 
-const NotesAnimation = ({ notes, hitThreshold, hitZoneCenter }) => {
+const NotesAnimation = ({ hitThreshold, hitZoneCenter }) => {
   return (
     <div className="game-area">
       <div className="music-stave-container">
@@ -14,16 +15,9 @@ const NotesAnimation = ({ notes, hitThreshold, hitZoneCenter }) => {
         </div>
       </div>
       <AnimatePresence>
-        {notes.map(({ note, id }) => {
-          return (
-            <NotesVisual
-              key={id}
-              note={note}
-              id={id}
-              hitZoneCenter={hitZoneCenter}
-            />
-          );
-        })}
+        {/* {notes.map(({ id }) => {
+          return <NotesVisual key={id} id={id} hitZoneCenter={hitZoneCenter} />;
+        })} */}
       </AnimatePresence>
     </div>
   );

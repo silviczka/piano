@@ -1,17 +1,29 @@
 import "./Key.css";
+import { forwardRef } from "react";
 import BlackKey from "../BlackKey/BlackKey";
 import WhiteKey from "../WhiteKey/WhiteKey";
 
-const Key = ({ type, offset, ...handlers }) => {
+const Key = forwardRef((props, ref) => {
+  const {
+    note,
+    type,
+    keyBind,
+    offset,
+    color,
+    areNoteLabelsVisible,
+    isColorVisible,
+    areKeyBindLabelsVisible,
+    ...handlers
+  } = props;
   return (
     <>
       {type === "white" ? (
-        <WhiteKey offset={offset} type={type} {...handlers} />
+        <WhiteKey {...props} ref={ref} />
       ) : (
-        <BlackKey offset={offset} type={type} {...handlers} />
+        <BlackKey {...props} ref={ref} />
       )}
     </>
   );
-};
+});
 
 export default Key;

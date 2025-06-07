@@ -4,13 +4,9 @@ const PCKeyLabel = ({ type, keyBind, isKeyBindLabelVisible }) => {
   let fontSize = 24;
   let textColor = "#262D42";
   let textPos = "73%";
-  let width = 70;
-  let height = 40;
-  console.log(type);
+
   if (type === "black") {
-    width = 100;
     fontSize = 40;
-    height = 55;
     textColor = "white";
     textPos = "65%";
   }
