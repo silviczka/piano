@@ -4,7 +4,6 @@ const NoteNameLabel = ({ note, isNoteLabelVisible, isColorVisible, type }) => {
     fontSize = 40;
   }
 
-  console.log(isNoteLabelVisible);
   return (
     <>
       {isNoteLabelVisible ? (
