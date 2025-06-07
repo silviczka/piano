@@ -1,4 +1,4 @@
-export const whiteKeys = [
+const whiteKeys = [
   {
     note: "C4",
     midiNumber: 36,
@@ -135,3 +135,5 @@ export const whiteKeys = [
     typeKey: "white",
   },
 ];
+
+export default whiteKeys;

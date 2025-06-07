@@ -1,0 +1,30 @@
+.about-header {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-text {
+  text-align: center;
+  font-family: var(--font-tertiary);
+  line-height: 2;
+  color: var(--text-color);
+  padding: 1rem;
+}
+
+.about-text__cursive {
+  font-style: italic;
+}
+
+
+@media (max-width: 660px) {
+  .about-header {
+    font-size: 2.5rem;
+  }
+
+  .about-text {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+}
