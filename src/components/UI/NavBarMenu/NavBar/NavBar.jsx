@@ -20,11 +20,19 @@ const NavBar = ({
   disabled,
   onSongSelect,
   onRestartClick,
+  isPaused,
+  secondsLeft,
+  onPauseClick,
 }) => {
   return (
     <nav className="game-nav">
       <HomeBtn className={"menu-icon"} />
-      <PlayPauseBtn />
+      <PlayPauseBtn
+        isPaused={isPaused}
+        secondsLeft={secondsLeft}
+        disabled={disabled}
+        onPauseClick={onPauseClick}
+      />
       <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
       <KeyBindLabelBtn
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}

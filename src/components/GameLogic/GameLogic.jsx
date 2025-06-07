@@ -1,14 +1,14 @@
-import './GameLogic.css';
-import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
-import Keyboard from '../Piano/Keyboard/Keyboard';
-import NotesAnimation from '../NotesAnimation/NotesAnimation';
-import { HITZONE_CENTER_PCT } from '../../constants/constants';
-import loadSongList from '../../utils/loadSongList';
-import { useState, useEffect, useRef } from 'react';
-import './GameLogic.css';
-import ScoreDetail from '../UI/ScoreDetail/ScoreDetail';
-import SongDetail from '../UI/SongDetail/SongDetail';
-import Timer from '../Timer/Timer';
+import "./GameLogic.css";
+import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
+import Keyboard from "../Piano/Keyboard/Keyboard";
+import NotesAnimation from "../NotesAnimation/NotesAnimation";
+import { HITZONE_CENTER_PCT } from "../../constants/constants";
+import loadSongList from "../../utils/loadSongList";
+import { useState, useEffect, useRef } from "react";
+import "./GameLogic.css";
+import ScoreDetail from "../UI/ScoreDetail/ScoreDetail";
+import SongDetail from "../UI/SongDetail/SongDetail";
+import Timer from "../Timer/Timer";
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
@@ -29,6 +29,8 @@ const GameLogic = () => {
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
+  const togglePause = () => setIsPaused((prev) => !prev);
+
   const handleSongsMenuClick = () => {
     if (!isPaused) togglePause();
   };
@@ -59,6 +61,9 @@ const GameLogic = () => {
           onSongSelect={handleSongSelect}
           songs={songList}
           onRestartClick={handleRestart}
+          isPaused={isPaused}
+          secondsLeft={songTimeCountDown}
+          onPauseClick={togglePause}
         />
         <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
       </div>
