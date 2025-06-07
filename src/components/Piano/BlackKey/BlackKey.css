@@ -1,0 +1,29 @@
+.key.black {
+  position: absolute;
+  z-index: 10;
+  width: calc(100% / 22);
+  height: 60%;
+  border-left: 0.15rem solid #171A26;
+  border-right: 0.15rem solid #171A26;
+  border-bottom: 0.15rem solid #171A26;
+  border-top: none;
+  background: linear-gradient(165.19deg, #232A3D 0.7%, #323A56 84.98%);
+  box-shadow: inset 0 -0.25rem 0 #21283B, 0 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+  pointer-events: auto;
+  transition: transform 0.1s ease, filter 0.1s ease;
+}
+
+.key.black:hover {
+  filter: brightness(2);
+}
+
+.key.black:active,
+.key.black.key-black__pressed {
+  transform: translateX(-50%) scaleY(0.97);
+  filter: brightness(2);
+}
+
+.key.black:focus {
+  outline: none;
+}

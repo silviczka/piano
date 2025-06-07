@@ -11,7 +11,7 @@ const Keyboard = () => {
     const formattedNote = note.includes("#")
       ? note.replace("#", "Sharp")
       : note;
-    const soundFile = `/assets/Sounds/${formattedNote}.mp3`;
+    const soundFile = `/sounds/${formattedNote}.mp3`;
     console.log(soundFile);
     const audio = new Audio(soundFile);
     audio.play();
@@ -31,8 +31,24 @@ const Keyboard = () => {
     };
   };
 
-  const renderKey = ({ note }, type) => (
-    <Key key={`${type}-${note}`} note={note} type={type} />
+  const handleInteractionStart = (note) => {
+    playSound(note);
+  };
+
+  const getHandlers = (note) => ({
+    onMouseDown: (e) => {
+      handleInteractionStart(note);
+    },
+  });
+
+  const renderKey = ({ note, offset }, type) => (
+    <Key
+      key={`${type}-${note}`}
+      note={note}
+      type={type}
+      offset={offset}
+      {...getHandlers(note)}
+    />
   );
 
   return (
@@ -43,6 +59,7 @@ const Keyboard = () => {
             renderKey(
               {
                 note: key.note,
+                offset: key.keyboardPositionPerct,
               },
               "white",
             ),
@@ -52,6 +69,7 @@ const Keyboard = () => {
           renderKey(
             {
               note: key.note,
+              offset: key.keyboardPositionPerct,
             },
             "black",
           ),

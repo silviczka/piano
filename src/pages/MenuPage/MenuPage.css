@@ -47,6 +47,7 @@
   font-family: var(--font-main);
   box-shadow: 0 8px 0 rgba(7, 105, 120, 1), 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease;
+  width: 20rem;
 }
 
 .menu-button:hover {

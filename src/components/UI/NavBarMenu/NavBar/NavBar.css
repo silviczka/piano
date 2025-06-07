@@ -4,8 +4,8 @@
   flex-direction: row;
   align-items: center;
   gap: 2rem;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
   padding: 0.5rem 1rem;
   height: 100%;
   cursor: pointer;

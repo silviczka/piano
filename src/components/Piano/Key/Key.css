@@ -4,8 +4,8 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
   cursor: pointer;
   transform-origin: top;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);

@@ -14,8 +14,8 @@ const GameLogic = () => {
     <div className="game-page">
       <div className="game-header">
         <NavBar />
-        <Keyboard />
       </div>
+      <Keyboard />
     </div>
   );
 };
