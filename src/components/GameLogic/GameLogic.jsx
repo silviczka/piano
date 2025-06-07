@@ -8,11 +8,14 @@ import { useState, useEffect, useRef } from "react";
 import "./GameLogic.css";
 import ScoreDetail from "../UI/ScoreDetail/ScoreDetail";
 import SongDetail from "../UI/SongDetail/SongDetail";
+import OverlayScreens from "../UI/Overlays/OverlayScreens/OverlayScreens";
 import Timer from "../Timer/Timer";
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
   const noteRefs = useRef({});
+  const resumeTimeoutRef = useRef(null);
+
   const [hitZoneCenter, setHitZoneCenter] = useState(
     (window.innerWidth * HITZONE_CENTER_PCT) / 100,
   );
@@ -29,7 +32,28 @@ const GameLogic = () => {
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
-  const togglePause = () => setIsPaused((prev) => !prev);
+
+  const togglePause = () => {
+    if (songTimeCountDown === 0 && !isPaused) {
+      // RESTART
+      return;
+    }
+
+    if (resumeTimeoutRef?.current) {
+      clearTimeout(resumeTimeoutRef?.current);
+    }
+
+    if (isPaused) {
+      setIsResuming(true);
+      resumeTimeoutRef.current = setTimeout(() => {
+        setIsPaused(false);
+        setIsResuming(false);
+        resumeTimeoutRef.current = null;
+      }, 4000);
+    } else {
+      setIsPaused(true);
+    }
+  };
 
   const handleSongsMenuClick = () => {
     if (!isPaused) togglePause();
@@ -82,6 +106,12 @@ const GameLogic = () => {
         areColorsVisible={showNoteColors}
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
         areNoteLabelsVisible={areNoteLabelsVisible}
+      />
+      <OverlayScreens
+        isPaused={isPaused}
+        isResuming={isResuming}
+        songTimeCountDown={songTimeCountDown}
+        score={score}
       />
     </div>
   );
