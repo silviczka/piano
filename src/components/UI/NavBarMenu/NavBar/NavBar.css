@@ -10,3 +10,7 @@
   height: 100%;
   cursor: pointer;
 }
+
+.game-nav .menu-icon {
+  height: 2rem;
+}
