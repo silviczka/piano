@@ -29,7 +29,9 @@ const GameLogic = () => {
     loadSongList(setLoadedSong, setSongList);
   }, []);
 
-  const handleSongSelect = (songName, songTrack) => {};
+  const handleSongSelect = (songName, songTrack) => {
+    console.log(songName, songTrack);
+  };
 
   return (
     <div className="game-page">

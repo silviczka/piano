@@ -10,22 +10,28 @@ const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleSelectMelody = () => {
+  const handleOnBackBtnClick = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleOnBackBtnClick = () => {
+  const handleSelectMelody = (id, name) => {
+    onSongSelect(id, name);
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <div>
-      <img src={songsIcon} alt="songs-icon" onClick={toggleDropdown} />
+      <img
+        src={songsIcon}
+        alt="songs-icon"
+        onClick={disabled ? undefined : toggleDropdown}
+      />
       <SongsMenu
         songs={songs}
         isMenuOpen={isMenuOpen}
-        handleSelectMelody={handleSelectMelody}
+        onSongSelect={handleSelectMelody}
         handleOnBackBtnClick={handleOnBackBtnClick}
+        onSongClick={handleOnBackBtnClick}
       />
     </div>
   );

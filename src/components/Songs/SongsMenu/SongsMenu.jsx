@@ -4,15 +4,10 @@ import Song from "../Song/Song";
 const SongsMenu = ({
   songs,
   isMenuOpen,
-  handleSelectMelody,
+  onSongSelect,
   handleOnBackBtnClick,
+  onSongClick,
 }) => {
-  /*  const handleSelectMelody = (id, name) => {
-    onSelect(id);
-    setselectedMelody(name);
-    setIsMenuOpen(!isMenuOpen);
-  };
- */
   return (
     <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
       <div className="songs">
@@ -64,8 +59,8 @@ const SongsMenu = ({
                     song.tracks[0].events[song.tracks[0].events.length - 1].time
                   }
                   img={song.header.img}
-                  // onSongSelect={onSongSelect}
-                  onSongClick={handleOnBackBtnClick}
+                  onSongClick={onSongClick}
+                  onSongSelect={onSongSelect}
                   tracks={song.tracks[0].events}
                 />
               ))}

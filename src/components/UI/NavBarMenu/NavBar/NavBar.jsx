@@ -18,6 +18,7 @@ const NavBar = ({
   onLabelClick,
   onSongsMenuClick,
   disabled,
+  onSongSelect,
 }) => {
   return (
     <nav className="game-nav">
@@ -39,6 +40,7 @@ const NavBar = ({
       <SongsBtn
         onSongsMenuClick={onSongsMenuClick}
         songs={songs}
+        onSongSelect={onSongSelect}
         disabled={disabled}
       />
       <MidiListener />
