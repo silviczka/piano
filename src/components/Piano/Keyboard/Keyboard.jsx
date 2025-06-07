@@ -4,7 +4,7 @@ import { useState } from "react";
 import whiteKeys from "../../../assets/keys/whiteKeys";
 import blackKeys from "../../../assets/keys/blackKeys";
 
-const Keyboard = ({ areKeyBindLabelsVisible }) => {
+const Keyboard = ({ areKeyBindLabelsVisible, areColorsVisible }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
 
   const playSound = (note) => {
@@ -41,14 +41,16 @@ const Keyboard = ({ areKeyBindLabelsVisible }) => {
     },
   });
 
-  const renderKey = ({ note, offset, keyBind }, type) => (
+  const renderKey = ({ note, offset, keyBind, color }, type) => (
     <Key
       key={`${type}-${note}`}
       note={note}
       type={type}
       keyBind={keyBind}
       offset={offset}
+      color={color}
       areKeyBindLabelsVisible={areKeyBindLabelsVisible}
+      isColorVisible={areColorsVisible}
       {...getHandlers(note)}
     />
   );
@@ -63,6 +65,7 @@ const Keyboard = ({ areKeyBindLabelsVisible }) => {
                 note: key.note,
                 keyBind: key.keyBind,
                 offset: key.keyboardPositionPerct,
+                color: key.color,
               },
               "white",
             ),
@@ -74,6 +77,7 @@ const Keyboard = ({ areKeyBindLabelsVisible }) => {
               note: key.note,
               keyBind: key.keyBind,
               offset: key.keyboardPositionPerct,
+              color: key.color,
             },
             "black",
           ),

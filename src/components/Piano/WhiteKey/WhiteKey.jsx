@@ -1,7 +1,15 @@
 import "./WhiteKey.css";
 import PCKeyLabel from "../Labels/PCKeyLabel/PCKeyLabel";
+import ColorLabel from "../Labels/ColorLabel/ColorLabel";
 
-const WhiteKey = ({ type, keyBind, areKeyBindLabelsVisible, ...handlers }) => {
+const WhiteKey = ({
+  type,
+  keyBind,
+  areKeyBindLabelsVisible,
+  isColorVisible,
+  color,
+  ...handlers
+}) => {
   return (
     <div className="key-wrapper">
       <svg
@@ -15,6 +23,7 @@ const WhiteKey = ({ type, keyBind, areKeyBindLabelsVisible, ...handlers }) => {
         height="300"
         viewBox="0 0 100 300"
       >
+        <ColorLabel color={color} isColorVisible={isColorVisible} type={type} />
         <PCKeyLabel
           type={type}
           keyBind={keyBind}

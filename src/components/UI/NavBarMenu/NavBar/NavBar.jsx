@@ -8,7 +8,12 @@ import ColorToggleBtn from "../NavBarIcons/ColorToggleBtn/ColorToggleBtn";
 import SongsMenu from "../NavBarIcons/SongsMenu/SongsMenu";
 import MidiListener from "../NavBarIcons/MidiListener/MidiListener";
 
-const NavBar = ({ onKeyBindLabelClick, areKeyBindLabelsVisible }) => {
+const NavBar = ({
+  onKeyBindLabelClick,
+  areKeyBindLabelsVisible,
+  areColorsEnabled,
+  onNoteColorClick,
+}) => {
   return (
     <nav className="game-nav">
       <HomeBtn className={"menu-icon"} />
@@ -19,7 +24,10 @@ const NavBar = ({ onKeyBindLabelClick, areKeyBindLabelsVisible }) => {
         onLabelClick={onKeyBindLabelClick}
       />
       <NoteLabelBtn />
-      <ColorToggleBtn />
+      <ColorToggleBtn
+        onNoteColorClick={onNoteColorClick}
+        areColorsEnabled={areColorsEnabled}
+      />
       <SongsMenu />
       <MidiListener />
     </nav>

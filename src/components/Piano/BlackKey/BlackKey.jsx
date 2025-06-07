@@ -1,11 +1,15 @@
 import "./BlackKey.css";
 import PCKeyLabel from "../Labels/PCKeyLabel/PCKeyLabel";
+import ColorLabel from "../Labels/ColorLabel/ColorLabel";
 
 const BlackKey = ({
   type,
   keyBind,
   areKeyBindLabelsVisible,
   offset,
+  isColorVisible,
+  color,
+
   ...handlers
 }) => {
   return (
@@ -21,6 +25,7 @@ const BlackKey = ({
       height="300"
       viewBox="0 0 100 300"
     >
+      <ColorLabel color={color} isColorVisible={isColorVisible} type={type} />
       <PCKeyLabel
         type={type}
         keyBind={keyBind}

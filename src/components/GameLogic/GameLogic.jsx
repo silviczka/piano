@@ -7,7 +7,10 @@ import { useState } from "react";
 
 const GameLogic = () => {
   const [areKeyBindLabelsVisible, setKeyBindLabelsVisible] = useState(true);
+  const [showNoteColors, setShowNoteColors] = useState(true);
+
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
+  const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
 
   const handleKeyDown = (event) => {};
 
@@ -21,10 +24,15 @@ const GameLogic = () => {
         <NavBar
           areKeyBindLabelsVisible={areKeyBindLabelsVisible}
           onKeyBindLabelClick={toggleKeyBindLabels}
+          areColorsEnabled={showNoteColors}
+          onNoteColorClick={toggleNoteColors}
         />
       </div>
       <NotesAnimation />
-      <Keyboard areKeyBindLabelsVisible={areKeyBindLabelsVisible} />
+      <Keyboard
+        areColorsVisible={showNoteColors}
+        areKeyBindLabelsVisible={areKeyBindLabelsVisible}
+      />
     </div>
   );
 };
