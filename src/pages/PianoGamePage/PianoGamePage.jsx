@@ -1,7 +1,8 @@
 import "./PianoGamePage.css";
+import GameLogic from "../../components/GameLogic/GameLogic";
 
 const PianoGamePage = (props) => {
-  return <div>PIANO</div>;
+  return <GameLogic />;
 };
 
 export default PianoGamePage;
