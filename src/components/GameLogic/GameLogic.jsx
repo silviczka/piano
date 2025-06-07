@@ -28,6 +28,9 @@ const GameLogic = () => {
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
+
+  const togglePause = () => setIsPaused((prev) => !prev);
+
   const handleSongsMenuClick = () => {
     if (!isPaused) togglePause();
   };
@@ -58,6 +61,9 @@ const GameLogic = () => {
           onSongSelect={handleSongSelect}
           songs={songList}
           onRestartClick={handleRestart}
+          onPauseClick={togglePause}
+          isPaused={isPaused}
+          secondsLeft={songTimeCountDown}
         />
         <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
       </div>

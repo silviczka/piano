@@ -1,6 +1,7 @@
 import songsIcon from "./img/songs.svg";
 import SongsMenu from "../../../../Songs/SongsMenu/SongsMenu";
 import { useState } from "react";
+import Tippy from "@tippyjs/react";
 
 const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -21,11 +22,14 @@ const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
 
   return (
     <div>
-      <img
-        src={songsIcon}
-        alt="songs-icon"
-        onClick={disabled ? undefined : toggleDropdown}
-      />
+      <Tippy content="Vyber si písničku.">
+        <img
+          src={songsIcon}
+          alt="songs-icon"
+          onClick={disabled ? undefined : toggleDropdown}
+        />
+      </Tippy>
+
       <SongsMenu
         songs={songs}
         isMenuOpen={isMenuOpen}
