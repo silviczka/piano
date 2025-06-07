@@ -1,7 +1,15 @@
 import "./NotFoundPage.css";
+import PageTemplate from "../../components/UI/NavBarMenu/PageTemplate/PageTemplate";
 
 const NotFoundPage = () => {
-  return <div>NOT FOUND</div>;
+  return (
+    <PageTemplate>
+      <div className="notfound-header">Stránka nenalezena!</div>
+      <p className="notfound-text">
+        Tahle stránka nehraje… asi někdo zmáčkl špatnou klávesu.
+      </p>
+    </PageTemplate>
+  );
 };
 
 export default NotFoundPage;

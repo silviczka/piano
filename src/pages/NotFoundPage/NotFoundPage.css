@@ -1,1 +1,22 @@
+.notfound-header {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
 
+.notfound-text {
+  text-align: center;
+  font-family: var(--font-tertiary);
+  line-height: 2;
+  color: var(--text-color);
+  padding: 2rem;
+}
+
+
+@media (max-width: 640px) {
+  .notfound-header {
+    font-size: 2.5rem;
+  }
+}
