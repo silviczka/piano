@@ -4,7 +4,7 @@ import Keyboard from '../Piano/Keyboard/Keyboard';
 import NotesAnimation from '../NotesAnimation/NotesAnimation';
 import { HITZONE_CENTER_PCT } from '../../constants/constants';
 import loadSongList from '../../utils/loadSongList';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './GameLogic.css';
 import ScoreDetail from '../UI/ScoreDetail/ScoreDetail';
 import SongDetail from '../UI/SongDetail/SongDetail';
@@ -12,6 +12,7 @@ import Timer from '../Timer/Timer';
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
+  const noteRefs = useRef({});
   const [hitZoneCenter, setHitZoneCenter] = useState(
     (window.innerWidth * HITZONE_CENTER_PCT) / 100,
   );
@@ -67,7 +68,11 @@ const GameLogic = () => {
         isPaused={isPaused}
         onSongCountDown={setsongTimeCountDown}
       />
-      <NotesAnimation notes={notes} hitZoneCenter={hitZoneCenter} />
+      <NotesAnimation
+        notes={notes}
+        hitZoneCenter={hitZoneCenter}
+        noteRefs={noteRefs}
+      />
       <Keyboard
         areColorsVisible={showNoteColors}
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
