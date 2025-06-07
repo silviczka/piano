@@ -13,6 +13,8 @@ const NavBar = ({
   areKeyBindLabelsVisible,
   areColorsEnabled,
   onNoteColorClick,
+  areNoteLabelsVisible,
+  onLabelClick,
 }) => {
   return (
     <nav className="game-nav">
@@ -23,7 +25,10 @@ const NavBar = ({
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
         onLabelClick={onKeyBindLabelClick}
       />
-      <NoteLabelBtn />
+      <NoteLabelBtn
+        areNoteLabelsVisible={areNoteLabelsVisible}
+        onLabelClick={onLabelClick}
+      />
       <ColorToggleBtn
         onNoteColorClick={onNoteColorClick}
         areColorsEnabled={areColorsEnabled}
