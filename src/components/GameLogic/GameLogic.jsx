@@ -7,6 +7,7 @@ import loadSongList from "../../utils/loadSongList";
 import { useState, useEffect } from "react";
 import ScoreDetail from "../UI/ScoreDetail/ScoreDetail";
 import SongDetail from "../UI/SongDetail/SongDetail";
+import Timer from "../Timer/Timer";
 
 const GameLogic = () => {
   const [hitZoneCenter, setHitZoneCenter] = useState(
@@ -58,6 +59,11 @@ const GameLogic = () => {
         />
         <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
       </div>
+      <Timer
+        totalTime={loadedSong?.totalTime}
+        isPaused={isPaused}
+        onSongCountDown={setsongTimeCountDown}
+      />
       <NotesAnimation hitZoneCenter={hitZoneCenter} />
       <Keyboard
         areColorsVisible={showNoteColors}
