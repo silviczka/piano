@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  flex: 1 1 35%
 }
 
 .music-stave-container {
@@ -14,9 +15,8 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  overflow-x: hidden;
-  /* border: red solid; */
+  align-items: center;
+  overflow: hidden;
 }
 
 .music-stave-image {
