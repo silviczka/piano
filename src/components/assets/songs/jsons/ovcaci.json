@@ -1,0 +1,210 @@
+{
+  "header": {
+    "title": "Ovčáci, čtveráci II.",
+    "img": "ovcaci.png",
+    "format": 1,
+    "numTracks": 1,
+    "ticksPerBeat": 480
+  },
+  "tracks": [
+    {
+      "events": [
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "C4",
+          "ticks": 0,
+          "time": 1.56,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 57,
+          "note": "E4",
+          "ticks": 144,
+          "time": 3.12,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 59,
+          "note": "G4",
+          "ticks": 288,
+          "time": 4.68,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "C4",
+          "ticks": 432,
+          "time": 7.8,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 59,
+          "note": "E4",
+          "ticks": 576,
+          "time": 9.36,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 57,
+          "note": "G4",
+          "ticks": 720,
+          "time": 10.92,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 288,
+          "midi": 55,
+          "note": "E4",
+          "ticks": 864,
+          "time": 14.04,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "E4",
+          "ticks": 1152,
+          "time": 14.82,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 57,
+          "note": "D4",
+          "ticks": 1296,
+          "time": 15.6,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 59,
+          "note": "E4",
+          "ticks": 1440,
+          "time": 16.38,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.5,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "F4",
+          "ticks": 1584,
+          "time": 17.16,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.5,
+          "durationTicks": 288,
+          "midi": 55,
+          "note": "D4",
+          "ticks": 1728,
+          "time": 18.72,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 288,
+          "midi": 55,
+          "note": "E4",
+          "ticks": 864,
+          "time": 20.28,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "E4",
+          "ticks": 1152,
+          "time": 21.06,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 57,
+          "note": "D4",
+          "ticks": 1296,
+          "time": 21.84,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.2,
+          "durationTicks": 144,
+          "midi": 59,
+          "note": "E4",
+          "ticks": 1440,
+          "time": 22.62,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.5,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "F4",
+          "ticks": 1584,
+          "time": 23.4,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.5,
+          "durationTicks": 288,
+          "midi": 55,
+          "note": "D4",
+          "ticks": 1728,
+          "time": 24.96,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 59,
+          "note": "E4",
+          "ticks": 1440,
+          "time": 26.52,
+          "velocity": 0.7
+        },
+        {
+          "duration": 0.3,
+          "durationTicks": 144,
+          "midi": 55,
+          "note": "D4",
+          "ticks": 1584,
+          "time": 28.08,
+          "velocity": 0.7
+        },
+
+        {
+          "duration": 0.3,
+          "durationTicks": 288,
+          "midi": 55,
+          "note": "C4",
+          "ticks": 1728,
+          "time": 29.64,
+          "velocity": 0.7
+        }
+      ]
+    }
+  ]
+}
