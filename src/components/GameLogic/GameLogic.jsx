@@ -48,7 +48,11 @@ const GameLogic = () => {
         />
       </div>
       <NotesAnimation hitZoneCenter={hitZoneCenter} />
-      <Keyboard areKeyBindLabelsVisible={areKeyBindLabelsVisible} />
+      <Keyboard
+        areColorsVisible={showNoteColors}
+        areKeyBindLabelsVisible={areKeyBindLabelsVisible}
+        areNoteLabelsVisible={areNoteLabelsVisible}
+      />
     </div>
   );
 };
