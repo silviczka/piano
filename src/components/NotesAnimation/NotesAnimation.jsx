@@ -5,19 +5,26 @@ import NotesVisual from './NotesVisual';
 import HitZone from './HitZone';
 import { HIT_THRESHOLD } from '../constants/constants';
 
-const NotesAnimation = ({ hitThreshold, hitZoneCenter }) => {
+const NotesAnimation = ({ notes, hitZoneCenter }) => {
   return (
     <div className="game-area">
       <div className="music-stave-container">
         <Stave />
         <div className="hitzone">
-          <HitZone hitZoneCenter={hitZoneCenter} hitThreshold={hitThreshold} />
+          <HitZone hitZoneCenter={hitZoneCenter} hitThreshold={HIT_THRESHOLD} />
         </div>
       </div>
       <AnimatePresence>
-        {/* {notes.map(({ id }) => {
-          return <NotesVisual key={id} id={id} hitZoneCenter={hitZoneCenter} />;
-        })} */}
+        {notes.map(({ id }) => {
+          return (
+            <NotesVisual
+              key={id}
+              note={note}
+              id={id}
+              hitZoneCenter={hitZoneCenter}
+            />
+          );
+        })}
       </AnimatePresence>
     </div>
   );

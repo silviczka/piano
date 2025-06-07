@@ -1,12 +1,13 @@
-import "./GameLogic.css";
-import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
-import Keyboard from "../Piano/Keyboard/Keyboard";
-import NotesAnimation from "../NotesAnimation/NotesAnimation";
-import { HITZONE_CENTER_PCT } from "../constants/constants";
-import loadSongList from "../../utils/loadSongList";
-import { useState, useEffect } from "react";
+import './GameLogic.css';
+import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
+import Keyboard from '../Piano/Keyboard/Keyboard';
+import NotesAnimation from '../NotesAnimation/NotesAnimation';
+import { HITZONE_CENTER_PCT } from '../constants/constants';
+import loadSongList from '../../utils/loadSongList';
+import { useState, useEffect } from 'react';
 
 const GameLogic = () => {
+  const [notes, setNotes] = useState([]);
   const [hitZoneCenter, setHitZoneCenter] = useState(
     (window.innerWidth * HITZONE_CENTER_PCT) / 100,
   );
@@ -49,7 +50,7 @@ const GameLogic = () => {
           songs={songList}
         />
       </div>
-      <NotesAnimation hitZoneCenter={hitZoneCenter} />
+      <NotesAnimation notes={notes} hitZoneCenter={hitZoneCenter} />
       <Keyboard
         areColorsVisible={showNoteColors}
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}

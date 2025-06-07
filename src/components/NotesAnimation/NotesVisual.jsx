@@ -31,12 +31,12 @@ const noteYMap = {
 
 const spawnX = '100vw'; // start from right offscreen
 
-const NotesVisual = ({ id, hitZoneCenter }) => {
-  // const bottom = `${noteYMap[note] || 10}%`;
+const NotesVisual = ({ note, id, hitZoneCenter }) => {
+  const bottom = `${noteYMap[note] || 10}%`;
 
-  // const entry = noteSvgs[note];
-  // const SvgNote = entry?.note;
-  // const fillColor = entry?.color || 'black';
+  const entry = noteSvgs[note];
+  const SvgNote = entry?.note;
+  const fillColor = entry?.color || 'black';
 
   const initial = { left: spawnX };
   const animate = { left: `${hitZoneCenter}px` };
@@ -58,15 +58,15 @@ const NotesVisual = ({ id, hitZoneCenter }) => {
         transform: 'translateX(-50%)',
       }}
     >
-      {/* <span className="text-white text-sm font-bold mb-1">{note}</span> */}
-      {/* {SvgNote ? (
+      <span className="text-white text-sm font-bold mb-1">{note}</span>
+      {SvgNote ? (
         <SvgNote
           className="h-full w-auto"
           style={{ color: fillColor, width: 'auto', height: '50%' }}
         />
       ) : (
         <div className="text-red-500">No image for {note}</div>
-      )} */}
+      )}
     </motion.div>
   );
 };
