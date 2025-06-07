@@ -1,11 +1,16 @@
-import "./GameLogic.css";
-import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
-import Keyboard from "../Piano/Keyboard/Keyboard";
-import usePCKeyHandlers from "../../hooks/usePCKeyHandlers";
-import NotesAnimation from "../NotesAnimation/NotesAnimation";
-import { useState } from "react";
+import './GameLogic.css';
+import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
+import Keyboard from '../Piano/Keyboard/Keyboard';
+import usePCKeyHandlers from '../../hooks/usePCKeyHandlers';
+import NotesAnimation from '../NotesAnimation/NotesAnimation';
+import { useState } from 'react';
 
 const GameLogic = () => {
+  const hitThreshold = 80; // +/- tolerance in px
+  const hitZoneCenterPct = 50; // Midpoint of the hit zone
+  const [hitZoneCenter, setHitZoneCenter] = useState(
+    (window.innerWidth * hitZoneCenterPct) / 100,
+  );
   const [areKeyBindLabelsVisible, setKeyBindLabelsVisible] = useState(true);
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
 
@@ -23,7 +28,11 @@ const GameLogic = () => {
           onKeyBindLabelClick={toggleKeyBindLabels}
         />
       </div>
-      <NotesAnimation />
+      <NotesAnimation
+        notes={notes}
+        hitThreshold={hitThreshold}
+        hitZoneCenter={hitZoneCenter}
+      />
       <Keyboard areKeyBindLabelsVisible={areKeyBindLabelsVisible} />
     </div>
   );
