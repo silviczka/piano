@@ -1,0 +1,21 @@
+.song-detail__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1;
+
+}
+
+.song-detail__name {
+  font-family: var(--font-quaternary);
+  color: var(--text-color-dark);
+
+}
+
+.song-detail__time {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  color: var(--text-color-dark);
+}

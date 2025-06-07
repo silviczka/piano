@@ -3,7 +3,7 @@ import SongsMenu from "../../../../Songs/SongsMenu/SongsMenu";
 import { useState } from "react";
 
 const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const toggleDropdown = () => {
     onSongsMenuClick();

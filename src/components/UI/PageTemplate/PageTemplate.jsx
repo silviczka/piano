@@ -1,5 +1,5 @@
 import "./PageTemplate.css";
-import HomeBtn from "../NavBarIcons/HomeBtn/HomeBtn";
+import HomeBtn from "../NavBarMenu/NavBarIcons/HomeBtn/HomeBtn";
 
 const PageTemplate = ({ children }) => {
   return (
