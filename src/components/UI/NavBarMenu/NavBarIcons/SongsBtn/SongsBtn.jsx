@@ -22,6 +22,7 @@ const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
     <div>
       <img src={songsIcon} alt="songs-icon" onClick={toggleDropdown} />
       <SongsMenu
+        songs={songs}
         isMenuOpen={isMenuOpen}
         handleSelectMelody={handleSelectMelody}
         handleOnBackBtnClick={handleOnBackBtnClick}

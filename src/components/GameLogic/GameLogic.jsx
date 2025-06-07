@@ -29,6 +29,8 @@ const GameLogic = () => {
     loadSongList(setLoadedSong, setSongList);
   }, []);
 
+  const handleSongSelect = (songName, songTrack) => {};
+
   return (
     <div className="game-page">
       <div className="game-header">
@@ -41,6 +43,8 @@ const GameLogic = () => {
           onLabelClick={toggleLabels}
           onSongsMenuClick={handleSongsMenuClick}
           disabled={isResuming}
+          onSongSelect={handleSongSelect}
+          songs={songList}
         />
       </div>
       <NotesAnimation hitZoneCenter={hitZoneCenter} />

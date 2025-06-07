@@ -1,4 +1,4 @@
-import HandlesetLoadedSong from "./HandlesetLoadedSong";
+import HandlesetLoadedSong from "./handlesetLoadedSong";
 
 const loadSongList = async (setLoadedSong, setSongList) => {
   try {

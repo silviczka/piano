@@ -1,7 +1,8 @@
 import "./SongsMenu.css";
-import { useState } from "react";
+import Song from "../Song/Song";
 
 const SongsMenu = ({
+  songs,
   isMenuOpen,
   handleSelectMelody,
   handleOnBackBtnClick,
@@ -10,8 +11,8 @@ const SongsMenu = ({
     onSelect(id);
     setselectedMelody(name);
     setIsMenuOpen(!isMenuOpen);
-  }; */
-
+  };
+ */
   return (
     <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
       <div className="songs">
@@ -23,7 +24,7 @@ const SongsMenu = ({
             height="42"
             viewBox="0 0 42 42"
             fill="none"
-            onClick={handleOnBackBtnClick}
+            // onClick={handleOnBackBtnClick}
           >
             <rect
               x="0"
@@ -51,24 +52,26 @@ const SongsMenu = ({
           <div className="songs-title">Vyber si píšničku a začni hrát.</div>
         </div>
 
-        {/*         <div className="songs-wrapper">
-          <div className="songs-item">
-            {songs.map((song, index) => (
-              <Song
-                key={index}
-                id={index}
-                name={song.header.title}
-                totalTime={
-                  song.tracks[0].events[song.tracks[0].events.length - 1].time
-                }
-                img={song.header.img}
-                onSongSelect={onSongSelect}
-                onSongClick={handleSelectMelody}
-                tracks={song.tracks[0].events}
-              />
-            ))}
+        {
+          <div className="songs-wrapper">
+            <div className="songs-item">
+              {songs.map((song, index) => (
+                <Song
+                  key={index}
+                  id={index}
+                  name={song.header.title}
+                  totalTime={
+                    song.tracks[0].events[song.tracks[0].events.length - 1].time
+                  }
+                  img={song.header.img}
+                  // onSongSelect={onSongSelect}
+                  // onSongClick={handleSelectMelody}
+                  tracks={song.tracks[0].events}
+                />
+              ))}
+            </div>
           </div>
-        </div> */}
+        }
       </div>
     </div>
   );

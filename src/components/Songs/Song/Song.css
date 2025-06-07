@@ -1,0 +1,46 @@
+.song {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  transition: transform 0.3s;
+  flex: 1;
+  max-width: calc(100% / 3 - 2rem);
+}
+
+.song-img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.song:hover {
+  transform: scale(1.05);
+}
+
+.song-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color-dark);
+  font-family: 'Happy Monkey', cursive;
+  color: white;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.song-footer__select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.song-footer__select img {
+  width: 2rem;
+}
+
+.songs-menu__closed .songs {
+  display: none;
+}

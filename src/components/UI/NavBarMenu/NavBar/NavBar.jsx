@@ -9,6 +9,7 @@ import MidiListener from "../NavBarIcons/MidiListener/MidiListener";
 import SongsBtn from "../NavBarIcons/SongsBtn/SongsBtn";
 
 const NavBar = ({
+  songs,
   onKeyBindLabelClick,
   areKeyBindLabelsVisible,
   areColorsEnabled,
@@ -35,7 +36,11 @@ const NavBar = ({
         onNoteColorClick={onNoteColorClick}
         areColorsEnabled={areColorsEnabled}
       />
-      <SongsBtn onSongsMenuClick={onSongsMenuClick} disabled={disabled} />
+      <SongsBtn
+        onSongsMenuClick={onSongsMenuClick}
+        songs={songs}
+        disabled={disabled}
+      />
       <MidiListener />
     </nav>
   );
