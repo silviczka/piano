@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import './Keyboard.css';
-import Key from '../Key/Key';
-import { useState } from 'react';
-import { whiteKeys } from '../../../assets/keys/whiteKeys';
-import { blackKeys } from '../../../assets/Keys/blackKeys';
-=======
 import "./Keyboard.css";
 import Key from "../Key/Key";
 import { useState } from "react";
 import whiteKeys from "../../../assets/keys/whiteKeys";
 import blackKeys from "../../../assets/keys/blackKeys";
->>>>>>> 30afa307ba1d28b016ce457a4f8cd7a417a7759c
 
 const Keyboard = () => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
