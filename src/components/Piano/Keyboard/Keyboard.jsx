@@ -1,8 +1,8 @@
 import './Keyboard.css';
 import Key from '../Key/Key';
 import { useState } from 'react';
-import { whiteKeys } from '../../assets/keys/whiteKeys';
-import { blackKeys } from '../../assets/Keys/blackKeys';
+import { whiteKeys } from '../../../assets/keys/whiteKeys';
+import { blackKeys } from '../../../assets/Keys/blackKeys';
 
 const Keyboard = () => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
