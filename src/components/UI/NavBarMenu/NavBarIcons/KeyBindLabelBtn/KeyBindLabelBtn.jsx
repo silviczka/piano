@@ -1,28 +1,19 @@
 import keyBindIconOn from "./img/keyBindIcon.svg";
 import keyBindIconOff from "./img/keyBindIconOff.svg";
-import Tippy from "@tippyjs/react";
 
 const KeyBindLabelBtn = ({ areKeyBindLabelsVisible, onLabelClick }) => {
   return (
     <>
-      <Tippy
-        content={
+      <img
+        src={areKeyBindLabelsVisible ? keyBindIconOn : keyBindIconOff}
+        alt={
           areKeyBindLabelsVisible
-            ? "Vypnout klávesové zkratky."
-            : "Zapnout klávesové zkratky."
+            ? "keyBind-labels-enabled-icon"
+            : "keyBind-labels-disabled-icon"
         }
-      >
-        <img
-          src={areKeyBindLabelsVisible ? keyBindIconOn : keyBindIconOff}
-          alt={
-            areKeyBindLabelsVisible
-              ? "keyBind-labels-enabled-icon"
-              : "keyBind-labels-disabled-icon"
-          }
-          onClick={onLabelClick}
-          className="menu-icon"
-        />
-      </Tippy>
+        onClick={onLabelClick}
+        className="menu-icon"
+      />
     </>
   );
 };
