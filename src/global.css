@@ -6,4 +6,16 @@
 }
 
 /* CSS VARIABLES */
-:root {}
+:root {
+  --main-color-light: rgba(208, 240, 239, 1);
+  --main-color-dark: rgba(11, 159, 175, 1);
+  --main-color-overlay: rgba(0, 0, 0, 0.6);
+  --main-color-dark-hover: rgb(7, 124, 137);
+  --background-image-desktop: url('/img/background/mainMenuDesktop.png');
+  --background-image-mobile: url('/img/background/mainMenuMobile.png');
+  --text-color: white;
+  --font-main: 'Fredoka One', sans-serif;
+  --font-secondary: 'Happy Monkey', cursive;
+  --font-tertiary: 'Quicksand', sans-serif;
+  --radius: 0.8rem;
+}
