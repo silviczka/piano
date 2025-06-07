@@ -15,13 +15,13 @@
 }
 
 .key.black:hover {
-  filter: brightness(2);
+  background: linear-gradient(180deg, #323A56 40%, var(--key-color) 100%);
 }
 
 .key.black:active,
 .key.black.key-black__pressed {
   transform: translateX(-50%) scaleY(0.97);
-  filter: brightness(2);
+  background: linear-gradient(180deg, #323A56 40%, var(--key-color) 100%);
 }
 
 .key.black:focus {

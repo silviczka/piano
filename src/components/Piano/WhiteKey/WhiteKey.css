@@ -29,17 +29,22 @@
 }
 
 .key-wrapper:hover .key.white,
+.key.white.white-key__pressed {
+  background: linear-gradient(180deg, #FFFFFF 60%, var(--key-color) 100%);
+  border: none;
+}
+
+.key-wrapper:hover .key.white,
 .key-wrapper:hover .key-extension {
-  filter: brightness(0.8);
   box-shadow: none;
 }
 
-.key.white:active {
-  transform: scaleY(0.97);
+.key-wrapper:hover .key-extension {
+  filter: brightness(0.9);
 }
 
+.key.white:active,
 .key.white.white-key__pressed {
-  filter: brightness(0.8);
   transform: scaleY(0.97);
 }
 

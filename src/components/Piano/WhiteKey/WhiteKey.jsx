@@ -27,6 +27,7 @@ const WhiteKey = forwardRef(
           className="key white"
           style={{
             overflow: "visible",
+            "--key-color": color,
           }}
           xmlns="http://www.w3.org/2000/svg"
           width="100"
