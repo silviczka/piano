@@ -1,0 +1,26 @@
+.stave {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.line {
+  background-color: rgba(38, 45, 66, 1);
+  height: 0.5px;
+  width: 100%;
+}
+
+.clef {
+  position: absolute;
+  top: -1.5rem;
+  left: 1rem;
+  height: auto;
+  width: 4.5rem;
+}
