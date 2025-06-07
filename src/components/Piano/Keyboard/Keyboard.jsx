@@ -1,15 +1,15 @@
-import './Keyboard.css';
-import Key from '../Key/Key';
-import { useState } from 'react';
-import { whiteKeys } from '../../assets/keys/whiteKeys';
-import { blackKeys } from '../../assets/Keys/blackKeys';
+import "./Keyboard.css";
+import Key from "../Key/Key";
+import { useState } from "react";
+import whiteKeys from "../../../assets/keys/whiteKeys";
+import blackKeys from "../../../assets/keys/blackKeys";
 
 const Keyboard = () => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
 
   const playSound = (note) => {
-    const formattedNote = note.includes('#')
-      ? note.replace('#', 'Sharp')
+    const formattedNote = note.includes("#")
+      ? note.replace("#", "Sharp")
       : note;
     const soundFile = `/assets/Sounds/${formattedNote}.mp3`;
     console.log(soundFile);
@@ -44,7 +44,7 @@ const Keyboard = () => {
               {
                 note: key.note,
               },
-              'white',
+              "white",
             ),
           )}
         </div>
@@ -53,7 +53,7 @@ const Keyboard = () => {
             {
               note: key.note,
             },
-            'black',
+            "black",
           ),
         )}
       </div>

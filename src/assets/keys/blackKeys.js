@@ -1,4 +1,4 @@
-export const blackKeys = [
+const blackKeys = [
   {
     note: "C#4",
     midiNumber: 37,
@@ -90,3 +90,5 @@ export const blackKeys = [
     typeKey: "black",
   },
 ];
+
+export default blackKeys;
