@@ -6,9 +6,9 @@ const Key = ({ type, offset, ...handlers }) => {
   return (
     <>
       {type === "white" ? (
-        <WhiteKey offset={offset} {...handlers} />
+        <WhiteKey offset={offset} type={type} {...handlers} />
       ) : (
-        <BlackKey offset={offset} {...handlers} />
+        <BlackKey offset={offset} type={type} {...handlers} />
       )}
     </>
   );

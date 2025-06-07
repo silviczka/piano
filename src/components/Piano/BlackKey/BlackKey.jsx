@@ -1,6 +1,13 @@
 import "./BlackKey.css";
+import PCKeyLabel from "../Labels/PCKeyLabel/PCKeyLabel";
 
-const BlackKey = ({ offset, ...handlers }) => {
+const BlackKey = ({
+  type,
+  keyBind,
+  areKeyBindLabelsVisible,
+  offset,
+  ...handlers
+}) => {
   return (
     <svg
       className="key black"
@@ -13,7 +20,13 @@ const BlackKey = ({ offset, ...handlers }) => {
       width="100"
       height="300"
       viewBox="0 0 100 300"
-    ></svg>
+    >
+      <PCKeyLabel
+        type={type}
+        keyBind={keyBind}
+        isKeyBindLabelVisible={areKeyBindLabelsVisible}
+      />
+    </svg>
   );
 };
 

@@ -1,0 +1,6 @@
+.key-label__text {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+}
