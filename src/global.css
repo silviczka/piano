@@ -14,8 +14,10 @@
   --background-image-desktop: url('/img/background/mainMenuDesktop.png');
   --background-image-mobile: url('/img/background/mainMenuMobile.png');
   --text-color: white;
+  --text-color-dark: rgba(38, 45, 66, 1);
   --font-main: 'Fredoka One', sans-serif;
   --font-secondary: 'Happy Monkey', cursive;
   --font-tertiary: 'Quicksand', sans-serif;
+  --font-quaternary: 'Titan One', cursive;
   --radius: 8px;
 }
