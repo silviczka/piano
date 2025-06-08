@@ -38,10 +38,12 @@ const NavBar = ({
         onPauseClick={onPauseClick}
       />
       <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
-      <KeyBindLabelBtn
-        areKeyBindLabelsVisible={areKeyBindLabelsVisible}
-        onLabelClick={onKeyBindLabelClick}
-      />
+      {isMobile ? null : (
+        <KeyBindLabelBtn
+          areKeyBindLabelsVisible={areKeyBindLabelsVisible}
+          onLabelClick={onKeyBindLabelClick}
+        />
+      )}
       <NoteLabelBtn
         areNoteLabelsVisible={areNoteLabelsVisible}
         onLabelClick={onLabelClick}
