@@ -292,7 +292,7 @@ const GameLogic = () => {
       />
       {feedback !== "" && <ScoreFeedback feedback={feedback} />}
       {isMobile && !isMenuOpen && (
-        <div className="rotate-message">Otočt mobilní zařízení na šířku.</div>
+        <div className="rotate-message">Otoč mobilní zařízení na šířku.</div>
       )}
       {!isMobile && !isMenuOpen && (
         <div className="rotate-message">Roztáhni okno prohlížeče.</div>
