@@ -49,7 +49,7 @@ const GameLogic = () => {
       return !prev;
     });
     setIsPaused(true);
-    // DODELAT
+    // handleRestart();
   };
 
   const togglePause = () => {
@@ -118,8 +118,9 @@ const GameLogic = () => {
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
-    loadAndPlaySong(songName, songTrack);
     handleRestart();
+    loadAndPlaySong(songName, songTrack);
+    console.log(songName, songTrack);
   };
 
   const autoPlaySong = () => {
@@ -222,6 +223,8 @@ const GameLogic = () => {
         totalTime={loadedSong?.totalTime}
         isPaused={isPaused}
         onSongCountDown={setsongTimeCountDown}
+        isRestarted={isRestarted}
+        onRestart={setIsRestarted}
       />
       <NotesAnimation
         notes={notes}
