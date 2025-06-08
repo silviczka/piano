@@ -15,3 +15,30 @@
   align-items: center;
   background-color: rgba(208, 240, 239, 1);
 }
+
+@media (orientation: portrait) {
+  .game-page {
+    background-color: red;
+    /* Testovací styl */
+  }
+}
+
+.rotate-message {
+  display: none;
+}
+
+@media (orientation: portrait) {
+  .rotate-message {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: var(--main-color-light);
+    color: var(--text-color-dark);
+    font-family: var(--font-quaternary);
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    text-align: center;
+    z-index: 9999;
+  }
+}

@@ -10,7 +10,7 @@
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 9999;
+  z-index: 9997;
   pointer-events: none;
   user-select: none;
 }
