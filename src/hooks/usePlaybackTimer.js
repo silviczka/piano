@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const usePlaybackTimer = ({
   isPaused,
@@ -18,9 +18,6 @@ const usePlaybackTimer = ({
 
     if (!isPaused && playbackStartRef.current !== null) {
       rafId = requestAnimationFrame(updateTime);
-    } else {
-      // 🧪 Optional: remove this in production
-      // console.log('⏸ Timer not started: paused or no playbackStartRef.');
     }
 
     return () => {
