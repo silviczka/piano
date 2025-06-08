@@ -1,8 +1,5 @@
 import { useRef } from 'react';
-import {
-  NOTE_TRAVEL_TIME,
-  HITZONE_DURATION,
-} from '../components/constants/constants';
+import { NOTE_TRAVEL_TIME, HITZONE_DURATION } from '../constants/constants';
 
 const useSongPlayer = ({ setNotes }) => {
   const timeoutsRef = useRef([]);

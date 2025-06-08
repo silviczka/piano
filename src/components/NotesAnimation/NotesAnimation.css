@@ -19,15 +19,10 @@
   overflow: hidden;
 }
 
-.music-stave-image {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 1600px;
-  min-width: 600px;
-  height: 100%;
-  display: block;
-  justify-content: center;
-  align-items: flex-end;
-  overflow-x: hidden;
+.note-svg {
+  transition: color 0.3s ease;
+}
+
+div.motion-wrapper .note-svg.note-hit {
+  color: var(--main-color-dark) !important;
 }

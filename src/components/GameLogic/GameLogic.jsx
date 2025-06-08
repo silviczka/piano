@@ -1,26 +1,33 @@
-import "./GameLogic.css";
-import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
-import Keyboard from "../Piano/Keyboard/Keyboard";
-import NotesAnimation from "../NotesAnimation/NotesAnimation";
-import { HITZONE_CENTER_PCT } from "../../constants/constants";
-import loadSongList from "../../utils/loadSongList";
-import { useState, useEffect, useRef } from "react";
-import "./GameLogic.css";
-import ScoreDetail from "../UI/ScoreDetail/ScoreDetail";
-import SongDetail from "../UI/SongDetail/SongDetail";
-import OverlayScreens from "../UI/Overlays/OverlayScreens/OverlayScreens";
-import Timer from "../Timer/Timer";
+import './GameLogic.css';
+import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
+import Keyboard from '../Piano/Keyboard/Keyboard';
+import NotesAnimation from '../NotesAnimation/NotesAnimation';
+import { HITZONE_CENTER_PCT } from '../../constants/constants';
+import loadSongList from '../../utils/loadSongList';
+import { useState, useEffect, useRef } from 'react';
+import './GameLogic.css';
+import ScoreDetail from '../UI/ScoreDetail/ScoreDetail';
+import SongDetail from '../UI/SongDetail/SongDetail';
+import OverlayScreens from '../UI/Overlays/OverlayScreens/OverlayScreens';
+import Timer from '../Timer/Timer';
+import useNoteCleanup from '../../hooks/useNoteCleanUp';
+import useSongPlayer from '../../hooks/useSongPlayer';
+import useSongSwitcher from '../../hooks/useSongSwitcher';
+import usePlaybackTimer from '../../hooks/usePlaybackTimer';
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
   const noteRefs = useRef({});
   const resumeTimeoutRef = useRef(null);
-
+  const [currentPlaybackTime, setCurrentPlaybackTime] = useState(0);
   const [hitZoneCenter, setHitZoneCenter] = useState(
     (window.innerWidth * HITZONE_CENTER_PCT) / 100,
   );
   const [areKeyBindLabelsVisible, setKeyBindLabelsVisible] = useState(true);
   const [showNoteColors, setShowNoteColors] = useState(true);
+  const [notePositions, setNotePositions] = useState({});
+  const playbackStartRef = useRef(null);
+  const hasStartedRef = useRef(false);
   const [areNoteLabelsVisible, setNoteLabelsVisible] = useState(true);
   const [isPaused, setIsPaused] = useState(true);
   const [isResuming, setIsResuming] = useState(false);
@@ -28,7 +35,7 @@ const GameLogic = () => {
   const [loadedSong, setLoadedSong] = useState(null);
   const [score, setScore] = useState(0);
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
-
+  const [isRestarted, setIsRestarted] = useState(false);
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
@@ -55,6 +62,22 @@ const GameLogic = () => {
     }
   };
 
+  const { handleNoteCompletion } = useNoteCleanup({
+    setNotes,
+    setNotePositions,
+    noteRefs,
+    isPaused,
+  });
+  const updateNotePosition = (id, left) => {
+    setNotePositions((prev) => ({ ...prev, [id]: left }));
+  };
+
+  usePlaybackTimer({
+    isPaused,
+    playbackStartRef,
+    setCurrentPlaybackTime,
+  });
+
   const handleSongsMenuClick = () => {
     if (!isPaused) togglePause();
   };
@@ -63,11 +86,59 @@ const GameLogic = () => {
     loadSongList(setLoadedSong, setSongList);
   }, []);
 
-  const handleRestart = () => {};
-
   const handleSongSelect = (songName, songTrack) => {
     console.log(songName, songTrack);
   };
+
+  const autoPlaySong = () => {
+    if (!loadedSong) return;
+
+    const now = performance.now();
+    if (!hasStartedRef.current) {
+      // First time starting — reset everything
+      playbackStartRef.current = now;
+      setCurrentPlaybackTime(0);
+      hasStartedRef.current = true;
+      // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
+      // console.log("Playing song at time:", currentPlaybackTime); // Add this to confirm
+      playSong(loadedSong, 0);
+      // console.log("Starting song from beginning");
+    } else {
+      // Resuming — offset playback start to preserve currentPlaybackTime
+      playbackStartRef.current = now - currentPlaybackTime * 1000;
+      // console.log("Resuming song from", currentPlaybackTime, "seconds");
+      playSong(loadedSong, currentPlaybackTime); // ✅ Pass current time here too
+    }
+
+    // console.log("autoPlaySong triggered");
+  };
+
+  const handleRestart = () => {
+    setsongTimeCountDown(loadedSong?.totalTime);
+    setIsRestarted(true);
+    stopSong();
+    setCurrentPlaybackTime(0);
+    playbackStartRef.current = performance.now();
+    hasStartedRef.current = false;
+    if (isPaused) return;
+    autoPlaySong(); // optional: could let user click play manually instead
+  };
+
+  // Hook for playing/stopping songs
+  const { playSong, stopSong } = useSongPlayer({
+    setNotes,
+  });
+
+  const { loadAndPlaySong } = useSongSwitcher({
+    setLoadedSong,
+    setCurrentPlaybackTime,
+    playbackStartRef,
+    hasStartedRef,
+    playSong,
+    stopSong,
+    setIsPaused,
+    shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
+  });
 
   return (
     <div className="game-page">
@@ -99,8 +170,12 @@ const GameLogic = () => {
       />
       <NotesAnimation
         notes={notes}
-        hitZoneCenter={hitZoneCenter}
+        handleNoteCompletion={handleNoteCompletion}
+        updateNotePosition={updateNotePosition}
         noteRefs={noteRefs}
+        hitZoneCenter={hitZoneCenter}
+        currentPlaybackTime={currentPlaybackTime}
+        isPaused={isPaused}
       />
       <Keyboard
         areColorsVisible={showNoteColors}

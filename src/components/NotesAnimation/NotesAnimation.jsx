@@ -4,7 +4,14 @@ import Stave from '../Stave/Stave';
 import NotesVisual from './NotesVisual';
 import HitZone from './HitZone';
 
-const NotesAnimation = ({ notes, hitZoneCenter, noteRefs }) => {
+const NotesAnimation = ({
+  notes,
+  handleNoteCompletion,
+  noteRefs,
+  hitZoneCenter,
+  currentPlaybackTime,
+  isPaused,
+}) => {
   return (
     <div className="game-area">
       <div className="music-stave-container">
@@ -13,15 +20,20 @@ const NotesAnimation = ({ notes, hitZoneCenter, noteRefs }) => {
           <HitZone hitZoneCenter={hitZoneCenter} />
         </div>
       </div>
+
       <AnimatePresence>
-        {notes.map(({ note, id }) => {
+        {notes.map(({ note, id, scheduledJsonTime }) => {
           return (
             <NotesVisual
               key={id}
               note={note}
               id={id}
               noteRef={noteRefs}
+              onComplete={handleNoteCompletion}
+              currentPlaybackTime={currentPlaybackTime}
+              scheduledJsonTime={scheduledJsonTime}
               hitZoneCenter={hitZoneCenter}
+              isPaused={isPaused}
             />
           );
         })}
