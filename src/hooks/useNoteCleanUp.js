@@ -15,12 +15,13 @@ const useNoteCleanup = ({ setNotes, setNotePositions, noteRefs, isPaused }) => {
   }, [isPaused]);
 
   const handleNoteCompletion = (id) => {
+    console.log("S");
     const maybeDelete = () => {
       // If playback is paused, delay until resumed
       if (isPausedRef.current) {
         // Check again later
         // const retryTimeout = setTimeout(() => maybeDelete(), 500);
-        const retryTimeout = setTimeout(() => maybeDelete(), 500);
+        const retryTimeout = setTimeout(() => maybeDelete(), 0);
         deleteTimeouts.current[id] = retryTimeout;
         return;
       }
@@ -38,7 +39,7 @@ const useNoteCleanup = ({ setNotes, setNotePositions, noteRefs, isPaused }) => {
 
     // Initiate 2-second countdown to remove the note
     // const timeout = setTimeout(() => maybeDelete(), 2000);
-    const timeout = setTimeout(() => maybeDelete(), 500);
+    const timeout = setTimeout(() => maybeDelete(), 0);
     deleteTimeouts.current[id] = timeout;
   };
 

@@ -43,6 +43,7 @@ const NoteVisual = ({
   scheduledJsonTime,
   hitZoneCenter,
   isPaused,
+  isRestarted,
 }) => {
   const controls = useAnimation();
 
@@ -91,7 +92,10 @@ const NoteVisual = ({
     left: `${7}rem`,
     transition: { duration: scheduledJsonTime - currentPlaybackTime },
   };
+
   const transition = { duration: animationDuration, ease: "linear" };
+
+  console.log(isRestarted);
 
   return (
     <motion.div
@@ -99,7 +103,7 @@ const NoteVisual = ({
       ref={(el) => (noteRef.current[id] = el)}
       initial={initial}
       animate={controls}
-      exit={exit}
+      // exit={exit}
       transition={transition}
       onAnimationComplete={() => {
         if (!isPaused) {

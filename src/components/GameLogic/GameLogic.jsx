@@ -38,7 +38,7 @@ const GameLogic = () => {
   const [score, setScore] = useState(0);
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
   const [isRestarted, setIsRestarted] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState("");
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
@@ -49,7 +49,13 @@ const GameLogic = () => {
       return !prev;
     });
     setIsPaused(true);
-    // handleRestart();
+  };
+
+  const toggleSongsMenuOpenn = () => {
+    setNotes([]);
+    setIsMenuOpen((prev) => {
+      return !prev;
+    });
   };
 
   const togglePause = () => {
@@ -119,6 +125,7 @@ const GameLogic = () => {
 
   const handleSongSelect = (songName, songTrack) => {
     handleRestart();
+
     loadAndPlaySong(songName, songTrack);
     console.log(songName, songTrack);
   };
@@ -234,6 +241,7 @@ const GameLogic = () => {
         hitZoneCenter={hitZoneCenter}
         currentPlaybackTime={currentPlaybackTime}
         isPaused={isPaused}
+        isRestarted={isRestarted}
       />
       <Keyboard
         areColorsVisible={showNoteColors}
@@ -248,7 +256,7 @@ const GameLogic = () => {
         score={score}
         onPauseClick={togglePause}
         onRestartClick={handleRestart}
-        onSongsMenuOpen={toggleSongsMenuOpen}
+        onSongsMenuOpen={toggleSongsMenuOpenn}
         notesNum={loadedSong?.notes.length}
       />
       <ScoreFeedback feedback={feedback} />

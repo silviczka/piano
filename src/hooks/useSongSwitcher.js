@@ -1,4 +1,4 @@
-import HandlesetLoadedSong from '../utils/handlesetLoadedSong';
+import HandlesetLoadedSong from "../utils/handlesetLoadedSong";
 
 const useSongSwitcher = ({
   setLoadedSong,
@@ -11,8 +11,6 @@ const useSongSwitcher = ({
   shouldAutoPlay = true,
 }) => {
   const loadAndPlaySong = async (songName, songTracks) => {
-    console.log('Song selected:', songName, songTracks);
-
     stopSong();
     setCurrentPlaybackTime(0);
     hasStartedRef.current = false;
@@ -45,7 +43,7 @@ const useSongSwitcher = ({
         setIsPaused(true); // pause until user presses play
       }
     } else {
-      console.error('Song failed to load.');
+      console.error("Song failed to load.");
     }
   };
 
