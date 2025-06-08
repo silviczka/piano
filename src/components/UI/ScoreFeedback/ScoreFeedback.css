@@ -1,11 +1,11 @@
 .feedback-text {
   position: absolute;
-  top: 1rem;
-  right: 3rem;
+  top: 30%;
+  left: 47%;
   transform: translate(-50%, -50%);
   color: var(--main-color-dark);
   font-family: var(--font-tertiary);
-  font-size: 3rem;
+  font-size: 7rem;
   min-width: fit-content;
   text-align: center;
   opacity: 0;

@@ -1,4 +1,5 @@
 import { SCORE, HIT_THRESHOLD } from "../constants/constants";
+import getNoteColor from "../utils/getNoteColor";
 
 const useNoteScoring = ({
   notes,
@@ -28,12 +29,13 @@ const useNoteScoring = ({
     let scoreToAdd = SCORE;
     let feedbackText = `+${SCORE}`;
 
-    noteRefs.current[matchedNote.id].children[0].classList.add("note-hit");
+    noteRefs.current[matchedNote.id]?.children[0].classList.add("note-hit");
 
     setScore((prev) => {
       return prev + scoreToAdd;
     });
-    setFeedback(feedbackText);
+    const noteColor = getNoteColor(matchedNote.note);
+    setFeedback(noteColor);
     setTimeout(() => setFeedback(""), 1000);
     setNotes((prevNotes) => prevNotes.filter((n) => n.id !== matchedNote.id));
     setNotePositions((prev) => {

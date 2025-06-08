@@ -1,21 +1,21 @@
-import './GameLogic.css';
-import NavBar from '../UI/NavBarMenu/NavBar/NavBar';
-import Keyboard from '../Piano/Keyboard/Keyboard';
-import NotesAnimation from '../NotesAnimation/NotesAnimation';
-import { HITZONE_CENTER_PCT, HIT_THRESHOLD } from '../../constants/constants';
-import loadSongList from '../../utils/loadSongList';
-import { useState, useEffect, useRef } from 'react';
-import './GameLogic.css';
-import ScoreDetail from '../UI/ScoreDetail/ScoreDetail';
-import SongDetail from '../UI/SongDetail/SongDetail';
-import OverlayScreens from '../UI/Overlays/OverlayScreens/OverlayScreens';
-import Timer from '../Timer/Timer';
-import useNoteCleanup from '../../hooks/useNoteCleanUp';
-import useSongPlayer from '../../hooks/useSongPlayer';
-import useSongSwitcher from '../../hooks/useSongSwitcher';
-import usePlaybackTimer from '../../hooks/usePlaybackTimer';
-import ScoreFeedback from '../UI/ScoreFeedback/ScoreFeedback';
-import useNoteScoring from '../../hooks/useNoteScoring';
+import "./GameLogic.css";
+import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
+import Keyboard from "../Piano/Keyboard/Keyboard";
+import NotesAnimation from "../NotesAnimation/NotesAnimation";
+import { HITZONE_CENTER_PCT, HIT_THRESHOLD } from "../../constants/constants";
+import loadSongList from "../../utils/loadSongList";
+import { useState, useEffect, useRef } from "react";
+import "./GameLogic.css";
+import ScoreDetail from "../UI/ScoreDetail/ScoreDetail";
+import SongDetail from "../UI/SongDetail/SongDetail";
+import OverlayScreens from "../UI/Overlays/OverlayScreens/OverlayScreens";
+import Timer from "../Timer/Timer";
+import useNoteCleanup from "../../hooks/useNoteCleanUp";
+import useSongPlayer from "../../hooks/useSongPlayer";
+import useSongSwitcher from "../../hooks/useSongSwitcher";
+import usePlaybackTimer from "../../hooks/usePlaybackTimer";
+import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
+import useNoteScoring from "../../hooks/useNoteScoring";
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
@@ -39,7 +39,7 @@ const GameLogic = () => {
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
   const [isRestarted, setIsRestarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const [feedback, setFeedback] = useState('');
+  const [feedback, setFeedback] = useState("");
   const [midiInput, setMidiInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
 
@@ -67,7 +67,7 @@ const GameLogic = () => {
   };
 
   const togglePause = () => {
-    if (songTimeCountDown === 0 && !isPaused) {
+    if (songTimeCountDown === 0 && !isPaused && !restartBtnClickedRef.current) {
       handleRestart();
       return;
     }
@@ -201,16 +201,16 @@ const GameLogic = () => {
 
       if (isResuming) return;
 
-      if (event.code === 'Space') {
+      if (event.code === "Space") {
         event.preventDefault();
         document.activeElement.blur();
         togglePause();
       }
     };
-    window.addEventListener('keydown', handleSpacePressed);
+    window.addEventListener("keydown", handleSpacePressed);
 
     return () => {
-      window.removeEventListener('keydown', handleSpacePressed);
+      window.removeEventListener("keydown", handleSpacePressed);
     };
   }, [loadedSong, songTimeCountDown, isResuming, isPaused]);
 
@@ -219,8 +219,8 @@ const GameLogic = () => {
       setHitZoneCenter((window.innerWidth * HITZONE_CENTER_PCT) / 100);
     };
 
-    window.addEventListener('resize', handleScreenResize);
-    return () => window.removeEventListener('resize', handleScreenResize);
+    window.addEventListener("resize", handleScreenResize);
+    return () => window.removeEventListener("resize", handleScreenResize);
   }, []);
 
   return (
@@ -279,12 +279,12 @@ const GameLogic = () => {
         songTimeCountDown={songTimeCountDown}
         score={score}
         onPauseClick={togglePause}
-        onRestartClick={handleRestart}
+        onRestartClick={handleRestartClick}
         onSongsMenuOpen={toggleSongsMenuOpenn}
         notesNum={loadedSong?.notes.length}
         restartBtnClicked={restartBtnClicked}
       />
-      <ScoreFeedback feedback={feedback} />
+      {feedback !== "" && <ScoreFeedback feedback={feedback} />}
     </div>
   );
 };
