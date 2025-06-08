@@ -168,6 +168,7 @@ const GameLogic = () => {
     setIsRestarted(true);
     // stopSong();
     setCurrentPlaybackTime(0);
+    setScore(0);
     playbackStartRef.current = performance.now();
     hasStartedRef.current = false;
     if (isPaused) return;

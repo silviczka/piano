@@ -1,10 +1,10 @@
-import { HIT_THRESHOLD } from '../../constants/constants';
+import { HIT_THRESHOLD } from "../../constants/constants";
 
 const HitZone = ({ hitZoneCenter }) => {
   return (
     <div
       style={{
-        position: 'absolute',
+        position: "absolute",
         // display: 'flex',
         // justifyContent: 'center',
         left: `${hitZoneCenter - HIT_THRESHOLD}px`,
@@ -13,11 +13,11 @@ const HitZone = ({ hitZoneCenter }) => {
         top: 0,
         width: `${HIT_THRESHOLD * 2}px`,
         // height: '90%',
-        backgroundColor: 'rgba(79, 152, 161, 0.2)',
-        border: '5px solid rgba(115, 250, 243, 0.9)',
-        borderRadius: 50,
+        backgroundColor: "rgba(79, 152, 161, 0.2)",
+        border: "5px solid var(--main-color-dark)",
+        borderRadius: 25,
         zIndex: 2,
-        pointerEvents: 'none',
+        pointerEvents: "none",
       }}
     ></div>
   );
