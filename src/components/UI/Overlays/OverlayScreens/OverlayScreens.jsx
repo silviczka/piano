@@ -13,6 +13,7 @@ const OverlayScreens = ({
   score,
   onPauseClick,
   onRestartClick,
+  onSongsMenuOpen,
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
@@ -27,6 +28,11 @@ const OverlayScreens = ({
       setShowOverlay(false);
     }
   }, [songTimeCountDown]);
+
+  const handleEndOverlayClick = () => {
+    setShowOverlay(false);
+    onSongsMenuOpen();
+  };
   return (
     <>
       {isPaused && !isResuming && (
@@ -64,7 +70,10 @@ const OverlayScreens = ({
               >
                 Hrát znovu
               </button>
-              <button className="end-button end-button-secondary">
+              <button
+                className="end-button end-button-secondary"
+                onClick={handleEndOverlayClick}
+              >
                 Vybrat novou písničku
               </button>
             </div>

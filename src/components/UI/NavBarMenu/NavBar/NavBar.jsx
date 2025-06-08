@@ -23,6 +23,8 @@ const NavBar = ({
   isPaused,
   secondsLeft,
   onPauseClick,
+  onSongsMenuOpen,
+  isMenuOpen,
 }) => {
   return (
     <nav className="game-nav">
@@ -51,6 +53,8 @@ const NavBar = ({
         songs={songs}
         onSongSelect={onSongSelect}
         disabled={disabled}
+        onSongsMenuOpen={onSongsMenuOpen}
+        isMenuOpen={isMenuOpen}
       />
       <MidiListener />
     </nav>

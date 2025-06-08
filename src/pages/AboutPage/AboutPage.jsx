@@ -1,5 +1,6 @@
 import "./AboutPage.css";
 import PageTemplate from "../../components/UI/PageTemplate/PageTemplate";
+import foxImg from "./img/sittingFox.svg";
 
 const AboutPage = () => {
   return (
@@ -16,6 +17,7 @@ const AboutPage = () => {
       <div className="about-text about-text__cursive">
         Autorky: Silvia Stražovcová, Denisa Polesná
       </div>
+      <img className="menu-fox-img" src={foxImg} alt="sitting fox" />
     </PageTemplate>
   );
 };

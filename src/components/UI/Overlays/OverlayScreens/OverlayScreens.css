@@ -11,7 +11,7 @@
   font-family: var(--font-quaternary);
   padding: 0.5rem;
   border-radius: 5px;
-  width: calc(100% / 3.5);
+  width: 21rem;
   font-size: 1.4rem;
   gap: 1rem;
 }
@@ -73,4 +73,10 @@
 .end-game-img {
   height: 15rem;
   object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .end-game-img {
+    height: 10rem;
+  }
 }

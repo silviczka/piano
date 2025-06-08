@@ -28,10 +28,18 @@ const GameLogic = () => {
   const [loadedSong, setLoadedSong] = useState(null);
   const [score, setScore] = useState(0);
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
+  const toggleSongsMenuOpen = () => {
+    setIsMenuOpen((prev) => {
+      return !prev;
+    });
+    setIsPaused(true);
+    // DODELAT
+  };
 
   const togglePause = () => {
     if (songTimeCountDown === 0 && !isPaused) {
@@ -110,6 +118,8 @@ const GameLogic = () => {
           isPaused={isPaused}
           secondsLeft={songTimeCountDown}
           onPauseClick={togglePause}
+          onSongsMenuOpen={toggleSongsMenuOpen}
+          isMenuOpen={isMenuOpen}
         />
         <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
       </div>
@@ -136,6 +146,7 @@ const GameLogic = () => {
         score={score}
         onPauseClick={togglePause}
         onRestartClick={handleRestart}
+        onSongsMenuOpen={toggleSongsMenuOpen}
       />
     </div>
   );
