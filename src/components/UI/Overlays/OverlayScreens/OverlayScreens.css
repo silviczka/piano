@@ -76,6 +76,15 @@
   object-fit: cover;
 }
 
+.play-icon-overlay {
+  transition: transform 0.1s ease;
+}
+
+.play-icon-overlay:hover {
+  transform: scale(1.2);
+}
+
+
 @media (max-width: 640px) {
   .end-game-img {
     height: 10rem;

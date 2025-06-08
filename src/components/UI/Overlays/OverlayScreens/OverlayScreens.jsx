@@ -41,7 +41,7 @@ const OverlayScreens = ({
           <img
             src={playIcon}
             alt="playIcon"
-            className="play-icon"
+            className="play-icon play-icon-overlay"
             onClick={onPauseClick}
           />
         </OverlayScreen>

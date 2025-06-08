@@ -15,3 +15,7 @@
 .game-nav .menu-icon {
   height: 2rem;
 }
+
+.game-nav .menu-icon:hover {
+  transform: scale(1.2);
+}
