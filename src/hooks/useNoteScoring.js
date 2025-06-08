@@ -18,13 +18,12 @@ const useNoteScoring = ({
       return n.note === note;
     });
 
-    if (typeof matchedNote === "undefined") return;
+    if (typeof matchedNote === "undefined" || noteRefs === "undefined") return;
 
-    const rect = noteRefs.current[matchedNote.id].getBoundingClientRect();
-    const noteWidth = noteRefs.current[matchedNote.id].offsetWidth;
+    const rect = noteRefs.current[matchedNote.id]?.getBoundingClientRect();
+    const noteWidth = noteRefs.current[matchedNote.id]?.offsetWidth;
     const noteCenter = rect.left + noteWidth / 2;
     const distance = Math.abs(noteCenter - hitZoneCenter);
-    console.log(HIT_THRESHOLD, distance);
     if (distance > HIT_THRESHOLD) return;
     let scoreToAdd = SCORE;
     let feedbackText = `+${SCORE}`;

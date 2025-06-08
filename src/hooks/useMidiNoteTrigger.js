@@ -10,7 +10,6 @@ const useMidiNoteTrigger = ({
 }) => {
   useEffect(() => {
     // if (!midiInput || isPaused || isResuming) return;
-    console.log(midiInput);
     if (!midiInput) return;
 
     document.activeElement.blur();

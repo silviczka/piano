@@ -9,6 +9,9 @@ const useSongSwitcher = ({
   stopSong,
   setIsPaused,
   shouldAutoPlay = true,
+  restartBtnClickedRef,
+  setIsResuming,
+  togglePause,
 }) => {
   const loadAndPlaySong = async (songName, songTracks) => {
     stopSong();
@@ -41,6 +44,9 @@ const useSongSwitcher = ({
         playSong(newSong, 0);
       } else {
         setIsPaused(true); // pause until user presses play
+        if (restartBtnClickedRef.current) {
+          togglePause();
+        }
       }
     } else {
       console.error("Song failed to load.");

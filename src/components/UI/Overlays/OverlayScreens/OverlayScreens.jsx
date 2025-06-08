@@ -15,6 +15,7 @@ const OverlayScreens = ({
   onRestartClick,
   onSongsMenuOpen,
   notesNum,
+  restartBtnClicked,
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 

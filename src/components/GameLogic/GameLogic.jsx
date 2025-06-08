@@ -41,6 +41,7 @@ const GameLogic = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState('');
   const [midiInput, setMidiInput] = useState(null);
+  const [restartBtnClicked, setIsRestartedClicked] = useState(false);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -51,6 +52,12 @@ const GameLogic = () => {
     });
     setIsPaused(true);
   };
+
+  const restartBtnClickedRef = useRef(false);
+
+  useEffect(() => {
+    restartBtnClickedRef.current = restartBtnClicked;
+  }, [restartBtnClicked]);
 
   const toggleSongsMenuOpenn = () => {
     setNotes([]);
@@ -69,7 +76,8 @@ const GameLogic = () => {
       clearTimeout(resumeTimeoutRef?.current);
     }
 
-    if (isPaused) {
+    if (isPaused || restartBtnClickedRef.current) {
+      setIsRestartedClicked(false);
       setIsResuming(true);
       resumeTimeoutRef.current = setTimeout(() => {
         autoPlaySong();
@@ -126,22 +134,13 @@ const GameLogic = () => {
 
   const handleSongSelect = (songName, songTrack) => {
     setNotes([]);
-
     handleRestart();
     loadAndPlaySong(songName, songTrack);
   };
 
   const handleRestartClick = () => {
-    setIsRestarted(true);
-    setIsResuming(true);
-    setIsPaused(true);
-    setNotes([]);
-
-    setTimeout(() => {
-      handleRestart();
-      setIsResuming(false);
-      setIsPaused(false);
-    }, 4000);
+    setIsRestartedClicked(true);
+    handleSongSelect(loadedSong.name, loadedSong.notes);
   };
 
   const autoPlaySong = () => {
@@ -167,12 +166,12 @@ const GameLogic = () => {
   const handleRestart = () => {
     setsongTimeCountDown(loadedSong?.totalTime);
     setIsRestarted(true);
-    stopSong();
+    // stopSong();
     setCurrentPlaybackTime(0);
     playbackStartRef.current = performance.now();
     hasStartedRef.current = false;
     if (isPaused) return;
-    autoPlaySong(); // optional: could let user click play manually instead
+    // autoPlaySong(); // optional: could let user click play manually instead
   };
 
   // Hook for playing/stopping songs
@@ -188,6 +187,9 @@ const GameLogic = () => {
     playSong,
     stopSong,
     setIsPaused,
+    restartBtnClickedRef,
+    setIsResuming,
+    togglePause,
     shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
   });
   useEffect(() => {
@@ -280,6 +282,7 @@ const GameLogic = () => {
         onRestartClick={handleRestart}
         onSongsMenuOpen={toggleSongsMenuOpenn}
         notesNum={loadedSong?.notes.length}
+        restartBtnClicked={restartBtnClicked}
       />
       <ScoreFeedback feedback={feedback} />
     </div>

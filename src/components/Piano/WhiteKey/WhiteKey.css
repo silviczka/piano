@@ -31,7 +31,7 @@
 .key-wrapper:hover .key.white,
 .key.white.white-key__pressed {
   background: linear-gradient(180deg, #FFFFFF 60%, var(--key-color) 100%);
-  border: none;
+  border: transparent;
 }
 
 .key-wrapper:hover .key.white,
