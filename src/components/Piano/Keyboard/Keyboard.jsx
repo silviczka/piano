@@ -5,12 +5,14 @@ import whiteKeys from "../../../assets/keys/whiteKeys";
 import blackKeys from "../../../assets/keys/blackKeys";
 import getNoteyBindByKey from "../../../utils/getNoteByKeyBind";
 import usePCKeyHandlers from "../../../hooks/usePCKeyHandlers";
+import useMidiNoteTrigger from "../../../hooks/useMidiNoteTrigger";
 
 const Keyboard = ({
   areKeyBindLabelsVisible,
   areColorsVisible,
   areNoteLabelsVisible,
   onKeyInput,
+  midiInput,
 }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
   const keyRefs = useRef({});
@@ -66,6 +68,7 @@ const Keyboard = ({
     event.preventDefault();
     document.activeElement.blur();
     playAndPressNote(note);
+    onKeyInput(note);
   };
 
   const releaseNote = (note) => {
@@ -97,6 +100,15 @@ const Keyboard = ({
       handleInteractionStart(note);
     },
     onTouchEnd: (e) => releaseNote(note),
+  });
+
+  useMidiNoteTrigger({
+    midiInput,
+    // isPaused,
+    // isResuming,
+    onKeyInput,
+    playAndPressNote,
+    releaseNote,
   });
 
   const renderKey = ({ note, offset, keyBind, color }, type) => (

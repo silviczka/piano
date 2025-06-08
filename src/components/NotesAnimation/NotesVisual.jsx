@@ -95,8 +95,6 @@ const NoteVisual = ({
 
   const transition = { duration: animationDuration, ease: "linear" };
 
-  console.log(isRestarted);
-
   return (
     <motion.div
       key={id}

@@ -40,6 +40,7 @@ const GameLogic = () => {
   const [isRestarted, setIsRestarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState("");
+  const [midiInput, setMidiInput] = useState(null);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -229,6 +230,7 @@ const GameLogic = () => {
           onPauseClick={togglePause}
           onSongsMenuOpen={toggleSongsMenuOpen}
           isMenuOpen={isMenuOpen}
+          onMidiInput={setMidiInput}
         />
         <ScoreDetail score={score} />
       </div>
@@ -255,6 +257,7 @@ const GameLogic = () => {
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
         areNoteLabelsVisible={areNoteLabelsVisible}
         onKeyInput={handleKeyInput}
+        midiInput={midiInput}
       />
       <OverlayScreens
         isPaused={isPaused}
