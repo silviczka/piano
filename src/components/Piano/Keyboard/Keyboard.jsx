@@ -58,12 +58,12 @@ const Keyboard = ({
   };
 
   const handleKeyDown = (event) => {
-    event.preventDefault();
-    document.activeElement.blur();
-
     const pressedKeyBind = event.key.toUpperCase();
     const note = getNoteyBindByKey(pressedKeyBind) || null;
     if (note === null) return;
+
+    event.preventDefault();
+    document.activeElement.blur();
     playAndPressNote(note);
   };
 
