@@ -16,6 +16,7 @@ import useSongSwitcher from "../../hooks/useSongSwitcher";
 import usePlaybackTimer from "../../hooks/usePlaybackTimer";
 import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
 import useNoteScoring from "../../hooks/useNoteScoring";
+import { isMobile } from "react-device-detect";
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
@@ -65,6 +66,10 @@ const GameLogic = () => {
       return !prev;
     });
   };
+
+  useEffect(() => {
+    if (isMobile) setKeyBindLabelsVisible(false);
+  }, []);
 
   const togglePause = () => {
     if (songTimeCountDown === 0 && !isPaused && !restartBtnClickedRef.current) {
