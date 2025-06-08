@@ -67,7 +67,7 @@
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
   .menu-page {
     background-image: var(--background-image-mobile);
     background-size: cover;
@@ -77,5 +77,21 @@
 
   .menu-header {
     font-size: 5rem;
+  }
+
+  .menu-fox-img {
+    height: calc(100% / 5.5);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .menu-fox-img {
+    height: 35%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .menu-fox-img {
+    height: 40%;
   }
 }
