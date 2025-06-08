@@ -9,9 +9,9 @@
   background-color: white;
   color: var(--text-color-dark);
   font-family: var(--font-quaternary);
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 5px;
-  width: 21rem;
+  width: 23rem;
   font-size: 1.4rem;
   gap: 1rem;
 }

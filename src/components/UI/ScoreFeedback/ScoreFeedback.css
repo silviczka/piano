@@ -1,0 +1,36 @@
+.feedback-text {
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  transform: translate(-50%, -50%);
+  color: var(--main-color-dark);
+  font-family: var(--font-tertiary);
+  font-size: 3rem;
+  min-width: fit-content;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Show and animate */
+.feedback-text.show-feedback {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeOut 4s ease-out forwards;
+}
+
+/* Fade-out animation for feedback */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

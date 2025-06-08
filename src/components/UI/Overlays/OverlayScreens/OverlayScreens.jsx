@@ -56,7 +56,7 @@ const OverlayScreens = ({
             <div>Konec hry.</div>
             <div className="end-game-score-wrapper">
               <div>Počet získaných bodů:</div>
-              <div className="end-game-score">{score}</div>
+              <div className="end-game-score">&nbsp;{score}</div>
             </div>
             <img
               className="end-game-img"
