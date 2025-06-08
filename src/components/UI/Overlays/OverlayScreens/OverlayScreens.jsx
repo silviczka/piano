@@ -14,6 +14,7 @@ const OverlayScreens = ({
   onPauseClick,
   onRestartClick,
   onSongsMenuOpen,
+  notesNum,
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
@@ -55,8 +56,10 @@ const OverlayScreens = ({
           <div className="end-game-wrapper">
             <div>Konec hry.</div>
             <div className="end-game-score-wrapper">
-              <div>Počet získaných bodů:</div>
-              <div className="end-game-score">&nbsp;{score}</div>
+              <div>Počet získaných bodů: </div>
+              <div className="end-game-score">
+                &nbsp;{score} / {notesNum}
+              </div>
             </div>
             <img
               className="end-game-img"

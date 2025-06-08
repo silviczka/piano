@@ -100,7 +100,6 @@ const GameLogic = () => {
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
-    console.log('Song selected:', songName, songTrack);
     loadAndPlaySong(songName, songTrack);
     handleRestart();
   };
@@ -198,7 +197,7 @@ const GameLogic = () => {
           onSongsMenuOpen={toggleSongsMenuOpen}
           isMenuOpen={isMenuOpen}
         />
-        <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
+        <ScoreDetail score={score} />
       </div>
 
       <Timer
@@ -228,6 +227,7 @@ const GameLogic = () => {
         onPauseClick={togglePause}
         onRestartClick={handleRestart}
         onSongsMenuOpen={toggleSongsMenuOpen}
+        notesNum={loadedSong?.notes.length}
       />
       <ScoreFeedback feedback={feedback} />
     </div>

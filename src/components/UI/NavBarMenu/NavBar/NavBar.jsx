@@ -7,6 +7,7 @@ import NoteLabelBtn from "../NavBarIcons/NoteLabelBtn/NoteLabelBtn";
 import ColorToggleBtn from "../NavBarIcons/ColorToggleBtn/ColorToggleBtn";
 import MidiListener from "../NavBarIcons/MidiListener/MidiListener";
 import SongsBtn from "../NavBarIcons/SongsBtn/SongsBtn";
+import { isMobile } from "react-device-detect";
 
 const NavBar = ({
   songs,
@@ -56,7 +57,7 @@ const NavBar = ({
         onSongsMenuOpen={onSongsMenuOpen}
         isMenuOpen={isMenuOpen}
       />
-      <MidiListener />
+      {isMobile ? null : <MidiListener />}
     </nav>
   );
 };
