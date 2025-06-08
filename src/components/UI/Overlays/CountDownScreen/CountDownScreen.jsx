@@ -17,7 +17,7 @@ const CountdownScreen = ({ duration }) => {
   }, [secondsLeft]);
 
   return (
-    <div className="countdown">{secondsLeft === 0 ? "Hrej!" : secondsLeft}</div>
+    <div className="countdown">{secondsLeft === 0 ? "Hraj!" : secondsLeft}</div>
   );
 };
 export default CountdownScreen;
