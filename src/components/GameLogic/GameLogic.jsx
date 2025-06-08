@@ -38,7 +38,7 @@ const GameLogic = () => {
   const [score, setScore] = useState(0);
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
   const [isRestarted, setIsRestarted] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState("");
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
@@ -124,10 +124,23 @@ const GameLogic = () => {
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
-    handleRestart();
+    setNotes([]);
 
+    handleRestart();
     loadAndPlaySong(songName, songTrack);
-    console.log(songName, songTrack);
+  };
+
+  const handleRestartClick = () => {
+    setIsRestarted(true);
+    setIsResuming(true);
+    setIsPaused(true);
+    setNotes([]);
+
+    setTimeout(() => {
+      handleRestart();
+      setIsResuming(false);
+      setIsPaused(false);
+    }, 4000);
   };
 
   const autoPlaySong = () => {
@@ -139,18 +152,12 @@ const GameLogic = () => {
       playbackStartRef.current = now;
       setCurrentPlaybackTime(0);
       hasStartedRef.current = true;
-      // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
-      // console.log("Playing song at time:", currentPlaybackTime); // Add this to confirm
       playSong(loadedSong, 0);
-      // console.log("Starting song from beginning");
     } else {
       // Resuming — offset playback start to preserve currentPlaybackTime
       playbackStartRef.current = now - currentPlaybackTime * 1000;
-      // console.log("Resuming song from", currentPlaybackTime, "seconds");
       playSong(loadedSong, currentPlaybackTime); // ✅ Pass current time here too
     }
-
-    // console.log("autoPlaySong triggered");
   };
 
   const handleRestart = () => {
@@ -216,7 +223,7 @@ const GameLogic = () => {
           disabled={isResuming}
           onSongSelect={handleSongSelect}
           songs={songList}
-          onRestartClick={handleRestart}
+          onRestartClick={handleRestartClick}
           isPaused={isPaused}
           secondsLeft={songTimeCountDown}
           onPauseClick={togglePause}
