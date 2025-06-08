@@ -2,7 +2,7 @@ import "./GameLogic.css";
 import NavBar from "../UI/NavBarMenu/NavBar/NavBar";
 import Keyboard from "../Piano/Keyboard/Keyboard";
 import NotesAnimation from "../NotesAnimation/NotesAnimation";
-import { HITZONE_CENTER_PCT } from "../../constants/constants";
+import { HITZONE_CENTER_PCT, HIT_THRESHOLD } from "../../constants/constants";
 import loadSongList from "../../utils/loadSongList";
 import { useState, useEffect, useRef } from "react";
 import "./GameLogic.css";
@@ -15,6 +15,7 @@ import useSongPlayer from "../../hooks/useSongPlayer";
 import useSongSwitcher from "../../hooks/useSongSwitcher";
 import usePlaybackTimer from "../../hooks/usePlaybackTimer";
 import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
+import useNoteScoring from "../../hooks/useNoteScoring";
 
 const GameLogic = () => {
   const [notes, setNotes] = useState([]);
@@ -38,7 +39,7 @@ const GameLogic = () => {
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
   const [isRestarted, setIsRestarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const [feedback, setFeedback] = useState("+20");
+  const [feedback, setFeedback] = useState("");
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -81,6 +82,7 @@ const GameLogic = () => {
     noteRefs,
     isPaused,
   });
+
   const updateNotePosition = (id, left) => {
     setNotePositions((prev) => ({ ...prev, [id]: left }));
   };
@@ -90,6 +92,22 @@ const GameLogic = () => {
     playbackStartRef,
     setCurrentPlaybackTime,
   });
+
+  const { evaluateNoteHit } = useNoteScoring({
+    notes,
+    notePositions,
+    hitZoneCenter,
+    HIT_THRESHOLD,
+    setNotes,
+    setNotePositions,
+    noteRefs,
+    setScore,
+    setFeedback,
+  });
+
+  const handleKeyInput = (note) => {
+    evaluateNoteHit(note);
+  };
 
   const handleSongsMenuClick = () => {
     if (!isPaused) togglePause();
@@ -218,6 +236,7 @@ const GameLogic = () => {
         areColorsVisible={showNoteColors}
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
         areNoteLabelsVisible={areNoteLabelsVisible}
+        onKeyInput={handleKeyInput}
       />
       <OverlayScreens
         isPaused={isPaused}

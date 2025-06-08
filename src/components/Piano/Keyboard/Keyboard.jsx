@@ -10,6 +10,7 @@ const Keyboard = ({
   areKeyBindLabelsVisible,
   areColorsVisible,
   areNoteLabelsVisible,
+  onKeyInput,
 }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
   const keyRefs = useRef({});
@@ -88,6 +89,7 @@ const Keyboard = ({
 
   const handleInteractionStart = (note) => {
     playSound(note);
+    onKeyInput(note);
   };
 
   const getHandlers = (note) => ({
