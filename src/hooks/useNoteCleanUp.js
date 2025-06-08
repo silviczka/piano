@@ -19,7 +19,8 @@ const useNoteCleanup = ({ setNotes, setNotePositions, noteRefs, isPaused }) => {
       // If playback is paused, delay until resumed
       if (isPausedRef.current) {
         // Check again later
-        const retryTimeout = setTimeout(() => maybeDelete(), 500);
+        // const retryTimeout = setTimeout(() => maybeDelete(), 500);
+        const retryTimeout = setTimeout(() => maybeDelete(), 0);
         deleteTimeouts.current[id] = retryTimeout;
         return;
       }
