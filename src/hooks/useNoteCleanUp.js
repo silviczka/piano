@@ -36,7 +36,8 @@ const useNoteCleanup = ({ setNotes, setNotePositions, noteRefs, isPaused }) => {
     };
 
     // Initiate 2-second countdown to remove the note
-    const timeout = setTimeout(() => maybeDelete(), 2000);
+    // const timeout = setTimeout(() => maybeDelete(), 2000);
+    const timeout = setTimeout(() => maybeDelete(), 0);
     deleteTimeouts.current[id] = timeout;
   };
 
