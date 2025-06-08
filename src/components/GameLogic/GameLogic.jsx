@@ -69,6 +69,28 @@ const GameLogic = () => {
     console.log(songName, songTrack);
   };
 
+  useEffect(() => {
+    const handleSpacePressed = (event) => {
+      if (songTimeCountDown === 0 && !isPaused) {
+        handleRestart();
+        return;
+      }
+
+      if (isResuming) return;
+
+      if (event.code === "Space") {
+        event.preventDefault();
+        document.activeElement.blur();
+        togglePause();
+      }
+    };
+    window.addEventListener("keydown", handleSpacePressed);
+
+    return () => {
+      window.removeEventListener("keydown", handleSpacePressed);
+    };
+  }, [loadedSong, songTimeCountDown, isResuming, isPaused]);
+
   return (
     <div className="game-page">
       <div className="game-header">
