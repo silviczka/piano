@@ -8,7 +8,6 @@ const SongsMenu = ({
   handleOnBackBtnClick,
   onSongClick,
 }) => {
-  console.log(isMenuOpen);
   return (
     <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
       <div className="songs">
