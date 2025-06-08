@@ -22,7 +22,7 @@ const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
 
   return (
     <div>
-      <NavIconTooltip text="Vybrat písničku.">
+      <NavIconTooltip text="Vybrat písničku">
         <img
           src={songsIcon}
           alt="songs-icon"

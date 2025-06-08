@@ -5,7 +5,7 @@ import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 const PlayPauseBtn = ({ onPauseClick, isPaused, secondsLeft, disabled }) => {
   return (
     <>
-      <NavIconTooltip text={isPaused ? "Spustit hru." : "Pozastavit hru."}>
+      <NavIconTooltip text={isPaused ? "Spustit hru" : "Pozastavit hru"}>
         <img
           src={secondsLeft === 0 ? playIcon : isPaused ? playIcon : pauseIcon}
           alt={

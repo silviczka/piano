@@ -134,6 +134,8 @@ const GameLogic = () => {
         isResuming={isResuming}
         songTimeCountDown={songTimeCountDown}
         score={score}
+        onPauseClick={togglePause}
+        onRestartClick={handleRestart}
       />
     </div>
   );

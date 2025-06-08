@@ -1,17 +1,14 @@
 .overlay {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: 50%;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
   background-color: var(--main-color-overlay);
-  z-index: 9998;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-family: var(--font-tertiary);
   font-size: 2rem;
-  border-radius: var(--radius);
 }

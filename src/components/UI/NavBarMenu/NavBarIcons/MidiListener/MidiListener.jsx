@@ -6,7 +6,7 @@ import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 const MidiListener = () => {
   return (
     <>
-      <NavIconTooltip text="MIDI rozhraní povoleno.">
+      <NavIconTooltip text="MIDI rozhraní povoleno">
         <img src={midiEnabledIcon} alt="midi-icon" className="menu-icon" />
       </NavIconTooltip>
     </>

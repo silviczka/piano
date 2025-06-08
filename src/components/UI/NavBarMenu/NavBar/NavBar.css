@@ -9,6 +9,7 @@
   padding: 0.5rem 1rem;
   height: 100%;
   cursor: pointer;
+  z-index: 100;
 }
 
 .game-nav .menu-icon {
