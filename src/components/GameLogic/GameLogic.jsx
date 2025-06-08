@@ -40,6 +40,7 @@ const GameLogic = () => {
   const [isRestarted, setIsRestarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState('');
+  const [midiInput, setMidiInput] = useState(null);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -124,10 +125,23 @@ const GameLogic = () => {
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
-    handleRestart();
+    setNotes([]);
 
+    handleRestart();
     loadAndPlaySong(songName, songTrack);
-    console.log(songName, songTrack);
+  };
+
+  const handleRestartClick = () => {
+    setIsRestarted(true);
+    setIsResuming(true);
+    setIsPaused(true);
+    setNotes([]);
+
+    setTimeout(() => {
+      handleRestart();
+      setIsResuming(false);
+      setIsPaused(false);
+    }, 4000);
   };
 
   const autoPlaySong = () => {
@@ -142,15 +156,12 @@ const GameLogic = () => {
       // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
       // console.log("Playing song at time:", currentPlaybackTime);
       playSong(loadedSong, 0);
-      // console.log("Starting song from beginning");
     } else {
       // Resuming — offset playback start to preserve currentPlaybackTime
       playbackStartRef.current = now - currentPlaybackTime * 1000;
       // console.log("Resuming song from", currentPlaybackTime, "seconds");
       playSong(loadedSong, currentPlaybackTime);
     }
-
-    // console.log("autoPlaySong triggered");
   };
 
   const handleRestart = () => {
@@ -225,12 +236,13 @@ const GameLogic = () => {
           disabled={isResuming}
           onSongSelect={handleSongSelect}
           songs={songList}
-          onClick={handleRestart}
+          onRestartClick={handleRestartClick}
           isPaused={isPaused}
           secondsLeft={songTimeCountDown}
           onPauseClick={togglePause}
           onSongsMenuOpen={toggleSongsMenuOpen}
           isMenuOpen={isMenuOpen}
+          onMidiInput={setMidiInput}
         />
         <ScoreDetail score={score} />
       </div>
@@ -257,6 +269,7 @@ const GameLogic = () => {
         areKeyBindLabelsVisible={areKeyBindLabelsVisible}
         areNoteLabelsVisible={areNoteLabelsVisible}
         onKeyInput={handleKeyInput}
+        midiInput={midiInput}
       />
       <OverlayScreens
         isPaused={isPaused}

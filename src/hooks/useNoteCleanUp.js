@@ -15,7 +15,6 @@ const useNoteCleanup = ({ setNotes, setNotePositions, noteRefs, isPaused }) => {
   }, [isPaused]);
 
   const handleNoteCompletion = (id) => {
-    console.log("S");
     const maybeDelete = () => {
       // If playback is paused, delay until resumed
       if (isPausedRef.current) {
