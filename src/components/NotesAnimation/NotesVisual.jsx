@@ -43,6 +43,7 @@ const NoteVisual = ({
   scheduledJsonTime,
   hitZoneCenter,
   isPaused,
+  isRestarted,
 }) => {
   const controls = useAnimation();
 
@@ -88,7 +89,15 @@ const NoteVisual = ({
 
   const initial = { left: spawnX };
   // const exit = { left: "-100vw", transition: { duration: 3 } };
+
+  const exit = {
+    left: `${7}rem`,
+    transition: { duration: scheduledJsonTime - currentPlaybackTime },
+  };
+
   const transition = { duration: animationDuration, ease: 'linear' };
+
+  console.log(isRestarted);
 
   return (
     <motion.div

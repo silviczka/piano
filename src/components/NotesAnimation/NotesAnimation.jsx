@@ -11,6 +11,7 @@ const NotesAnimation = ({
   hitZoneCenter,
   currentPlaybackTime,
   isPaused,
+  isRestarted,
 }) => {
   return (
     <div className="game-area">
@@ -21,23 +22,26 @@ const NotesAnimation = ({
         </div>
       </div>
 
-      <AnimatePresence>
-        {notes.map(({ note, id, scheduledJsonTime }) => {
-          return (
-            <NotesVisual
-              key={id}
-              note={note}
-              id={id}
-              noteRef={noteRefs}
-              onComplete={handleNoteCompletion}
-              currentPlaybackTime={currentPlaybackTime}
-              scheduledJsonTime={scheduledJsonTime}
-              hitZoneCenter={hitZoneCenter}
-              isPaused={isPaused}
-            />
-          );
-        })}
-      </AnimatePresence>
+      {!isRestarted && (
+        <AnimatePresence>
+          {notes.map(({ note, id, scheduledJsonTime }) => {
+            return (
+              <NotesVisual
+                key={id}
+                note={note}
+                id={id}
+                noteRef={noteRefs}
+                onComplete={handleNoteCompletion}
+                currentPlaybackTime={currentPlaybackTime}
+                scheduledJsonTime={scheduledJsonTime}
+                hitZoneCenter={hitZoneCenter}
+                isPaused={isPaused}
+                isRestarted={isRestarted}
+              />
+            );
+          })}
+        </AnimatePresence>
+      )}
     </div>
   );
 };
