@@ -51,7 +51,7 @@ const GameLogic = () => {
 
   const togglePause = () => {
     if (songTimeCountDown === 0 && !isPaused) {
-      // RESTART
+      handleRestart();
       return;
     }
 
@@ -62,11 +62,13 @@ const GameLogic = () => {
     if (isPaused) {
       setIsResuming(true);
       resumeTimeoutRef.current = setTimeout(() => {
+        autoPlaySong();
         setIsPaused(false);
         setIsResuming(false);
         resumeTimeoutRef.current = null;
       }, 4000);
     } else {
+      stopSong();
       setIsPaused(true);
     }
   };
@@ -96,7 +98,9 @@ const GameLogic = () => {
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
-    console.log(songName, songTrack);
+    console.log('Song selected:', songName, songTrack);
+    loadAndPlaySong(songName, songTrack);
+    handleRestart();
   };
 
   const autoPlaySong = () => {
