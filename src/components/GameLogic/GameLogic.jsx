@@ -140,14 +140,14 @@ const GameLogic = () => {
       setCurrentPlaybackTime(0);
       hasStartedRef.current = true;
       // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
-      // console.log("Playing song at time:", currentPlaybackTime); // Add this to confirm
+      // console.log("Playing song at time:", currentPlaybackTime);
       playSong(loadedSong, 0);
       // console.log("Starting song from beginning");
     } else {
       // Resuming — offset playback start to preserve currentPlaybackTime
       playbackStartRef.current = now - currentPlaybackTime * 1000;
       // console.log("Resuming song from", currentPlaybackTime, "seconds");
-      playSong(loadedSong, currentPlaybackTime); // ✅ Pass current time here too
+      playSong(loadedSong, currentPlaybackTime);
     }
 
     // console.log("autoPlaySong triggered");
@@ -200,6 +200,15 @@ const GameLogic = () => {
       window.removeEventListener('keydown', handleSpacePressed);
     };
   }, [loadedSong, songTimeCountDown, isResuming, isPaused]);
+
+  useEffect(() => {
+    const handleScreenResize = () => {
+      setHitZoneCenter((window.innerWidth * HITZONE_CENTER_PCT) / 100);
+    };
+
+    window.addEventListener('resize', handleScreenResize);
+    return () => window.removeEventListener('resize', handleScreenResize);
+  }, []);
 
   return (
     <div className="game-page">

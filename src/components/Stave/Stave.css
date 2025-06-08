@@ -1,7 +1,12 @@
 .stave {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   position: relative;
-  z-index: 2;
   width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow-x: hidden;
 }
 
 .lines {
@@ -9,6 +14,8 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  justify-content: center;
+  flex: 1;
 }
 
 .line {
@@ -18,9 +25,10 @@
 }
 
 .clef {
-  position: absolute;
-  top: -1.5rem;
-  left: 1rem;
-  height: auto;
   width: 4.5rem;
+  height: auto;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: 3;
 }
