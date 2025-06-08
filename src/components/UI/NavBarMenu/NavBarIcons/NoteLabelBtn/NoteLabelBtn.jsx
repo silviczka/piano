@@ -6,11 +6,7 @@ const NoteLabelBtn = ({ areNoteLabelsVisible, onLabelClick }) => {
   return (
     <>
       <NavIconTooltip
-        text={
-          areNoteLabelsVisible
-            ? "Názvy not zobrazeny."
-            : "Názvy not nezobrazeny."
-        }
+        text={areNoteLabelsVisible ? "Vypnout názvy not" : "Zapnout názvy not"}
       >
         <img
           src={areNoteLabelsVisible ? labelIconEnabled : labelIconDisabled}

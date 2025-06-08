@@ -3,26 +3,31 @@ import SongsMenu from "../../../../Songs/SongsMenu/SongsMenu";
 import { useState } from "react";
 import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 
-const SongsBtn = ({ songs, onSongSelect, onSongsMenuClick, disabled }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-
+const SongsBtn = ({
+  songs,
+  onSongSelect,
+  onSongsMenuClick,
+  disabled,
+  onSongsMenuOpen,
+  isMenuOpen,
+}) => {
   const toggleDropdown = () => {
     onSongsMenuClick();
-    setIsMenuOpen(!isMenuOpen);
+    onSongsMenuOpen();
   };
 
   const handleOnBackBtnClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    onSongsMenuOpen();
   };
 
   const handleSelectMelody = (id, name) => {
     onSongSelect(id, name);
-    setIsMenuOpen(!isMenuOpen);
+    // onSongsMenuOpen();
   };
 
   return (
     <div>
-      <NavIconTooltip text="Vybrat písničku.">
+      <NavIconTooltip text="Vybrat písničku">
         <img
           src={songsIcon}
           alt="songs-icon"

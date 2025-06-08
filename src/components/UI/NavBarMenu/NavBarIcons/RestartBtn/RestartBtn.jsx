@@ -3,7 +3,7 @@ import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 
 const RestartBtn = ({ onRestartClick, disabled }) => {
   return (
-    <NavIconTooltip text="Restartovat hru.">
+    <NavIconTooltip text="Restartovat hru">
       <img
         src={restartIcon}
         alt="restart-icon"

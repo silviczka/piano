@@ -6,7 +6,7 @@ const ColorToggleBtn = ({ areColorsEnabled, onNoteColorClick }) => {
   return (
     <>
       <NavIconTooltip
-        text={areColorsEnabled ? "Barvy jsou zapnuty." : "Barvy jsou vypnuty."}
+        text={areColorsEnabled ? "Vypnout barvy" : "Zapnout barvy"}
       >
         <img
           src={areColorsEnabled ? colorEnabledIcon : colorDisabledIcon}

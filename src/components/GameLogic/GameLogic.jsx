@@ -36,9 +36,18 @@ const GameLogic = () => {
   const [score, setScore] = useState(0);
   const [songTimeCountDown, setsongTimeCountDown] = useState(0);
   const [isRestarted, setIsRestarted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
   const toggleLabels = () => setNoteLabelsVisible((prev) => !prev);
+  const toggleSongsMenuOpen = () => {
+    setIsMenuOpen((prev) => {
+      return !prev;
+    });
+    setIsPaused(true);
+    // DODELAT
+  };
 
   const togglePause = () => {
     if (songTimeCountDown === 0 && !isPaused) {
@@ -139,6 +148,27 @@ const GameLogic = () => {
     setIsPaused,
     shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
   });
+  useEffect(() => {
+    const handleSpacePressed = (event) => {
+      if (songTimeCountDown === 0 && !isPaused) {
+        handleRestart();
+        return;
+      }
+
+      if (isResuming) return;
+
+      if (event.code === 'Space') {
+        event.preventDefault();
+        document.activeElement.blur();
+        togglePause();
+      }
+    };
+    window.addEventListener('keydown', handleSpacePressed);
+
+    return () => {
+      window.removeEventListener('keydown', handleSpacePressed);
+    };
+  }, [loadedSong, songTimeCountDown, isResuming, isPaused]);
 
   return (
     <div className="game-page">
@@ -159,6 +189,8 @@ const GameLogic = () => {
           isPaused={isPaused}
           secondsLeft={songTimeCountDown}
           onPauseClick={togglePause}
+          onSongsMenuOpen={toggleSongsMenuOpen}
+          isMenuOpen={isMenuOpen}
         />
         <ScoreDetail score={score} notesNum={loadedSong?.notes.length} />
       </div>
@@ -187,6 +219,9 @@ const GameLogic = () => {
         isResuming={isResuming}
         songTimeCountDown={songTimeCountDown}
         score={score}
+        onPauseClick={togglePause}
+        onRestartClick={handleRestart}
+        onSongsMenuOpen={toggleSongsMenuOpen}
       />
     </div>
   );

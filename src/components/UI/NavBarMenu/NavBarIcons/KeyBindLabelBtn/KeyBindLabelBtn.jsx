@@ -8,8 +8,8 @@ const KeyBindLabelBtn = ({ areKeyBindLabelsVisible, onLabelClick }) => {
       <NavIconTooltip
         text={
           areKeyBindLabelsVisible
-            ? "Klávesové zkratky zobrazeny."
-            : "Klávesové zkratky vypnuty."
+            ? "Vypnout klávesové zkratky"
+            : "Zapnout klávesové zkratky"
         }
       >
         <img

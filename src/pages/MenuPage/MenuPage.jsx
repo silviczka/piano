@@ -1,5 +1,6 @@
 import "./MenuPage.css";
 import ModernLink from "../../components/ModernLink/ModernLink";
+import foxImg from "./img/standingFox.svg";
 
 const MenuPage = () => (
   <div className="menu-page">
@@ -11,6 +12,7 @@ const MenuPage = () => (
         <ModernLink to="/about" label="O projektu" className="menu-button" />
       </nav>
     </div>
+    <img className="menu-fox-img" src={foxImg} alt="standing fox" />
   </div>
 );
 

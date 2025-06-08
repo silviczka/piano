@@ -94,6 +94,7 @@ const Keyboard = ({
     onMouseDown: (e) => {
       handleInteractionStart(note);
     },
+    onTouchEnd: (e) => releaseNote(note),
   });
 
   const renderKey = ({ note, offset, keyBind, color }, type) => (
