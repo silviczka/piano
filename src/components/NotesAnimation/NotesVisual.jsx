@@ -1,7 +1,7 @@
-import { motion, useAnimation } from 'motion/react';
-import { noteSvgs } from './ColoredNoteSvgs';
-import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from '../../constants/constants';
-import { useEffect } from 'react';
+import { motion, useAnimation } from "motion/react";
+import { noteSvgs } from "./ColoredNoteSvgs";
+import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from "../../constants/constants";
+import { useEffect } from "react";
 
 const noteYMap = {
   C4: 14,
@@ -31,8 +31,8 @@ const noteYMap = {
   C6: 47,
 };
 
-const noteSizeMap = { C6: '19.5vh' }; //svg of bigger size
-const spawnX = '100vw'; // start from right offscreen
+const noteSizeMap = { C6: "19.5vh" }; //svg of bigger size
+const spawnX = "100vw"; // start from right offscreen
 
 const NoteVisual = ({
   note,
@@ -44,21 +44,23 @@ const NoteVisual = ({
   hitZoneCenter,
   isPaused,
   isRestarted,
+  gameMode,
 }) => {
   const controls = useAnimation();
 
-  // const noteWidth = noteRef.current[id]?.offsetWidth || 0;
-  // const noteCenter = noteWidth / 2;
-  // const hitZoneX = `${hitZoneCenter - HIT_THRESHOLD + noteCenter}px`;
-  // const hitZoneX = `${hitZoneCenter}px`;
-  const hitZoneX = `${7}rem`;
+  let hitZoneX = `${7}rem`;
+  if (gameMode === "tutorial") {
+    hitZoneX = `${hitZoneCenter}px`;
+  }
 
-  const noteHeight = noteSizeMap[note] || '10vh';
+  console.log(hitZoneX);
+
+  const noteHeight = noteSizeMap[note] || "10vh";
   const bottom = `${noteYMap[note] || 10}%`;
 
   const entry = noteSvgs[note];
   const SvgNote = entry?.note;
-  const fillColor = entry?.color || 'black';
+  const fillColor = entry?.color || "black";
 
   const noteStartTime = scheduledJsonTime - NOTE_TRAVEL_TIME;
   const animationDuration = Math.max(
@@ -66,7 +68,7 @@ const NoteVisual = ({
     0,
   );
   const shouldSpawn =
-    typeof scheduledJsonTime === 'number' &&
+    typeof scheduledJsonTime === "number" &&
     currentPlaybackTime >= noteStartTime;
 
   useEffect(() => {
@@ -79,7 +81,7 @@ const NoteVisual = ({
         left: hitZoneX,
         transition: {
           duration: scheduledJsonTime - currentPlaybackTime,
-          ease: 'linear',
+          ease: "linear",
         },
       });
     }
@@ -95,7 +97,7 @@ const NoteVisual = ({
     transition: { duration: scheduledJsonTime - currentPlaybackTime },
   };
 
-  const transition = { duration: animationDuration, ease: 'linear' };
+  const transition = { duration: animationDuration, ease: "linear" };
 
   return (
     <motion.div
@@ -105,23 +107,23 @@ const NoteVisual = ({
       animate={controls}
       // exit={exit}
       transition={transition}
-      onAnimationComplete={() => {
+      /*  onAnimationComplete={() => {
         if (!isPaused) {
           onComplete(id);
         }
-      }}
+      }} */
       className="absolute z-40 object-contain motion-wrapper"
       style={{
         height: noteHeight,
         bottom,
-        position: 'absolute',
-        transform: 'translateX(-50%)',
+        position: "absolute",
+        transform: "translateX(-50%)",
       }}
     >
       {SvgNote ? (
         <SvgNote
           className="h-full w-auto note-svg"
-          style={{ color: fillColor, width: 'auto', height: '50%' }}
+          style={{ color: fillColor, width: "auto", height: "50%" }}
         />
       ) : (
         <div className="text-red-500">No image for {note}</div>

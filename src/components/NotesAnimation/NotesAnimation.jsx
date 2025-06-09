@@ -1,8 +1,8 @@
-import './NotesAnimation.css';
-import { AnimatePresence } from 'motion/react';
-import Stave from '../Stave/Stave';
-import NotesVisual from './NotesVisual';
-import HitZone from './HitZone';
+import "./NotesAnimation.css";
+import { AnimatePresence } from "motion/react";
+import Stave from "../Stave/Stave";
+import NotesVisual from "./NotesVisual";
+import HitZone from "./HitZone";
 
 const NotesAnimation = ({
   notes,
@@ -12,6 +12,7 @@ const NotesAnimation = ({
   currentPlaybackTime,
   isPaused,
   isRestarted,
+  gameMode,
 }) => {
   return (
     <div className="game-area">
@@ -40,6 +41,7 @@ const NotesAnimation = ({
                 hitZoneCenter={hitZoneCenter}
                 isPaused={isPaused}
                 isRestarted={isRestarted}
+                gameMode={gameMode}
               />
             );
           })}

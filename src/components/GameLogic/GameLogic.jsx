@@ -54,7 +54,6 @@ const GameLogic = ({ mode }) => {
         (song) => song.header.mode === "tutorial",
       );
       if (tutorialSong.length === 0) return;
-      console.log(tutorialSong.length === 0);
       handleRestart();
       handleSongSelect(
         tutorialSong[0].header.title,
@@ -63,8 +62,6 @@ const GameLogic = ({ mode }) => {
       //
     }
   }, [songList]);
-
-  console.log(notes);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -294,6 +291,7 @@ const GameLogic = ({ mode }) => {
         currentPlaybackTime={currentPlaybackTime}
         isPaused={isPaused}
         isRestarted={isRestarted}
+        gameMode={mode}
       />
       <Keyboard
         areColorsVisible={showNoteColors}
