@@ -17,6 +17,7 @@ import usePlaybackTimer from "../../hooks/usePlaybackTimer";
 import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
 import useNoteScoring from "../../hooks/useNoteScoring";
 import { isMobile } from "react-device-detect";
+import spawnRandomNote from "../../utils/spawnRandomNote";
 
 const GameLogic = ({ mode }) => {
   const [notes, setNotes] = useState([]);
@@ -44,10 +45,14 @@ const GameLogic = ({ mode }) => {
   const [midiInput, setMidiInput] = useState(null);
   const [noteTutorialInput, setNoteTutorialInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
+  const lastSpawnTutorial = useRef(null);
 
   useEffect(() => {
     if (mode === "tutorial") setIsMenuOpen(false);
   }, []);
+
+  // console.log(lastSpawnTutorial.current);
+  const { markNoteAsHit } = spawnRandomNote({ setNotes, lastSpawnTutorial });
 
   useEffect(() => {
     if (mode === "tutorial") {
@@ -60,7 +65,6 @@ const GameLogic = ({ mode }) => {
         tutorialSong[0].header.title,
         tutorialSong[0].tracks[0].events,
       );
-      //
     }
   }, [songList]);
 
@@ -133,6 +137,18 @@ const GameLogic = ({ mode }) => {
     setCurrentPlaybackTime,
   });
 
+  const handleTutorialNoteHit = () => {
+    /* const tutorialSong = songList.filter(
+      (song) => song.header.mode === "tutorial",
+    );
+    if (tutorialSong.length === 0) return;
+    handleRestart();
+    handleSongSelect(
+      tutorialSong[0].header.title,
+      tutorialSong[0].tracks[0].events,
+    ); */
+  };
+
   const { evaluateNoteHit } = useNoteScoring({
     notes,
     notePositions,
@@ -143,6 +159,9 @@ const GameLogic = ({ mode }) => {
     noteRefs,
     setScore,
     setFeedback,
+    markNoteAsHit,
+    mode,
+    handleTutorialNoteHit,
   });
 
   const handleKeyInput = (note) => {
@@ -181,6 +200,8 @@ const GameLogic = ({ mode }) => {
       playbackStartRef.current = now;
       setCurrentPlaybackTime(0);
       hasStartedRef.current = true;
+      lastSpawnTutorial.current = Date.now();
+
       // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
       // console.log("Playing song at time:", currentPlaybackTime);
       playSong(loadedSong, 0);
@@ -205,8 +226,9 @@ const GameLogic = ({ mode }) => {
   };
 
   // Hook for playing/stopping songs
-  const { playSong, stopSong } = useSongPlayer({
+  const { playSong, stopSong, getCurrentPlaybackTime } = useSongPlayer({
     setNotes,
+    mode,
   });
 
   const { loadAndPlaySong } = useSongSwitcher({
@@ -220,6 +242,7 @@ const GameLogic = ({ mode }) => {
     restartBtnClickedRef,
     setIsResuming,
     togglePause,
+    mode,
     shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
   });
   useEffect(() => {
@@ -307,6 +330,7 @@ const GameLogic = ({ mode }) => {
         midiInput={midiInput}
         tutorialInput={noteTutorialInput}
         gameMode={mode}
+        onTutorialNoteHit={handleTutorialNoteHit}
       />
       <OverlayScreens
         isPaused={isPaused}

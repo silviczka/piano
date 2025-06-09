@@ -16,6 +16,7 @@ const Keyboard = ({
   midiInput,
   tutorialInput,
   gameMode,
+  onTutorialNoteHit,
 }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
   const keyRefs = useRef({});

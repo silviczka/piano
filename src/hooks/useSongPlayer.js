@@ -1,7 +1,9 @@
-import { useRef } from 'react';
-import { NOTE_TRAVEL_TIME, HITZONE_DURATION } from '../constants/constants';
+import { useRef } from "react";
+import { NOTE_TRAVEL_TIME, HITZONE_DURATION } from "../constants/constants";
+import spawnRandomNote from "../utils/spawnRandomNote";
 
-const useSongPlayer = ({ setNotes }) => {
+const useSongPlayer = ({ setNotes, mode }) => {
+  const { getRandomNote, start } = spawnRandomNote({ setNotes });
   const timeoutsRef = useRef([]);
   const sessionIdRef = useRef(Date.now());
   const playbackStartTimeRef = useRef(null);
@@ -27,7 +29,12 @@ const useSongPlayer = ({ setNotes }) => {
 
   const playSong = (songJson, offsetPlaybackTime = 0) => {
     if (!songJson || !Array.isArray(songJson.notes)) {
-      console.warn('Invalid songJson structure:', songJson);
+      console.warn("Invalid songJson structure:", songJson);
+      return;
+    }
+
+    if (mode === "tutorial") {
+      const test = start();
       return;
     }
 
