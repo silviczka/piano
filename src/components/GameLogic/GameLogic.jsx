@@ -46,12 +46,13 @@ const GameLogic = ({ mode }) => {
   const [noteTutorialInput, setNoteTutorialInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
   const lastSpawnTutorial = useRef(null);
+  const [isFirstSongSelected, setIsFirstSongSelected] = useState(false); // Hide the back button on the initial song selection screen
 
   useEffect(() => {
     if (mode === "tutorial") setIsMenuOpen(false);
   }, []);
 
-  // console.log(lastSpawnTutorial.current);
+  console.log(hasStartedRef);
   const { markNoteAsHit } = spawnRandomNote({ setNotes, lastSpawnTutorial });
 
   useEffect(() => {
@@ -177,10 +178,11 @@ const GameLogic = ({ mode }) => {
   };
 
   useEffect(() => {
-    loadSongList(setLoadedSong, setSongList);
+    loadSongList(setLoadedSong, setSongList, mode);
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
+    setIsFirstSongSelected(true);
     setNotes([]);
     handleRestart();
     loadAndPlaySong(songName, songTrack);
@@ -279,7 +281,11 @@ const GameLogic = ({ mode }) => {
   return (
     <div className="game-page">
       <div className="game-header">
-        <SongDetail name={loadedSong?.name} time={songTimeCountDown} />
+        <SongDetail
+          name={loadedSong?.name}
+          time={songTimeCountDown}
+          gameMode={mode}
+        />
         <NavBar
           areKeyBindLabelsVisible={areKeyBindLabelsVisible}
           onKeyBindLabelClick={toggleKeyBindLabels}
@@ -299,6 +305,7 @@ const GameLogic = ({ mode }) => {
           isMenuOpen={isMenuOpen}
           onMidiInput={setMidiInput}
           gameMode={mode}
+          isFirstSongSelected={isFirstSongSelected}
         />
         <ScoreDetail score={score} />
       </div>
@@ -331,6 +338,7 @@ const GameLogic = ({ mode }) => {
         tutorialInput={noteTutorialInput}
         gameMode={mode}
         onTutorialNoteHit={handleTutorialNoteHit}
+        setNoteTutorialInput={setNoteTutorialInput}
       />
       <OverlayScreens
         isPaused={isPaused}

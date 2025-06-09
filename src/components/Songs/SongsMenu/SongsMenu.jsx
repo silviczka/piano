@@ -7,43 +7,46 @@ const SongsMenu = ({
   onSongSelect,
   handleOnBackBtnClick,
   onSongClick,
+  isFirstSongSelected,
 }) => {
   return (
     <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
       <div className="songs">
         <div className="songs-header">
-          <svg
-            className="back-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="42"
-            height="42"
-            viewBox="0 0 42 42"
-            fill="none"
-            onClick={handleOnBackBtnClick}
-          >
-            <rect
-              x="0"
-              y="0"
+          {isFirstSongSelected && (
+            <svg
+              className="back-icon"
+              xmlns="http://www.w3.org/2000/svg"
               width="42"
               height="42"
-              rx="5"
-              fill="rgba(11, 159, 175, 1)"
-            />
-            <path
-              d="M20 13L13 21L20 29"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M30 21H13"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+              viewBox="0 0 42 42"
+              fill="none"
+              onClick={handleOnBackBtnClick}
+            >
+              <rect
+                x="0"
+                y="0"
+                width="42"
+                height="42"
+                rx="5"
+                fill="rgba(11, 159, 175, 1)"
+              />
+              <path
+                d="M20 13L13 21L20 29"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M30 21H13"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
           <div className="songs-title">Vyber si píšničku a začni hrát.</div>
         </div>
 

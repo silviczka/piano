@@ -28,17 +28,21 @@ const NavBar = ({
   isMenuOpen,
   onMidiInput,
   gameMode,
+  isFirstSongSelected,
 }) => {
   return (
     <nav className="game-nav">
       <HomeBtn className={"menu-icon"} />
-      <PlayPauseBtn
-        isPaused={isPaused}
-        secondsLeft={secondsLeft}
-        disabled={disabled}
-        onPauseClick={onPauseClick}
-      />
-      {gameMode === "play" && (
+      {gameMode === "normal" && (
+        <PlayPauseBtn
+          isPaused={isPaused}
+          secondsLeft={secondsLeft}
+          disabled={disabled}
+          onPauseClick={onPauseClick}
+        />
+      )}
+
+      {gameMode === "normal" && (
         <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
       )}
       {isMobile ? null : (
@@ -55,14 +59,17 @@ const NavBar = ({
         onNoteColorClick={onNoteColorClick}
         areColorsEnabled={areColorsEnabled}
       />
-      <SongsBtn
-        onSongsMenuClick={onSongsMenuClick}
-        songs={songs}
-        onSongSelect={onSongSelect}
-        disabled={disabled}
-        onSongsMenuOpen={onSongsMenuOpen}
-        isMenuOpen={isMenuOpen}
-      />
+      {gameMode === "normal" && (
+        <SongsBtn
+          onSongsMenuClick={onSongsMenuClick}
+          songs={songs}
+          onSongSelect={onSongSelect}
+          disabled={disabled}
+          onSongsMenuOpen={onSongsMenuOpen}
+          isMenuOpen={isMenuOpen}
+          isFirstSongSelected={isFirstSongSelected}
+        />
+      )}
       {isMobile ? null : <MidiListener onMidiInput={onMidiInput} />}
     </nav>
   );

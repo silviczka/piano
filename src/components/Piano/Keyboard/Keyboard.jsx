@@ -17,6 +17,7 @@ const Keyboard = ({
   tutorialInput,
   gameMode,
   onTutorialNoteHit,
+  setNoteTutorialInput,
 }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
   const keyRefs = useRef({});
@@ -143,6 +144,7 @@ const Keyboard = ({
     if (!pressedNote?.classList.contains(classToggle)) {
       pressedNote.classList.toggle(classToggle);
     }
+    setNoteTutorialInput(null);
   }, [tutorialInput]);
 
   const renderKey = ({ note, offset, keyBind, color }, type) => (

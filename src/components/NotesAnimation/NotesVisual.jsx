@@ -105,7 +105,7 @@ const NoteVisual = ({
       animate={controls}
       transition={transition}
       onAnimationComplete={() => {
-        if (!isPaused && gameMode === "play") {
+        if (!isPaused && gameMode === "normal") {
           onComplete(id);
         } else if (gameMode === "tutorial") {
           onCompleteTutorial(note);

@@ -2,6 +2,7 @@
   "header": {
     "title": "Rolničky, rolničky",
     "img": "rolnicky.png",
+    "mode": "normal",
     "format": 1,
     "numTracks": 1,
     "ticksPerBeat": 480

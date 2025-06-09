@@ -53,7 +53,7 @@ const OverlayScreens = ({
           <CountdownScreen duration={COUNTDOWN_DURATION} />
         </OverlayScreen>
       )}
-      {gameMode === "play" && showOverlay && (
+      {gameMode === "normal" && showOverlay && (
         <OverlayScreen>
           <div className="end-game-wrapper">
             <div>Konec hry.</div>

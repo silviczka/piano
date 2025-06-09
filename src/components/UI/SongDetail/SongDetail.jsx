@@ -1,11 +1,17 @@
 import "./SongDetail.css";
 import formatDisplayedTime from "../../../utils/formatDisplayedTime";
 
-const SongDetail = ({ name, time }) => {
+const SongDetail = ({ name, time, gameMode }) => {
   return (
     <div className="song-detail__wrapper">
-      <div className="song-detail__name">{name}:</div>
-      <div className="song-detail__time"> {formatDisplayedTime(time)}</div>
+      {gameMode === "normal" ? (
+        <>
+          <div className="song-detail__name">{name}:</div>
+          <div className="song-detail__time"> {formatDisplayedTime(time)}</div>
+        </>
+      ) : (
+        <div className="song-detail__name">Tutoriál</div>
+      )}
     </div>
   );
 };

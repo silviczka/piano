@@ -1,6 +1,32 @@
 import { useRef } from "react";
 
-const ALL_NOTES = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
+const ALL_NOTES = [
+  "C4",
+  "CSharp4",
+  "D4",
+  "DSharp4",
+  "E4",
+  "F4",
+  "FSharp4",
+  "G4",
+  "GSharp4",
+  "A4",
+  "ASharp4",
+  "B4",
+  "C5",
+  "CSharp5",
+  "D5",
+  "DSharp5",
+  "E5",
+  "F5",
+  "FSharp5",
+  "G5",
+  "GSharp5",
+  "A5",
+  "ASharp5",
+  "B5",
+  "C6",
+];
 
 const spawnRandomNote = ({
   setNotes,
@@ -17,7 +43,6 @@ const spawnRandomNote = ({
     if (isStoppedRef.current) return;
     let timeToSpawn = 0;
     let isFirstNote = false;
-    console.log(lastSpawnTutorial.current);
     if (lastSpawnTutorial.current === null) {
       lastSpawnTutorial.current = Date.now();
       timeToSpawn = 4;
@@ -29,8 +54,6 @@ const spawnRandomNote = ({
     const timeSinceLastSpawn = (now - lastSpawnTutorial.current) / 1000;
     // console.log("Time since last spawn:", timeSinceLastSpawn.toFixed(2), "s");
     if (!isFirstNote) timeToSpawn = timeSinceLastSpawn + 4;
-
-    console.log(timeToSpawn);
 
     const note = getRandomNote();
     const id = `${note}_${Date.now()}`;
