@@ -10,6 +10,9 @@ const useNoteScoring = ({
   noteRefs,
   setScore,
   setFeedback,
+  markNoteAsHit,
+  mode,
+  handleTutorialNoteHit,
 }) => {
   const evaluateNoteHit = (note) => {
     if (note.includes("#")) {
@@ -36,6 +39,12 @@ const useNoteScoring = ({
     });
     const noteColor = getNoteColor(matchedNote.note);
     setFeedback(noteColor);
+    if (mode === "tutorial") {
+      markNoteAsHit();
+      setTimeout(() => {
+        handleTutorialNoteHit();
+      }, 500);
+    }
     setTimeout(() => setFeedback(""), 1000);
     setNotes((prevNotes) => prevNotes.filter((n) => n.id !== matchedNote.id));
     setNotePositions((prev) => {

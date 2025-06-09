@@ -14,6 +14,7 @@
   transition: transform 0.1s ease, filter 0.1s ease;
 }
 
+.key.black.black-key__simulated,
 .key.black:hover {
   background: linear-gradient(180deg, #323A56 40%, var(--key-color) 100%);
 }

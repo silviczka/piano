@@ -10,6 +10,7 @@ const SongsBtn = ({
   disabled,
   onSongsMenuOpen,
   isMenuOpen,
+  isFirstSongSelected,
 }) => {
   const toggleDropdown = () => {
     onSongsMenuClick();
@@ -41,6 +42,7 @@ const SongsBtn = ({
         onSongSelect={handleSelectMelody}
         handleOnBackBtnClick={handleOnBackBtnClick}
         onSongClick={handleOnBackBtnClick}
+        isFirstSongSelected={isFirstSongSelected}
       />
     </div>
   );

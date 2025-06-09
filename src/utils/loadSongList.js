@@ -1,6 +1,6 @@
 import HandlesetLoadedSong from "./handlesetLoadedSong";
 
-const loadSongList = async (setLoadedSong, setSongList) => {
+const loadSongList = async (setLoadedSong, setSongList, mode) => {
   try {
     const songModules = import.meta.glob("/assets/songs/jsons/*.json");
     const loadedSongs = [];
@@ -10,7 +10,12 @@ const loadSongList = async (setLoadedSong, setSongList) => {
     }
 
     if (loadedSongs.length < 1) return;
-    setSongList(loadedSongs);
+    let modeSongs = loadedSongs;
+    if (mode === "normal") {
+      modeSongs = loadedSongs.filter((song) => song.header.mode === "normal");
+    }
+
+    setSongList(modeSongs);
 
     const mainTrack = loadedSongs[0].tracks?.[0];
     if (!mainTrack || !Array.isArray(mainTrack.events)) {

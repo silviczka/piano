@@ -15,6 +15,7 @@ const OverlayScreens = ({
   onRestartClick,
   onSongsMenuOpen,
   notesNum,
+  gameMode,
   restartBtnClicked,
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -52,7 +53,7 @@ const OverlayScreens = ({
           <CountdownScreen duration={COUNTDOWN_DURATION} />
         </OverlayScreen>
       )}
-      {showOverlay && (
+      {gameMode === "normal" && showOverlay && (
         <OverlayScreen>
           <div className="end-game-wrapper">
             <div>Konec hry.</div>

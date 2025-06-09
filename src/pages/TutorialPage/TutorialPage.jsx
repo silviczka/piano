@@ -1,7 +1,8 @@
 import "./TutorialPage.css";
+import GameLogic from "../../components/GameLogic/GameLogic";
 
 const TutorialPage = () => {
-  return <div>Tutorial</div>;
+  return <GameLogic mode={"tutorial"} />;
 };
 
 export default TutorialPage;
