@@ -4,31 +4,31 @@ import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from '../../constants/constants';
 import { useEffect } from 'react';
 
 const noteYMap = {
-  C4: 14,
-  CSharp4: 14,
-  D4: 17,
-  DSharp4: 17,
-  E4: 21,
-  F4: 25,
-  FSharp4: 25,
-  G4: 28,
-  GSharp4: 28,
-  A4: 32,
-  ASharp4: 32,
-  B4: 35,
-  C5: 38,
-  CSharp5: 38,
-  D5: 42,
-  DSharp5: 42,
-  E5: 45,
-  F5: 49,
-  FSharp5: 49,
-  G5: 52,
-  GSharp5: 52,
+  C4: 17,
+  CSharp4: 17,
+  D4: 20,
+  DSharp4: 20,
+  E4: 24,
+  F4: 27.5,
+  FSharp4: 27.5,
+  G4: 30.5,
+  GSharp4: 30.5,
+  A4: 34,
+  ASharp4: 34,
+  B4: 37,
+  C5: 40,
+  CSharp5: 40,
+  D5: 43.5,
+  DSharp5: 43.5,
+  E5: 47,
+  F5: 50,
+  FSharp5: 50,
+  G5: 53,
+  GSharp5: 53,
   A5: 56,
   ASharp5: 56,
   B5: 59.5,
-  C6: 47,
+  C6: 46.5,
 };
 
 const noteSizeMap = { C6: '19.5vh' }; //svg of bigger size
@@ -53,7 +53,7 @@ const NoteVisual = ({
   // const hitZoneX = `${hitZoneCenter}px`;
   const hitZoneX = `${7}rem`;
 
-  const noteHeight = noteSizeMap[note] || '10vh';
+  const noteHeight = noteSizeMap[note] || '8.5vh';
   const bottom = `${noteYMap[note] || 10}%`;
 
   const entry = noteSvgs[note];

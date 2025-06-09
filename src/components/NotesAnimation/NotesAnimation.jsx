@@ -23,28 +23,30 @@ const NotesAnimation = ({
         <div className="hitzone">
           <HitZone hitZoneCenter={hitZoneCenter} />
         </div>
-      </div>
 
-      {!isRestarted && (
-        <AnimatePresence>
-          {notes.map(({ note, id, scheduledJsonTime }) => {
-            return (
-              <NotesVisual
-                key={id}
-                note={note}
-                id={id}
-                noteRef={noteRefs}
-                onComplete={handleNoteCompletion}
-                currentPlaybackTime={currentPlaybackTime}
-                scheduledJsonTime={scheduledJsonTime}
-                hitZoneCenter={hitZoneCenter}
-                isPaused={isPaused}
-                isRestarted={isRestarted}
-              />
-            );
-          })}
-        </AnimatePresence>
-      )}
+        <div className="notes-wrapper">
+          {!isRestarted && (
+            <AnimatePresence>
+              {notes.map(({ note, id, scheduledJsonTime }) => {
+                return (
+                  <NotesVisual
+                    key={id}
+                    note={note}
+                    id={id}
+                    noteRef={noteRefs}
+                    onComplete={handleNoteCompletion}
+                    currentPlaybackTime={currentPlaybackTime}
+                    scheduledJsonTime={scheduledJsonTime}
+                    hitZoneCenter={hitZoneCenter}
+                    isPaused={isPaused}
+                    isRestarted={isRestarted}
+                  />
+                );
+              })}
+            </AnimatePresence>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
