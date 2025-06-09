@@ -5,9 +5,13 @@ import NavIconTooltip from "../../NavIconTooltip/NavIconTooltip";
 const HomeBtn = ({ className }) => {
   return (
     <Link to="/">
-      <NavIconTooltip text="Hlavní menu">
+      {className === "" ? (
         <img src={homeIcon} alt="home-icon" className={className} />
-      </NavIconTooltip>
+      ) : (
+        <NavIconTooltip text="Hlavní menu">
+          <img src={homeIcon} alt="home-icon" className={className} />
+        </NavIconTooltip>
+      )}
     </Link>
   );
 };

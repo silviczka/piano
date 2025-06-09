@@ -52,7 +52,6 @@ const GameLogic = ({ mode }) => {
     if (mode === "tutorial") setIsMenuOpen(false);
   }, []);
 
-  console.log(hasStartedRef);
   const { markNoteAsHit } = spawnRandomNote({ setNotes, lastSpawnTutorial });
 
   useEffect(() => {

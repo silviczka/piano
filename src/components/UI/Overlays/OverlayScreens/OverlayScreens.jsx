@@ -2,8 +2,8 @@ import OverlayScreen from "../OverlayScreen/OverlayScreen";
 import CountdownScreen from "../CountDownScreen/CountDownScreen";
 import { COUNTDOWN_DURATION } from "../../../../constants/constants";
 import { useEffect, useState } from "react";
-import playIcon from "./img/playBtnBig.png";
-import foxEnd from "./img/foxEnd.png";
+import playIcon from "./img/playBtnBig.webp";
+import foxEnd from "./img/foxEnd.webp";
 import "./OverlayScreens.css";
 
 const OverlayScreens = ({

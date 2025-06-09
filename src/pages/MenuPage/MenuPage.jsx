@@ -1,6 +1,6 @@
 import "./MenuPage.css";
 import ModernLink from "../../components/ModernLink/ModernLink";
-import foxImg from "./img/standingFox.svg";
+import foxImg from "./img/standingFox.webp";
 
 const MenuPage = () => (
   <div className="menu-page">

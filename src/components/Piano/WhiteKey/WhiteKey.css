@@ -8,7 +8,7 @@
 }
 
 .key.white {
-  border: 0.08rem solid #F2F2F2;
+  border: 1px solid #F2F2F2;
   background: linear-gradient(180deg, #FFFFFF 0.95%, #FFFFFF 97.37%);
   transition: transform 0.1s ease;
   transform-origin: top;
@@ -32,7 +32,6 @@
 .key-wrapper:hover .key.white,
 .key.white.white-key__pressed {
   background: linear-gradient(180deg, #FFFFFF 60%, var(--key-color) 100%);
-  border: transparent;
 }
 
 .key-wrapper:hover .key.white,
