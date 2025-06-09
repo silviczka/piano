@@ -8,6 +8,7 @@ const Timer = ({
   onSongCountDown,
   isRestarted,
   onRestart,
+  gameMode,
 }) => {
   const [currentFill, setCurrentFill] = useState(0);
   const [timePassed, setTimePassed] = useState(0);
@@ -55,7 +56,13 @@ const Timer = ({
 
   return (
     <div className="timer-wrapper">
-      <div className="timer-container">
+      <div
+        className={
+          gameMode === "tutorial"
+            ? "timer-container timer-container-disabled"
+            : "timer-container"
+        }
+      >
         <div className="timer-bar" style={{ width: `${currentFill}%` }}></div>
       </div>
     </div>

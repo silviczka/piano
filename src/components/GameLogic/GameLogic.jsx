@@ -18,7 +18,7 @@ import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
 import useNoteScoring from "../../hooks/useNoteScoring";
 import { isMobile } from "react-device-detect";
 
-const GameLogic = () => {
+const GameLogic = ({ mode }) => {
   const [notes, setNotes] = useState([]);
   const noteRefs = useRef({});
   const resumeTimeoutRef = useRef(null);
@@ -43,6 +43,28 @@ const GameLogic = () => {
   const [feedback, setFeedback] = useState("");
   const [midiInput, setMidiInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
+
+  useEffect(() => {
+    if (mode === "tutorial") setIsMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (mode === "tutorial") {
+      const tutorialSong = songList.filter(
+        (song) => song.header.mode === "tutorial",
+      );
+      if (tutorialSong.length === 0) return;
+      console.log(tutorialSong.length === 0);
+      handleRestart();
+      handleSongSelect(
+        tutorialSong[0].header.title,
+        tutorialSong[0].tracks[0].events,
+      );
+      //
+    }
+  }, [songList]);
+
+  console.log(notes);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -251,16 +273,17 @@ const GameLogic = () => {
           onSongsMenuOpen={toggleSongsMenuOpen}
           isMenuOpen={isMenuOpen}
           onMidiInput={setMidiInput}
+          gameMode={mode}
         />
         <ScoreDetail score={score} />
       </div>
-
       <Timer
         totalTime={loadedSong?.totalTime}
         isPaused={isPaused}
         onSongCountDown={setsongTimeCountDown}
         isRestarted={isRestarted}
         onRestart={setIsRestarted}
+        gameMode={mode}
       />
       <NotesAnimation
         notes={notes}
@@ -289,6 +312,7 @@ const GameLogic = () => {
         onSongsMenuOpen={toggleSongsMenuOpenn}
         notesNum={loadedSong?.notes.length}
         restartBtnClicked={restartBtnClicked}
+        gameMode={mode}
       />
       {feedback !== "" && <ScoreFeedback feedback={feedback} />}
       {isMobile && !isMenuOpen && (

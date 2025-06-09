@@ -27,6 +27,7 @@ const NavBar = ({
   onSongsMenuOpen,
   isMenuOpen,
   onMidiInput,
+  gameMode,
 }) => {
   return (
     <nav className="game-nav">
@@ -37,7 +38,9 @@ const NavBar = ({
         disabled={disabled}
         onPauseClick={onPauseClick}
       />
-      <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
+      {gameMode === "play" && (
+        <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
+      )}
       {isMobile ? null : (
         <KeyBindLabelBtn
           areKeyBindLabelsVisible={areKeyBindLabelsVisible}
