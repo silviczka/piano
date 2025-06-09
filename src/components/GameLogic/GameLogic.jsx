@@ -42,6 +42,7 @@ const GameLogic = ({ mode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState("");
   const [midiInput, setMidiInput] = useState(null);
+  const [noteTutorialInput, setNoteTutorialInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
 
   useEffect(() => {
@@ -146,6 +147,10 @@ const GameLogic = ({ mode }) => {
 
   const handleKeyInput = (note) => {
     evaluateNoteHit(note);
+  };
+
+  const handleNoteCompletionTutorial = (note) => {
+    setNoteTutorialInput(note);
   };
 
   const handleSongsMenuClick = () => {
@@ -285,6 +290,7 @@ const GameLogic = ({ mode }) => {
       <NotesAnimation
         notes={notes}
         handleNoteCompletion={handleNoteCompletion}
+        handleNoteCompletionTutorial={handleNoteCompletionTutorial}
         updateNotePosition={updateNotePosition}
         noteRefs={noteRefs}
         hitZoneCenter={hitZoneCenter}
@@ -299,6 +305,8 @@ const GameLogic = ({ mode }) => {
         areNoteLabelsVisible={areNoteLabelsVisible}
         onKeyInput={handleKeyInput}
         midiInput={midiInput}
+        tutorialInput={noteTutorialInput}
+        gameMode={mode}
       />
       <OverlayScreens
         isPaused={isPaused}

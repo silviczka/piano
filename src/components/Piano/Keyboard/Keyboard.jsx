@@ -6,6 +6,7 @@ import blackKeys from "../../../assets/keys/blackKeys";
 import getNoteyBindByKey from "../../../utils/getNoteByKeyBind";
 import usePCKeyHandlers from "../../../hooks/usePCKeyHandlers";
 import useMidiNoteTrigger from "../../../hooks/useMidiNoteTrigger";
+import { useEffect } from "react";
 
 const Keyboard = ({
   areKeyBindLabelsVisible,
@@ -13,6 +14,8 @@ const Keyboard = ({
   areNoteLabelsVisible,
   onKeyInput,
   midiInput,
+  tutorialInput,
+  gameMode,
 }) => {
   const [activeKeys, setActiveKeys] = useState(new Set()); // track multiple active keys
   const keyRefs = useRef({});
@@ -38,6 +41,17 @@ const Keyboard = ({
         return newActiveKeys;
       });
     };
+
+    if (gameMode === "tutorial") {
+      const pressedNote = keyRefs.current[note];
+      if (pressedNote?.classList.contains("white-key__simulated")) {
+        pressedNote.classList.toggle("white-key__simulated");
+      }
+
+      if (pressedNote?.classList.contains("black-key__simulated")) {
+        pressedNote.classList.toggle("black-key__simulated");
+      }
+    }
   };
 
   const playAndPressNote = (note) => {
@@ -110,6 +124,25 @@ const Keyboard = ({
     playAndPressNote,
     releaseNote,
   });
+
+  useEffect(() => {
+    if (tutorialInput === null) return;
+
+    const formattedNote = tutorialInput.includes("Sharp")
+      ? tutorialInput.replace("Sharp", "#")
+      : tutorialInput;
+    const pressedNote = keyRefs.current[formattedNote];
+
+    pressedNote?.focus();
+    let classToggle = "white-key__simulated";
+    if (tutorialInput.includes("#") || tutorialInput.includes("Sharp")) {
+      classToggle = "black-key__simulated";
+    }
+
+    if (!pressedNote?.classList.contains(classToggle)) {
+      pressedNote.classList.toggle(classToggle);
+    }
+  }, [tutorialInput]);
 
   const renderKey = ({ note, offset, keyBind, color }, type) => (
     <Key

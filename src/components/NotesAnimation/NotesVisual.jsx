@@ -38,6 +38,7 @@ const NoteVisual = ({
   note,
   id,
   onComplete,
+  onCompleteTutorial,
   noteRef,
   currentPlaybackTime,
   scheduledJsonTime,
@@ -52,8 +53,6 @@ const NoteVisual = ({
   if (gameMode === "tutorial") {
     hitZoneX = `${hitZoneCenter}px`;
   }
-
-  console.log(hitZoneX);
 
   const noteHeight = noteSizeMap[note] || "10vh";
   const bottom = `${noteYMap[note] || 10}%`;
@@ -90,7 +89,6 @@ const NoteVisual = ({
   if (!shouldSpawn) return null;
 
   const initial = { left: spawnX };
-  // const exit = { left: "-100vw", transition: { duration: 3 } };
 
   const exit = {
     left: `${7}rem`,
@@ -105,13 +103,14 @@ const NoteVisual = ({
       ref={(el) => (noteRef.current[id] = el)}
       initial={initial}
       animate={controls}
-      // exit={exit}
       transition={transition}
-      /*  onAnimationComplete={() => {
-        if (!isPaused) {
+      onAnimationComplete={() => {
+        if (!isPaused && gameMode === "play") {
           onComplete(id);
+        } else if (gameMode === "tutorial") {
+          onCompleteTutorial(note);
         }
-      }} */
+      }}
       className="absolute z-40 object-contain motion-wrapper"
       style={{
         height: noteHeight,
