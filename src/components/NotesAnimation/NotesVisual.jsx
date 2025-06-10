@@ -130,7 +130,7 @@ const NoteVisual = ({
         <SvgNote
           viewBox={viewBox}
           height={noteHeight}
-          width="auto"
+          width="100%"
           className="h-full w-auto note-svg"
           style={{ color: fillColor }}
         />
