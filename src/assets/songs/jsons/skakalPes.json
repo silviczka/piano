@@ -16,7 +16,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 0,
-          "time": 2.0,
+          "time": 4.0,
           "velocity": 0.7
         },
         {
@@ -25,7 +25,7 @@
           "midi": 57,
           "note": "G4",
           "ticks": 144,
-          "time": 3.44,
+          "time": 5.44,
           "velocity": 0.7
         },
         {
@@ -34,7 +34,7 @@
           "midi": 59,
           "note": "E4",
           "ticks": 288,
-          "time": 4.88,
+          "time": 6.88,
           "velocity": 0.7
         },
         {
@@ -43,7 +43,7 @@
           "midi": 57,
           "note": "G4",
           "ticks": 432,
-          "time": 7.76,
+          "time": 9.76,
           "velocity": 0.7
         },
         {
@@ -52,7 +52,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 576,
-          "time": 9.2,
+          "time": 11.2,
           "velocity": 0.7
         },
         {
@@ -61,7 +61,7 @@
           "midi": 55,
           "note": "E4",
           "ticks": 720,
-          "time": 10.64,
+          "time": 12.64,
           "velocity": 0.7
         },
         {
@@ -70,7 +70,7 @@
           "midi": 57,
           "note": "G4",
           "ticks": 864,
-          "time": 13.52,
+          "time": 15.52,
           "velocity": 0.7
         },
         {
@@ -79,7 +79,7 @@
           "midi": 59,
           "note": "G4",
           "ticks": 1008,
-          "time": 14.96,
+          "time": 16.96,
           "velocity": 0.7
         },
         {
@@ -88,7 +88,7 @@
           "midi": 55,
           "note": "A4",
           "ticks": 1152,
-          "time": 16.4,
+          "time": 18.4,
           "velocity": 0.7
         },
         {
@@ -97,7 +97,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1296,
-          "time": 17.84,
+          "time": 19.84,
           "velocity": 0.7
         },
         {
@@ -106,7 +106,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1296,
-          "time": 19.28,
+          "time": 21.28,
           "velocity": 0.7
         },
         {
@@ -115,7 +115,7 @@
           "midi": 55,
           "note": "F4",
           "ticks": 1296,
-          "time": 22.16,
+          "time": 24.16,
           "velocity": 0.7
         },
         {
@@ -124,7 +124,7 @@
           "midi": 55,
           "note": "F4",
           "ticks": 0,
-          "time": 25.04,
+          "time": 27.04,
           "velocity": 0.7
         },
         {
@@ -133,7 +133,7 @@
           "midi": 57,
           "note": "F4",
           "ticks": 144,
-          "time": 26.48,
+          "time": 28.48,
           "velocity": 0.7
         },
         {
@@ -142,7 +142,7 @@
           "midi": 59,
           "note": "D4",
           "ticks": 288,
-          "time": 27.92,
+          "time": 29.92,
           "velocity": 0.7
         },
         {
@@ -151,7 +151,7 @@
           "midi": 57,
           "note": "F4",
           "ticks": 432,
-          "time": 30.8,
+          "time": 32.8,
           "velocity": 0.7
         },
         {
@@ -160,7 +160,7 @@
           "midi": 55,
           "note": "F4",
           "ticks": 576,
-          "time": 32.24,
+          "time": 34.24,
           "velocity": 0.7
         },
         {
@@ -169,7 +169,7 @@
           "midi": 55,
           "note": "D4",
           "ticks": 720,
-          "time": 33.68,
+          "time": 35.68,
           "velocity": 0.7
         },
         {
@@ -178,7 +178,7 @@
           "midi": 57,
           "note": "F4",
           "ticks": 864,
-          "time": 36.56,
+          "time": 38.56,
           "velocity": 0.7
         },
         {
@@ -187,7 +187,7 @@
           "midi": 59,
           "note": "F4",
           "ticks": 1008,
-          "time": 38.0,
+          "time": 40.0,
           "velocity": 0.7
         },
         {
@@ -196,7 +196,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1152,
-          "time": 39.44,
+          "time": 41.44,
           "velocity": 0.7
         },
         {
@@ -205,7 +205,7 @@
           "midi": 55,
           "note": "F4",
           "ticks": 1296,
-          "time": 40.88,
+          "time": 42.88,
           "velocity": 0.7
         },
         {
@@ -214,7 +214,7 @@
           "midi": 55,
           "note": "F4",
           "ticks": 1296,
-          "time": 42.32,
+          "time": 44.32,
           "velocity": 0.7
         },
         {
@@ -223,7 +223,7 @@
           "midi": 55,
           "note": "E4",
           "ticks": 1296,
-          "time": 45.2,
+          "time": 47.2,
           "velocity": 0.7
         }
       ]

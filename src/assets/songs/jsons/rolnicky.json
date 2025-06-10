@@ -16,7 +16,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 0,
-          "time": 3,
+          "time": 4,
           "velocity": 0.7
         },
         {
@@ -25,7 +25,7 @@
           "midi": 57,
           "note": "E5",
           "ticks": 144,
-          "time": 4.5,
+          "time": 5.5,
           "velocity": 0.7
         },
         {
@@ -34,7 +34,7 @@
           "midi": 59,
           "note": "D5",
           "ticks": 288,
-          "time": 6,
+          "time": 7,
           "velocity": 0.7
         },
         {
@@ -43,7 +43,7 @@
           "midi": 57,
           "note": "C5",
           "ticks": 432,
-          "time": 7.5,
+          "time": 8.5,
           "velocity": 0.7
         },
         {
@@ -52,7 +52,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 576,
-          "time": 9,
+          "time": 10,
           "velocity": 0.7
         },
         {
@@ -61,7 +61,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 720,
-          "time": 15,
+          "time": 16,
           "velocity": 0.7
         },
         {
@@ -70,7 +70,7 @@
           "midi": 57,
           "note": "E5",
           "ticks": 864,
-          "time": 16.5,
+          "time": 17.5,
           "velocity": 0.7
         },
         {
@@ -79,7 +79,7 @@
           "midi": 59,
           "note": "D5",
           "ticks": 1008,
-          "time": 18,
+          "time": 19,
           "velocity": 0.7
         },
         {
@@ -88,7 +88,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1152,
-          "time": 19.5,
+          "time": 20.5,
           "velocity": 0.7
         },
         {
@@ -97,7 +97,7 @@
           "midi": 55,
           "note": "A4",
           "ticks": 1296,
-          "time": 21,
+          "time": 22,
           "velocity": 0.7
         },
         {
@@ -106,7 +106,7 @@
           "midi": 55,
           "note": "A4",
           "ticks": 1296,
-          "time": 27,
+          "time": 28,
           "velocity": 0.7
         },
         {
@@ -115,7 +115,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 28.5,
+          "time": 29.5,
           "velocity": 0.7
         },
         {
@@ -124,7 +124,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 0,
-          "time": 30,
+          "time": 31,
           "velocity": 0.7
         },
         {
@@ -133,7 +133,7 @@
           "midi": 57,
           "note": "D5",
           "ticks": 144,
-          "time": 31.5,
+          "time": 32.5,
           "velocity": 0.7
         },
         {
@@ -142,7 +142,7 @@
           "midi": 59,
           "note": "B4",
           "ticks": 288,
-          "time": 33,
+          "time": 34,
           "velocity": 0.7
         },
         {
@@ -151,7 +151,7 @@
           "midi": 57,
           "note": "G5",
           "ticks": 432,
-          "time": 39,
+          "time": 40,
           "velocity": 0.7
         },
         {
@@ -160,7 +160,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 576,
-          "time": 40.5,
+          "time": 41.5,
           "velocity": 0.7
         },
         {
@@ -169,7 +169,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 720,
-          "time": 42,
+          "time": 43,
           "velocity": 0.7
         },
         {
@@ -178,7 +178,7 @@
           "midi": 57,
           "note": "D5",
           "ticks": 864,
-          "time": 43.5,
+          "time": 44.5,
           "velocity": 0.7
         },
         {
@@ -187,7 +187,7 @@
           "midi": 59,
           "note": "E5",
           "ticks": 1008,
-          "time": 45,
+          "time": 46,
           "velocity": 0.7
         },
 
@@ -197,7 +197,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1152,
-          "time": 51,
+          "time": 52,
           "velocity": 0.7
         },
         {
@@ -206,7 +206,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 52.5,
+          "time": 53.5,
           "velocity": 0.7
         },
         {
@@ -215,7 +215,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 54,
+          "time": 55,
           "velocity": 0.7
         },
         {
@@ -224,7 +224,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 55.5,
+          "time": 56.5,
           "velocity": 0.7
         },
         {
@@ -233,7 +233,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1296,
-          "time": 57,
+          "time": 58,
           "velocity": 0.7
         },
         {
@@ -242,7 +242,7 @@
           "midi": 55,
           "note": "G4",
           "ticks": 1296,
-          "time": 63,
+          "time": 64,
           "velocity": 0.7
         },
         {
@@ -251,7 +251,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 64.5,
+          "time": 65.5,
           "velocity": 0.7
         },
         {
@@ -260,7 +260,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 66,
+          "time": 67,
           "velocity": 0.7
         },
         {
@@ -269,7 +269,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 67.5,
+          "time": 68.5,
           "velocity": 0.7
         },
         {
@@ -278,7 +278,7 @@
           "midi": 55,
           "note": "A4",
           "ticks": 1296,
-          "time": 69,
+          "time": 70,
           "velocity": 0.7
         },
 
@@ -288,7 +288,7 @@
           "midi": 55,
           "note": "A4",
           "ticks": 576,
-          "time": 75,
+          "time": 76,
           "velocity": 0.7
         },
         {
@@ -297,7 +297,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 720,
-          "time": 76.5,
+          "time": 77.5,
           "velocity": 0.7
         },
         {
@@ -306,7 +306,7 @@
           "midi": 57,
           "note": "E5",
           "ticks": 864,
-          "time": 78,
+          "time": 79,
           "velocity": 0.7
         },
         {
@@ -315,7 +315,7 @@
           "midi": 59,
           "note": "D5",
           "ticks": 1008,
-          "time": 79.5,
+          "time": 80.5,
           "velocity": 0.7
         },
         {
@@ -324,7 +324,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1152,
-          "time": 81,
+          "time": 82,
           "velocity": 0.7
         },
         {
@@ -333,7 +333,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 82.5,
+          "time": 83.5,
           "velocity": 0.7
         },
         {
@@ -342,7 +342,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 84,
+          "time": 85,
           "velocity": 0.7
         },
         {
@@ -351,7 +351,7 @@
           "midi": 55,
           "note": "A5",
           "ticks": 1296,
-          "time": 87,
+          "time": 88,
           "velocity": 0.7
         },
         {
@@ -360,7 +360,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 88.5,
+          "time": 89.5,
           "velocity": 0.7
         },
         {
@@ -369,7 +369,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 90,
+          "time": 91,
           "velocity": 0.7
         },
         {
@@ -378,7 +378,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 91.5,
+          "time": 92.5,
           "velocity": 0.7
         },
         {
@@ -387,7 +387,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 93,
+          "time": 94,
           "velocity": 0.7
         },
         {
@@ -396,7 +396,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 96,
+          "time": 97,
           "velocity": 0.7
         },
         {
@@ -405,7 +405,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 99,
+          "time": 100,
           "velocity": 0.7
         },
         {
@@ -414,7 +414,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 100.5,
+          "time": 101.5,
           "velocity": 0.7
         },
         {
@@ -423,7 +423,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 102,
+          "time": 103,
           "velocity": 0.7
         },
         {
@@ -432,7 +432,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 105,
+          "time": 106,
           "velocity": 0.7
         },
         {
@@ -441,7 +441,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 106.5,
+          "time": 107.5,
           "velocity": 0.7
         },
         {
@@ -450,7 +450,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 108,
+          "time": 109,
           "velocity": 0.7
         },
         {
@@ -459,7 +459,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 111,
+          "time": 112,
           "velocity": 0.7
         },
         {
@@ -468,7 +468,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 112.5,
+          "time": 113.5,
           "velocity": 0.7
         },
         {
@@ -477,7 +477,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 114,
+          "time": 115,
           "velocity": 0.7
         },
         {
@@ -486,7 +486,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 114.75,
+          "time": 115.75,
           "velocity": 0.7
         },
         {
@@ -495,7 +495,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 117,
+          "time": 118,
           "velocity": 0.7
         },
 
@@ -505,7 +505,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 123,
+          "time": 124,
           "velocity": 0.7
         },
         {
@@ -514,7 +514,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 124.5,
+          "time": 125.5,
           "velocity": 0.7
         },
         {
@@ -523,7 +523,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 126,
+          "time": 127,
           "velocity": 0.7
         },
         {
@@ -532,7 +532,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 128.25,
+          "time": 129.25,
           "velocity": 0.7
         },
         {
@@ -541,7 +541,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 129,
+          "time": 130,
           "velocity": 0.7
         },
         {
@@ -550,7 +550,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 130.5,
+          "time": 131.5,
           "velocity": 0.7
         },
         {
@@ -559,7 +559,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 132,
+          "time": 133,
           "velocity": 0.7
         },
         {
@@ -568,7 +568,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 134.25,
+          "time": 135.25,
           "velocity": 0.7
         },
         {
@@ -577,7 +577,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 135,
+          "time": 136,
           "velocity": 0.7
         },
         {
@@ -586,7 +586,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 136.5,
+          "time": 137.5,
           "velocity": 0.7
         },
         {
@@ -595,7 +595,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 138,
+          "time": 139,
           "velocity": 0.7
         },
         {
@@ -604,7 +604,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 139.5,
+          "time": 140.5,
           "velocity": 0.7
         },
         {
@@ -613,7 +613,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 141,
+          "time": 142,
           "velocity": 0.7
         },
         {
@@ -622,7 +622,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 144,
+          "time": 145,
           "velocity": 0.7
         },
         {
@@ -631,7 +631,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 147,
+          "time": 148,
           "velocity": 0.7
         },
         {
@@ -640,7 +640,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 148.5,
+          "time": 149.5,
           "velocity": 0.7
         },
         {
@@ -649,7 +649,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 150,
+          "time": 151,
           "velocity": 0.7
         },
         {
@@ -658,7 +658,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 153,
+          "time": 154,
           "velocity": 0.7
         },
         {
@@ -667,7 +667,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 154.5,
+          "time": 155.5,
           "velocity": 0.7
         },
         {
@@ -676,7 +676,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 156,
+          "time": 157,
           "velocity": 0.7
         },
         {
@@ -685,7 +685,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 159,
+          "time": 160,
           "velocity": 0.7
         },
         {
@@ -694,7 +694,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 160.5,
+          "time": 161.5,
           "velocity": 0.7
         },
         {
@@ -703,7 +703,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 162,
+          "time": 163,
           "velocity": 0.7
         },
         {
@@ -712,7 +712,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 164.25,
+          "time": 165.25,
           "velocity": 0.7
         },
         {
@@ -721,7 +721,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 165,
+          "time": 166,
           "velocity": 0.7
         },
         {
@@ -730,7 +730,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 171,
+          "time": 172,
           "velocity": 0.7
         },
         {
@@ -739,7 +739,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 172.5,
+          "time": 173.5,
           "velocity": 0.7
         },
         {
@@ -748,7 +748,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 174,
+          "time": 175,
           "velocity": 0.7
         },
         {
@@ -757,7 +757,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 176.25,
+          "time": 177.25,
           "velocity": 0.7
         },
         {
@@ -766,7 +766,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 177,
+          "time": 178,
           "velocity": 0.7
         },
         {
@@ -775,7 +775,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 178.5,
+          "time": 179.5,
           "velocity": 0.7
         },
         {
@@ -784,7 +784,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 180,
+          "time": 181,
           "velocity": 0.7
         },
         {
@@ -793,7 +793,7 @@
           "midi": 55,
           "note": "E5",
           "ticks": 1296,
-          "time": 182.25,
+          "time": 183.25,
           "velocity": 0.7
         },
         {
@@ -802,7 +802,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 183,
+          "time": 184,
           "velocity": 0.7
         },
         {
@@ -811,7 +811,7 @@
           "midi": 55,
           "note": "G5",
           "ticks": 1296,
-          "time": 184.5,
+          "time": 185.5,
           "velocity": 0.7
         },
         {
@@ -820,7 +820,7 @@
           "midi": 55,
           "note": "F5",
           "ticks": 1296,
-          "time": 186,
+          "time": 187,
           "velocity": 0.7
         },
         {
@@ -829,7 +829,7 @@
           "midi": 55,
           "note": "D5",
           "ticks": 1296,
-          "time": 187.5,
+          "time": 188.5,
           "velocity": 0.7
         },
         {
@@ -838,7 +838,7 @@
           "midi": 55,
           "note": "C5",
           "ticks": 1296,
-          "time": 189,
+          "time": 190,
           "velocity": 0.7
         },
         {
@@ -847,7 +847,7 @@
           "midi": 55,
           "note": "C6",
           "ticks": 1296,
-          "time": 192,
+          "time": 193,
           "velocity": 0.7
         }
       ]

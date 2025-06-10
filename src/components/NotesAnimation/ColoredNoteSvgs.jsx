@@ -66,7 +66,9 @@ const ColoredNoteSvgs = ({ noteName, width, height }) => {
       width={width}
       height={height}
       viewbox={viewBox}
-      style={{ fill: color }}
+      style={{
+        fill: color,
+      }}
     />
   );
 };

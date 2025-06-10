@@ -132,7 +132,10 @@ const NoteVisual = ({
           height={noteHeight}
           width="100%"
           className="h-full w-auto note-svg"
-          style={{ color: fillColor }}
+          style={{
+            color: fillColor,
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))',
+          }}
         />
       ) : (
         <div className="text-red-500">No image for {note}</div>
