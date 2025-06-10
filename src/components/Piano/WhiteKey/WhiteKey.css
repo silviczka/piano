@@ -61,6 +61,6 @@
 
 @media (hover: none) {
   .key.white {
-    background: linear-gradient(180deg, #FFFFFF 0.95%, #FFFFFF 97.37%) !important;
+    background: linear-gradient(180deg, #FFFFFF 0.95%, #FFFFFF 97.37%);
   }
 }
