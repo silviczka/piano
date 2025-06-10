@@ -47,7 +47,7 @@
   align-items: flex-start;
   overflow-y: auto;
   width: 100%;
-  padding: 2rem 0 2rem 2.5rem;
+  padding: 2rem 0 2rem 2rem;
 }
 
 .back-icon {
@@ -79,5 +79,7 @@
 
   }
 
-  .songs-wrapper {}
+  .songs-wrapper {
+    padding: 2rem 0 2rem 2.5rem;
+  }
 }

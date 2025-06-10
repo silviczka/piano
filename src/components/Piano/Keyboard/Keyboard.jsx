@@ -94,7 +94,15 @@ const Keyboard = ({
     if (note.includes("#")) {
       classToggle = "key-black__pressed";
     }
-    keyRefs.current[note]?.classList.toggle(classToggle);
+
+    keyRefs.current[note]?.classList.remove(classToggle);
+    if (keyRefs.current[note]?.classList.contains("white-key__simulated")) {
+      keyRefs.current[note]?.classList.toggle("white-key__simulated");
+    }
+
+    if (keyRefs.current[note]?.classList.contains("black-key__simulated")) {
+      keyRefs.current[note]?.classList.toggle("black-key__simulated");
+    }
   };
 
   const handleKeyUp = (event) => {
@@ -115,7 +123,10 @@ const Keyboard = ({
     onMouseDown: (e) => {
       handleInteractionStart(note);
     },
-    onTouchEnd: (e) => releaseNote(note),
+    onTouchEnd: (e) => {
+      console.log("ontouchend");
+      releaseNote(note);
+    },
   });
 
   useMidiNoteTrigger({
