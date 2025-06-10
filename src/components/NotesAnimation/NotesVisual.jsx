@@ -4,8 +4,8 @@ import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from '../../constants/constants';
 import { useEffect } from 'react';
 
 const notesYandSizeMap = {
-  C4: { y: -38, size: '40px', viewBox: '0 0 48 24' },
-  CSharp4: { y: -38, size: '40px', viewBox: '0 0 72 24' },
+  C4: { y: -47, size: '40px', viewBox: '0 0 48 24' },
+  CSharp4: { y: -47, size: '40px', viewBox: '0 0 72 24' },
   D4: { y: -36, size: '40px', viewBox: '0 0 48 24' },
   DSharp4: { y: -36, size: '40px', viewBox: '0 0 72 24' },
   E4: { y: -16, size: '32px', viewBox: '0 0 48 24' },
@@ -134,7 +134,7 @@ const NoteVisual = ({
           className="h-full w-auto note-svg"
           style={{
             color: fillColor,
-            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.2))',
+            filter: 'drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25))',
           }}
         />
       ) : (

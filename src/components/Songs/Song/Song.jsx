@@ -1,8 +1,17 @@
-import "./Song.css";
-import playIcon from "./img/play.svg";
-import formatDisplayedTime from "../../../utils/formatDisplayedTime";
+import './Song.css';
+import playIcon from './img/play.svg';
+import formatDisplayedTime from '../../../utils/formatDisplayedTime';
 
-const Song = ({ name, totalTime, img, onSongSelect, tracks, onSongClick }) => {
+const Song = ({
+  name,
+  totalTime,
+  img,
+  starImg,
+  stars,
+  onSongSelect,
+  tracks,
+  onSongClick,
+}) => {
   const handleSongSelect = () => {
     onSongClick();
     onSongSelect(name, tracks);
@@ -10,9 +19,18 @@ const Song = ({ name, totalTime, img, onSongSelect, tracks, onSongClick }) => {
 
   return (
     <div className="song" onClick={handleSongSelect}>
+      {/* <div className="song-img-wrapper"> */}
+      <img
+        className="song-star"
+        src={`/img/difficulty/${starImg}`}
+        alt={stars}
+      />
       <img className="song-img" src={`/img/songs/${img}`} alt={name} />
+      {/* </div> */}
+
       <div className="song-footer">
         <div>{formatDisplayedTime(totalTime)}</div>
+
         <div className="song-footer__select">
           <div> {name}</div>
           <img src={playIcon} alt="play-icon" />

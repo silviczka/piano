@@ -1,10 +1,19 @@
 .song {
   display: flex;
   flex-direction: column;
-
+  position: relative;
   transition: transform 0.3s;
   flex: 1;
+}
 
+.song-star {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.2rem;
+  width: auto;
+  /* height: 45px; */
+  height: 2.81rem;
 }
 
 .song-img {

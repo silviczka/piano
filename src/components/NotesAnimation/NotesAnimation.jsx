@@ -4,7 +4,7 @@ import HitZone from './HitZone';
 
 import './NotesAnimation.css';
 import './Stave.css';
-import Line from '../Line/Line';
+import Line from './Line/Line';
 import clef from './img/musicKey_bl.png';
 
 const NotesAnimation = ({

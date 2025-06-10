@@ -1,5 +1,5 @@
-import "./SongsMenu.css";
-import Song from "../Song/Song";
+import './SongsMenu.css';
+import Song from '../Song/Song';
 
 const SongsMenu = ({
   songs,
@@ -10,7 +10,7 @@ const SongsMenu = ({
   isFirstSongSelected,
 }) => {
   return (
-    <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
+    <div className={!isMenuOpen ? 'songs-menu__closed' : 'songs-menu__opened'}>
       <div className="songs">
         <div className="songs-header">
           {isFirstSongSelected && (
@@ -62,6 +62,8 @@ const SongsMenu = ({
                     song.tracks[0].events[song.tracks[0].events.length - 1].time
                   }
                   img={song.header.img}
+                  starImg={song.header.starImg}
+                  stars={song.header.stars}
                   onSongClick={onSongClick}
                   onSongSelect={onSongSelect}
                   tracks={song.tracks[0].events}

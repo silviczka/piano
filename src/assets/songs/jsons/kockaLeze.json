@@ -2,6 +2,8 @@
   "header": {
     "title": "Kočka leze dírou",
     "img": "kockalezedirou.webp",
+    "starImg": "2star.webp",
+    "stars": "2-stars",
     "mode": "normal",
     "format": 1,
     "numTracks": 1,

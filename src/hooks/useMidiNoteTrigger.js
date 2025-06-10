@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 const useMidiNoteTrigger = ({
   midiInput,
@@ -9,6 +9,7 @@ const useMidiNoteTrigger = ({
   onKeyInput,
 }) => {
   useEffect(() => {
+    console.log(midiInput);
     // if (!midiInput || isPaused || isResuming) return;
     if (!midiInput) return;
 

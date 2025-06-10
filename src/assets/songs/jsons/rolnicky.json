@@ -2,6 +2,8 @@
   "header": {
     "title": "Rolničky, rolničky",
     "img": "rolnicky.webp",
+    "starImg": "3star.webp",
+    "stars": "3-stars",
     "mode": "normal",
     "format": 1,
     "numTracks": 1,

@@ -2,6 +2,8 @@
   "header": {
     "title": "Skákal pes",
     "img": "skakalpes.webp",
+    "starImg": "1star.webp",
+    "stars": "1-star",
     "mode": "normal",
     "format": 1,
     "numTracks": 1,

@@ -2,6 +2,8 @@
   "header": {
     "title": "Jede jede mašinka",
     "img": "masinka.webp",
+    "starImg": "3star.webp",
+    "stars": "3-stars",
     "mode": "normal",
     "format": 1,
     "numTracks": 1,
