@@ -247,6 +247,8 @@ const GameLogic = ({ mode }) => {
     shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
   });
   useEffect(() => {
+    if (mode === "tutorial") return;
+
     const handleSpacePressed = (event) => {
       if (songTimeCountDown === 0 && !isPaused) {
         handleRestart();
