@@ -1,10 +1,10 @@
 .song {
   display: flex;
   flex-direction: column;
-  width: 30%;
+
   transition: transform 0.3s;
   flex: 1;
-  max-width: calc(100% / 3 - 2rem);
+
 }
 
 .song-img {
@@ -22,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--main-color-dark);
-  font-family: 'Happy Monkey', cursive;
+  font-family: var(--font-tertiary);
   color: white;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -43,4 +43,28 @@
 
 .songs-menu__closed .songs {
   display: none;
+}
+
+
+@media (max-width: 639px) {}
+
+@media (max-width: 1023px) {
+  .song {
+    width: 50%;
+    max-width: calc(100% - 4rem);
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .song {
+    width: 40%;
+    max-width: calc(100% / 2 - 2rem);
+  }
+}
+
+@media (min-width: 1200px) {
+  .song {
+    width: 30%;
+    max-width: calc(100% / 3 - 2rem);
+  }
 }

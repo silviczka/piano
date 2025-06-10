@@ -6,4 +6,4 @@ export const HITZONE_CENTER_PCT = 50; // Midpoint of the hit zone
 // SCORE
 export const SCORE = 1;
 
-export const COUNTDOWN_DURATION = 2;
+export const COUNTDOWN_DURATION = 3;

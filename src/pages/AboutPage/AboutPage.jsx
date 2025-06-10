@@ -1,6 +1,6 @@
 import "./AboutPage.css";
 import PageTemplate from "../../components/UI/PageTemplate/PageTemplate";
-import foxImg from "./img/sittingFox.svg";
+import foxImg from "./img/sittingFox.webp";
 
 const AboutPage = () => {
   return (
@@ -15,7 +15,7 @@ const AboutPage = () => {
         stolním počítači/laptopu s reálnou klaviaturou přes MIDI rozhraní.
       </p>
       <div className="about-text about-text__cursive">
-        Autorky: Silvia Stražovcová, Denisa Polesná
+        Autorky: Denisa Polesná, Silvia Stražovcová
       </div>
       <img className="menu-fox-img" src={foxImg} alt="sitting fox" />
     </PageTemplate>

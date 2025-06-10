@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "Rolničky, rolničky",
-    "img": "rolnicky.png",
+    "img": "rolnicky.webp",
+    "mode": "normal",
     "format": 1,
     "numTracks": 1,
     "ticksPerBeat": 480

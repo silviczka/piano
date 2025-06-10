@@ -27,21 +27,30 @@ const NavBar = ({
   onSongsMenuOpen,
   isMenuOpen,
   onMidiInput,
+  gameMode,
+  isFirstSongSelected,
 }) => {
   return (
     <nav className="game-nav">
       <HomeBtn className={"menu-icon"} />
-      <PlayPauseBtn
-        isPaused={isPaused}
-        secondsLeft={secondsLeft}
-        disabled={disabled}
-        onPauseClick={onPauseClick}
-      />
-      <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
-      <KeyBindLabelBtn
-        areKeyBindLabelsVisible={areKeyBindLabelsVisible}
-        onLabelClick={onKeyBindLabelClick}
-      />
+      {gameMode === "normal" && (
+        <PlayPauseBtn
+          isPaused={isPaused}
+          secondsLeft={secondsLeft}
+          disabled={disabled}
+          onPauseClick={onPauseClick}
+        />
+      )}
+
+      {gameMode === "normal" && (
+        <RestartBtn onRestartClick={onRestartClick} disabled={disabled} />
+      )}
+      {isMobile ? null : (
+        <KeyBindLabelBtn
+          areKeyBindLabelsVisible={areKeyBindLabelsVisible}
+          onLabelClick={onKeyBindLabelClick}
+        />
+      )}
       <NoteLabelBtn
         areNoteLabelsVisible={areNoteLabelsVisible}
         onLabelClick={onLabelClick}
@@ -50,14 +59,17 @@ const NavBar = ({
         onNoteColorClick={onNoteColorClick}
         areColorsEnabled={areColorsEnabled}
       />
-      <SongsBtn
-        onSongsMenuClick={onSongsMenuClick}
-        songs={songs}
-        onSongSelect={onSongSelect}
-        disabled={disabled}
-        onSongsMenuOpen={onSongsMenuOpen}
-        isMenuOpen={isMenuOpen}
-      />
+      {gameMode === "normal" && (
+        <SongsBtn
+          onSongsMenuClick={onSongsMenuClick}
+          songs={songs}
+          onSongSelect={onSongSelect}
+          disabled={disabled}
+          onSongsMenuOpen={onSongsMenuOpen}
+          isMenuOpen={isMenuOpen}
+          isFirstSongSelected={isFirstSongSelected}
+        />
+      )}
       {isMobile ? null : <MidiListener onMidiInput={onMidiInput} />}
     </nav>
   );

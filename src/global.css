@@ -11,12 +11,13 @@
   --main-color-dark: rgba(11, 159, 175, 1);
   --main-color-overlay: rgba(0, 0, 0, 0.6);
   --main-color-dark-hover: rgb(7, 124, 137);
-  --background-image-desktop: url('/img/background/mainMenuDesktop.png');
-  --background-image-mobile: url('/img/background/mainMenuMobile.png');
+  --background-image-desktop: url('/img/background/mainMenuDesktop.webp');
+  --background-image-mobile: url('/img/background/mainMenuMobile.webp');
   --text-color: white;
   --text-color-dark: rgba(38, 45, 66, 1);
   --font-main: 'Fredoka One', sans-serif;
-  --font-secondary: 'Happy Monkey', cursive;
+  /* --font-secondary: 'Happy Monkey', cursive; */
+  --font-secondary: 'Quicksand', sans-serif;
   --font-tertiary: 'Quicksand', sans-serif;
   --font-quaternary: 'Titan One', cursive;
   --radius: 8px;

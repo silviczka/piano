@@ -12,6 +12,7 @@ const useSongSwitcher = ({
   restartBtnClickedRef,
   setIsResuming,
   togglePause,
+  mode,
 }) => {
   const loadAndPlaySong = async (songName, songTracks) => {
     stopSong();

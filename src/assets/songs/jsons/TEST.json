@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "test_NENÍ PRO UŽIVATELE",
-    "img": "kockalezedirou.png",
+    "img": "kockalezedirou.webp",
+    "mode": "tutorial",
     "format": 1,
     "numTracks": 1,
     "ticksPerBeat": 480

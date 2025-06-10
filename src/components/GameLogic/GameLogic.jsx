@@ -16,8 +16,10 @@ import useSongSwitcher from "../../hooks/useSongSwitcher";
 import usePlaybackTimer from "../../hooks/usePlaybackTimer";
 import ScoreFeedback from "../UI/ScoreFeedback/ScoreFeedback";
 import useNoteScoring from "../../hooks/useNoteScoring";
+import { isMobile } from "react-device-detect";
+import spawnRandomNote from "../../utils/spawnRandomNote";
 
-const GameLogic = () => {
+const GameLogic = ({ mode }) => {
   const [notes, setNotes] = useState([]);
   const noteRefs = useRef({});
   const resumeTimeoutRef = useRef(null);
@@ -41,7 +43,30 @@ const GameLogic = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [feedback, setFeedback] = useState("");
   const [midiInput, setMidiInput] = useState(null);
+  const [noteTutorialInput, setNoteTutorialInput] = useState(null);
   const [restartBtnClicked, setIsRestartedClicked] = useState(false);
+  const lastSpawnTutorial = useRef(null);
+  const [isFirstSongSelected, setIsFirstSongSelected] = useState(false); // Hide the back button on the initial song selection screen
+
+  useEffect(() => {
+    if (mode === "tutorial") setIsMenuOpen(false);
+  }, []);
+
+  const { markNoteAsHit } = spawnRandomNote({ setNotes, lastSpawnTutorial });
+
+  useEffect(() => {
+    if (mode === "tutorial") {
+      const tutorialSong = songList.filter(
+        (song) => song.header.mode === "tutorial",
+      );
+      if (tutorialSong.length === 0) return;
+      handleRestart();
+      handleSongSelect(
+        tutorialSong[0].header.title,
+        tutorialSong[0].tracks[0].events,
+      );
+    }
+  }, [songList]);
 
   const toggleKeyBindLabels = () => setKeyBindLabelsVisible((prev) => !prev);
   const toggleNoteColors = () => setShowNoteColors((prev) => !prev);
@@ -65,6 +90,10 @@ const GameLogic = () => {
       return !prev;
     });
   };
+
+  useEffect(() => {
+    if (isMobile) setKeyBindLabelsVisible(false);
+  }, []);
 
   const togglePause = () => {
     if (songTimeCountDown === 0 && !isPaused && !restartBtnClickedRef.current) {
@@ -108,6 +137,18 @@ const GameLogic = () => {
     setCurrentPlaybackTime,
   });
 
+  const handleTutorialNoteHit = () => {
+    /* const tutorialSong = songList.filter(
+      (song) => song.header.mode === "tutorial",
+    );
+    if (tutorialSong.length === 0) return;
+    handleRestart();
+    handleSongSelect(
+      tutorialSong[0].header.title,
+      tutorialSong[0].tracks[0].events,
+    ); */
+  };
+
   const { evaluateNoteHit } = useNoteScoring({
     notes,
     notePositions,
@@ -118,10 +159,18 @@ const GameLogic = () => {
     noteRefs,
     setScore,
     setFeedback,
+    markNoteAsHit,
+    mode,
+    handleTutorialNoteHit,
+    isPaused,
   });
 
   const handleKeyInput = (note) => {
     evaluateNoteHit(note);
+  };
+
+  const handleNoteCompletionTutorial = (note) => {
+    setNoteTutorialInput(note);
   };
 
   const handleSongsMenuClick = () => {
@@ -129,10 +178,11 @@ const GameLogic = () => {
   };
 
   useEffect(() => {
-    loadSongList(setLoadedSong, setSongList);
+    loadSongList(setLoadedSong, setSongList, mode);
   }, []);
 
   const handleSongSelect = (songName, songTrack) => {
+    setIsFirstSongSelected(true);
     setNotes([]);
     handleRestart();
     loadAndPlaySong(songName, songTrack);
@@ -152,6 +202,8 @@ const GameLogic = () => {
       playbackStartRef.current = now;
       setCurrentPlaybackTime(0);
       hasStartedRef.current = true;
+      lastSpawnTutorial.current = Date.now();
+
       // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
       // console.log("Playing song at time:", currentPlaybackTime);
       playSong(loadedSong, 0);
@@ -176,8 +228,9 @@ const GameLogic = () => {
   };
 
   // Hook for playing/stopping songs
-  const { playSong, stopSong } = useSongPlayer({
+  const { playSong, stopSong, getCurrentPlaybackTime } = useSongPlayer({
     setNotes,
+    mode,
   });
 
   const { loadAndPlaySong } = useSongSwitcher({
@@ -191,9 +244,12 @@ const GameLogic = () => {
     restartBtnClickedRef,
     setIsResuming,
     togglePause,
+    mode,
     shouldAutoPlay: false, //to be decided if we want rigth after song selection to autoplay it
   });
   useEffect(() => {
+    if (mode === "tutorial") return;
+
     const handleSpacePressed = (event) => {
       if (songTimeCountDown === 0 && !isPaused) {
         handleRestart();
@@ -227,7 +283,11 @@ const GameLogic = () => {
   return (
     <div className="game-page">
       <div className="game-header">
-        <SongDetail name={loadedSong?.name} time={songTimeCountDown} />
+        <SongDetail
+          name={loadedSong?.name}
+          time={songTimeCountDown}
+          gameMode={mode}
+        />
         <NavBar
           areKeyBindLabelsVisible={areKeyBindLabelsVisible}
           onKeyBindLabelClick={toggleKeyBindLabels}
@@ -246,26 +306,30 @@ const GameLogic = () => {
           onSongsMenuOpen={toggleSongsMenuOpen}
           isMenuOpen={isMenuOpen}
           onMidiInput={setMidiInput}
+          gameMode={mode}
+          isFirstSongSelected={isFirstSongSelected}
         />
         <ScoreDetail score={score} />
       </div>
-
       <Timer
         totalTime={loadedSong?.totalTime}
         isPaused={isPaused}
         onSongCountDown={setsongTimeCountDown}
         isRestarted={isRestarted}
         onRestart={setIsRestarted}
+        gameMode={mode}
       />
       <NotesAnimation
         notes={notes}
         handleNoteCompletion={handleNoteCompletion}
+        handleNoteCompletionTutorial={handleNoteCompletionTutorial}
         updateNotePosition={updateNotePosition}
         noteRefs={noteRefs}
         hitZoneCenter={hitZoneCenter}
         currentPlaybackTime={currentPlaybackTime}
         isPaused={isPaused}
         isRestarted={isRestarted}
+        gameMode={mode}
       />
       <Keyboard
         areColorsVisible={showNoteColors}
@@ -273,6 +337,10 @@ const GameLogic = () => {
         areNoteLabelsVisible={areNoteLabelsVisible}
         onKeyInput={handleKeyInput}
         midiInput={midiInput}
+        tutorialInput={noteTutorialInput}
+        gameMode={mode}
+        onTutorialNoteHit={handleTutorialNoteHit}
+        setNoteTutorialInput={setNoteTutorialInput}
       />
       <OverlayScreens
         isPaused={isPaused}
@@ -284,8 +352,15 @@ const GameLogic = () => {
         onSongsMenuOpen={toggleSongsMenuOpenn}
         notesNum={loadedSong?.notes.length}
         restartBtnClicked={restartBtnClicked}
+        gameMode={mode}
       />
       {feedback !== "" && <ScoreFeedback feedback={feedback} />}
+      {isMobile && !isMenuOpen && (
+        <div className="rotate-message">Otoč mobilní zařízení na šířku.</div>
+      )}
+      {!isMobile && !isMenuOpen && (
+        <div className="rotate-message">Roztáhni okno prohlížeče.</div>
+      )}
     </div>
   );
 };

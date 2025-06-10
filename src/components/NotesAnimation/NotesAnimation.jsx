@@ -10,11 +10,13 @@ import clef from './img/musicKey_bl.png';
 const NotesAnimation = ({
   notes,
   handleNoteCompletion,
+  handleNoteCompletionTutorial,
   noteRefs,
   hitZoneCenter,
   currentPlaybackTime,
   isPaused,
   isRestarted,
+  gameMode,
 }) => {
   return (
     <div className="game-area">
@@ -37,11 +39,13 @@ const NotesAnimation = ({
                         id={id}
                         noteRef={noteRefs}
                         onComplete={handleNoteCompletion}
+                        onCompleteTutorial={handleNoteCompletionTutorial}
                         currentPlaybackTime={currentPlaybackTime}
                         scheduledJsonTime={scheduledJsonTime}
                         hitZoneCenter={hitZoneCenter}
                         isPaused={isPaused}
                         isRestarted={isRestarted}
+                        gameMode={gameMode}
                       />
                     );
                   })}

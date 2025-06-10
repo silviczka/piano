@@ -14,6 +14,8 @@
   width: 23rem;
   font-size: 1.4rem;
   gap: 1rem;
+  z-index: 999;
+  max-height: 95%;
 }
 
 .end-game-buttons {
@@ -86,6 +88,12 @@
 
 
 @media (max-width: 640px) {
+  .end-game-img {
+    height: 10rem;
+  }
+}
+
+@media (hover: none) and (max-width: 1000px) {
   .end-game-img {
     height: 10rem;
   }

@@ -10,8 +10,13 @@ const useNoteScoring = ({
   noteRefs,
   setScore,
   setFeedback,
+  markNoteAsHit,
+  mode,
+  handleTutorialNoteHit,
+  isPaused,
 }) => {
   const evaluateNoteHit = (note) => {
+    if (isPaused) return;
     if (note.includes("#")) {
       note = note.replace("#", "Sharp");
     }
@@ -36,6 +41,12 @@ const useNoteScoring = ({
     });
     const noteColor = getNoteColor(matchedNote.note);
     setFeedback(noteColor);
+    if (mode === "tutorial") {
+      markNoteAsHit();
+      setTimeout(() => {
+        handleTutorialNoteHit();
+      }, 500);
+    }
     setTimeout(() => setFeedback(""), 1000);
     setNotes((prevNotes) => prevNotes.filter((n) => n.id !== matchedNote.id));
     setNotePositions((prev) => {

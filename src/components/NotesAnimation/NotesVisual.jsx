@@ -35,12 +35,14 @@ const NoteVisual = ({
   note,
   id,
   onComplete,
+  onCompleteTutorial,
   noteRef,
   currentPlaybackTime,
   scheduledJsonTime,
   hitZoneCenter,
   isPaused,
   isRestarted,
+  gameMode,
 }) => {
   // const screen = useScreenSize();
   const controls = useAnimation();
@@ -53,7 +55,14 @@ const NoteVisual = ({
   } = notesYandSizeMap[note] || {};
 
   const spawnX = '100vw'; // start from right offscreen
-  const hitZoneX = `${7}rem`;
+  let hitZoneX = `${7}rem`;
+
+  if (gameMode === 'tutorial') {
+    hitZoneX = `${hitZoneCenter}px`;
+  }
+
+  // const noteHeight = noteSizeMap[note] || "10vh";
+  // const bottom = `${noteYMap[note] || 10}%`;
 
   const entry = noteSvgs[note];
   const SvgNote = entry?.note;
@@ -101,11 +110,12 @@ const NoteVisual = ({
       ref={(el) => (noteRef.current[id] = el)}
       initial={initial}
       animate={controls}
-      // exit={exit}
       transition={transition}
       onAnimationComplete={() => {
-        if (!isPaused) {
+        if (!isPaused && gameMode === 'normal') {
           onComplete(id);
+        } else if (gameMode === 'tutorial') {
+          onCompleteTutorial(note);
         }
       }}
       className="absolute z-40 object-contain motion-wrapper"

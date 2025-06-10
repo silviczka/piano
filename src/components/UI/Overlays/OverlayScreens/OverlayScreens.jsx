@@ -2,8 +2,8 @@ import OverlayScreen from "../OverlayScreen/OverlayScreen";
 import CountdownScreen from "../CountDownScreen/CountDownScreen";
 import { COUNTDOWN_DURATION } from "../../../../constants/constants";
 import { useEffect, useState } from "react";
-import playIcon from "./img/playBtnBig.png";
-import foxEnd from "./img/foxEnd.png";
+import playIcon from "./img/playBtnBig.webp";
+import foxEnd from "./img/foxEnd.webp";
 import "./OverlayScreens.css";
 
 const OverlayScreens = ({
@@ -15,6 +15,7 @@ const OverlayScreens = ({
   onRestartClick,
   onSongsMenuOpen,
   notesNum,
+  gameMode,
   restartBtnClicked,
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -23,7 +24,7 @@ const OverlayScreens = ({
     if (songTimeCountDown === 0) {
       const timeoutId = setTimeout(() => {
         setShowOverlay(true);
-      }, 3500);
+      }, 1500);
 
       return () => clearTimeout(timeoutId);
     } else {
@@ -38,7 +39,7 @@ const OverlayScreens = ({
   return (
     <>
       {isPaused && !isResuming && (
-        <OverlayScreen>
+        <OverlayScreen zIndex={99}>
           <img
             src={playIcon}
             alt="playIcon"
@@ -48,12 +49,12 @@ const OverlayScreens = ({
         </OverlayScreen>
       )}
       {isResuming && (
-        <OverlayScreen>
+        <OverlayScreen zIndex={99}>
           <CountdownScreen duration={COUNTDOWN_DURATION} />
         </OverlayScreen>
       )}
-      {showOverlay && (
-        <OverlayScreen>
+      {gameMode === "normal" && showOverlay && (
+        <OverlayScreen zIndex={101}>
           <div className="end-game-wrapper">
             <div>Konec hry.</div>
             <div className="end-game-score-wrapper">

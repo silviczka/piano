@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "Běží liška k táboru",
-    "img": "liska.png",
+    "img": "liska.webp",
+    "mode": "normal",
     "format": 1,
     "numTracks": 1,
     "ticksPerBeat": 480
