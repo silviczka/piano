@@ -32,3 +32,10 @@
   z-index: 1;
   transition: width 0.1s linear;
 }
+
+
+@media (hover: none) {
+  .timer-wrapper:has(> .timer-container-disabled) {
+    flex: 0 0 0;
+  }
+}
