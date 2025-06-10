@@ -60,7 +60,7 @@
 }
 
 @media (hover: none) {
-  .key.white {
+  .key.white:not(.white-key__simulated) {
     background: linear-gradient(180deg, #FFFFFF 0.95%, #FFFFFF 97.37%) !important;
   }
 }

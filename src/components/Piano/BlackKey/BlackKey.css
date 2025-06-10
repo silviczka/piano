@@ -34,7 +34,7 @@
 }
 
 @media (hover: none) {
-  .key.black {
+  .key.black:not(.black-key__simulated) {
     background: linear-gradient(165.19deg, #232A3D 0.7%, #323A56 84.98%) !important;
   }
 }
