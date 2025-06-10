@@ -1,8 +1,11 @@
-import './NotesAnimation.css';
 import { AnimatePresence } from 'motion/react';
-import Stave from '../Stave/Stave';
 import NotesVisual from './NotesVisual';
 import HitZone from './HitZone';
+
+import './NotesAnimation.css';
+import './Stave.css';
+import Line from '../Line/Line';
+import clef from './img/musicKey_bl.png';
 
 const NotesAnimation = ({
   notes,
@@ -17,34 +20,42 @@ const NotesAnimation = ({
     <div className="game-area">
       <div className="music-stave-container">
         <div className="stave">
-          <Stave />
+          <div className="lines">
+            <Line />
+            <Line />
+            <Line />
+            <Line />
+            <Line />
+            <div className="notes-wrapper">
+              {!isRestarted && (
+                <AnimatePresence>
+                  {notes.map(({ note, id, scheduledJsonTime }) => {
+                    return (
+                      <NotesVisual
+                        key={id}
+                        note={note}
+                        id={id}
+                        noteRef={noteRefs}
+                        onComplete={handleNoteCompletion}
+                        currentPlaybackTime={currentPlaybackTime}
+                        scheduledJsonTime={scheduledJsonTime}
+                        hitZoneCenter={hitZoneCenter}
+                        isPaused={isPaused}
+                        isRestarted={isRestarted}
+                      />
+                    );
+                  })}
+                </AnimatePresence>
+              )}
+            </div>
+            <div className="clef">
+              <img src={clef} alt="musicKey" />
+            </div>
+          </div>
         </div>
 
         <div className="hitzone">
           <HitZone hitZoneCenter={hitZoneCenter} />
-        </div>
-
-        <div className="notes-wrapper">
-          {!isRestarted && (
-            <AnimatePresence>
-              {notes.map(({ note, id, scheduledJsonTime }) => {
-                return (
-                  <NotesVisual
-                    key={id}
-                    note={note}
-                    id={id}
-                    noteRef={noteRefs}
-                    onComplete={handleNoteCompletion}
-                    currentPlaybackTime={currentPlaybackTime}
-                    scheduledJsonTime={scheduledJsonTime}
-                    hitZoneCenter={hitZoneCenter}
-                    isPaused={isPaused}
-                    isRestarted={isRestarted}
-                  />
-                );
-              })}
-            </AnimatePresence>
-          )}
         </div>
       </div>
     </div>

@@ -62,7 +62,12 @@ const ColoredNoteSvgs = ({ noteName, width, height }) => {
 
   return (
     // NoteComponent is an imported SVG as a React component (via ?react)
-    <NoteComponent width={width} height={height} style={{ fill: color }} />
+    <NoteComponent
+      width={width}
+      height={height}
+      viewbox={viewBox}
+      style={{ fill: color }}
+    />
   );
 };
 

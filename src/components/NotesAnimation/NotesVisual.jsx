@@ -3,36 +3,33 @@ import { noteSvgs } from './ColoredNoteSvgs';
 import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from '../../constants/constants';
 import { useEffect } from 'react';
 
-const noteYMap = {
-  C4: 17,
-  CSharp4: 17,
-  D4: 20,
-  DSharp4: 20,
-  E4: 24,
-  F4: 27.5,
-  FSharp4: 27.5,
-  G4: 30.5,
-  GSharp4: 30.5,
-  A4: 34,
-  ASharp4: 34,
-  B4: 37,
-  C5: 40,
-  CSharp5: 40,
-  D5: 43.5,
-  DSharp5: 43.5,
-  E5: 47,
-  F5: 50,
-  FSharp5: 50,
-  G5: 53,
-  GSharp5: 53,
-  A5: 56,
-  ASharp5: 56,
-  B5: 59.5,
-  C6: 46.5,
+const notesYandSizeMap = {
+  C4: { y: -38, size: '40px', viewBox: '0 0 48 24' },
+  CSharp4: { y: -38, size: '40px', viewBox: '0 0 72 24' },
+  D4: { y: -36, size: '40px', viewBox: '0 0 48 24' },
+  DSharp4: { y: -36, size: '40px', viewBox: '0 0 72 24' },
+  E4: { y: -16, size: '32px', viewBox: '0 0 48 24' },
+  F4: { y: 0, size: '32px', viewBox: '0 0 48 24' },
+  FSharp4: { y: -3, size: '40px', viewBox: '0 0 72 24' },
+  G4: { y: 16, size: '32px', viewBox: '0 0 48 24' },
+  GSharp4: { y: 12, size: '40px', viewBox: '0 0 72 24' },
+  A4: { y: 32, size: '32px', viewBox: '0 0 48 24' },
+  ASharp4: { y: 28, size: '40px', viewBox: '0 0 72 24' },
+  B4: { y: 48, size: '32px', viewBox: '0 0 48 24' },
+  C5: { y: 62, size: '32px', viewBox: '0 0 48 24' },
+  CSharp5: { y: 58, size: '40px', viewBox: '0 0 72 24' },
+  D5: { y: 79, size: '32px', viewBox: '0 0 48 24' },
+  DSharp5: { y: 74, size: '40px', viewBox: '0 0 72 24' },
+  E5: { y: 94, size: '32px', viewBox: '0 0 48 24' },
+  F5: { y: 110, size: '32px', viewBox: '0 0 48 24' },
+  FSharp5: { y: 107, size: '40px', viewBox: '0 0 72 24' },
+  G5: { y: 126, size: '32px', viewBox: '0 0 48 24' },
+  GSharp5: { y: 123, size: '40px', viewBox: '0 0 72 24' },
+  A5: { y: 138, size: '40px', viewBox: '0 0 48 24' },
+  ASharp5: { y: 135, size: '40px', viewBox: '0 0 72 24' },
+  B5: { y: 143, size: '40px', viewBox: '0 0 48 24' },
+  C6: { y: 131, size: '80px', viewBox: '0 0 72 48' },
 };
-
-const noteSizeMap = { C6: '19.5vh' }; //svg of bigger size
-const spawnX = '100vw'; // start from right offscreen
 
 const NoteVisual = ({
   note,
@@ -45,16 +42,18 @@ const NoteVisual = ({
   isPaused,
   isRestarted,
 }) => {
+  // const screen = useScreenSize();
   const controls = useAnimation();
 
-  // const noteWidth = noteRef.current[id]?.offsetWidth || 0;
-  // const noteCenter = noteWidth / 2;
-  // const hitZoneX = `${hitZoneCenter - HIT_THRESHOLD + noteCenter}px`;
-  // const hitZoneX = `${hitZoneCenter}px`;
-  const hitZoneX = `${7}rem`;
+  // fallback if note missing
+  const {
+    y: bottomValue = 0,
+    size: noteHeight = '40px',
+    viewBox = '0 0 48 24',
+  } = notesYandSizeMap[note] || {};
 
-  const noteHeight = noteSizeMap[note] || '8.5vh';
-  const bottom = `${noteYMap[note] || 10}%`;
+  const spawnX = '100vw'; // start from right offscreen
+  const hitZoneX = `${7}rem`;
 
   const entry = noteSvgs[note];
   const SvgNote = entry?.note;
@@ -88,7 +87,6 @@ const NoteVisual = ({
   if (!shouldSpawn) return null;
 
   const initial = { left: spawnX };
-  // const exit = { left: "-100vw", transition: { duration: 3 } };
 
   const exit = {
     left: `${7}rem`,
@@ -113,15 +111,18 @@ const NoteVisual = ({
       className="absolute z-40 object-contain motion-wrapper"
       style={{
         height: noteHeight,
-        bottom,
+        bottom: `${bottomValue}px`,
         position: 'absolute',
         transform: 'translateX(-50%)',
       }}
     >
       {SvgNote ? (
         <SvgNote
+          viewBox={viewBox}
+          height={noteHeight}
+          width="auto"
           className="h-full w-auto note-svg"
-          style={{ color: fillColor, width: 'auto', height: '50%' }}
+          style={{ color: fillColor }}
         />
       ) : (
         <div className="text-red-500">No image for {note}</div>
