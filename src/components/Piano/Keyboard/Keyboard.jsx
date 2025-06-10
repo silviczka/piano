@@ -97,11 +97,11 @@ const Keyboard = ({
 
     keyRefs.current[note]?.classList.remove(classToggle);
     if (keyRefs.current[note]?.classList.contains("white-key__simulated")) {
-      keyRefs.current[note]?.classList.toggle("white-key__simulated");
+      keyRefs.current[note]?.classList.remove("white-key__simulated");
     }
 
     if (keyRefs.current[note]?.classList.contains("black-key__simulated")) {
-      keyRefs.current[note]?.classList.toggle("black-key__simulated");
+      keyRefs.current[note]?.classList.remove("black-key__simulated");
     }
   };
 
