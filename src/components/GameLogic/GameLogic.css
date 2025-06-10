@@ -44,3 +44,9 @@
     padding: 1rem;
   }
 }
+
+@media (hover: none) and (max-width: 1000px) {
+  .game-header {
+    font-size: 0.8rem;
+  }
+}

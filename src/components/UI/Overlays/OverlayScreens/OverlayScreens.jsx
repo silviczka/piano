@@ -24,7 +24,7 @@ const OverlayScreens = ({
     if (songTimeCountDown === 0) {
       const timeoutId = setTimeout(() => {
         setShowOverlay(true);
-      }, 3500);
+      }, 1500);
 
       return () => clearTimeout(timeoutId);
     } else {
@@ -39,7 +39,7 @@ const OverlayScreens = ({
   return (
     <>
       {isPaused && !isResuming && (
-        <OverlayScreen>
+        <OverlayScreen zIndex={99}>
           <img
             src={playIcon}
             alt="playIcon"
@@ -49,12 +49,12 @@ const OverlayScreens = ({
         </OverlayScreen>
       )}
       {isResuming && (
-        <OverlayScreen>
+        <OverlayScreen zIndex={99}>
           <CountdownScreen duration={COUNTDOWN_DURATION} />
         </OverlayScreen>
       )}
       {gameMode === "normal" && showOverlay && (
-        <OverlayScreen>
+        <OverlayScreen zIndex={101}>
           <div className="end-game-wrapper">
             <div>Konec hry.</div>
             <div className="end-game-score-wrapper">

@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   background-color: var(--main-color-overlay);
-  z-index: 99;
+  z-index: var(--zIndex-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
