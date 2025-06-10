@@ -87,3 +87,12 @@
 @media (min-width: 640px) and (max-width: 1023px) {}
 
 @media (min-width: 1024px) and (max-width: 1200px) {}
+
+
+@media (hover: none) {
+  .template-wrapper {
+    height: 60%;
+    font-size: 1rem;
+    width: 80%;
+  }
+}

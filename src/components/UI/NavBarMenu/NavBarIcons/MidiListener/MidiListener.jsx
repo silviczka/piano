@@ -22,6 +22,7 @@ const MidiListener = ({ onMidiInput }) => {
 
     const noteNumber = event.data[1];
     const note = getNoteyNameByMidiNumber(noteNumber);
+    if (note === null) return;
     const noteName = note.note;
     if (noteName === null) return;
     onMidiInput({ noteName, isMidiPressed });
