@@ -203,14 +203,10 @@ const GameLogic = ({ mode }) => {
       setCurrentPlaybackTime(0);
       hasStartedRef.current = true;
       lastSpawnTutorial.current = Date.now();
-
-      // console.log("PlaybackStartRef before setting:", playbackStartRef.current);
-      // console.log("Playing song at time:", currentPlaybackTime);
       playSong(loadedSong, 0);
     } else {
       // Resuming — offset playback start to preserve currentPlaybackTime
       playbackStartRef.current = now - currentPlaybackTime * 1000;
-      // console.log("Resuming song from", currentPlaybackTime, "seconds");
       playSong(loadedSong, currentPlaybackTime);
     }
   };

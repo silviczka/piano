@@ -52,7 +52,6 @@ const spawnRandomNote = ({
 
     const now = Date.now();
     const timeSinceLastSpawn = (now - lastSpawnTutorial.current) / 1000;
-    // console.log("Time since last spawn:", timeSinceLastSpawn.toFixed(2), "s");
     if (!isFirstNote) timeToSpawn = timeSinceLastSpawn + 4;
 
     const note = getRandomNote();

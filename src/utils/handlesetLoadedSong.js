@@ -14,7 +14,6 @@ const handlesetLoadedSong = async (songName, songTracks, setLoadedSong) => {
       totalTime: songTracks[songTracks.length - 1].time,
     };
     setLoadedSong(transformedSong);
-    // console.log("Loaded song:", transformedSong);
   } catch (error) {
     console.error("Failed to load song:", error);
     setLoadedSong(null);

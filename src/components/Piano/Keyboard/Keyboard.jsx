@@ -121,7 +121,6 @@ const Keyboard = ({
 
   const handleTouchStart = (note) => {
     if (note === undefined) return;
-    console.log("touch");
 
     let classToggle = "white-key_touch";
     if (note.includes("#")) {
