@@ -10,7 +10,7 @@ const SongDetail = ({ name, time, gameMode }) => {
           <div className="song-detail__time"> {formatDisplayedTime(time)}</div>
         </>
       ) : (
-        <div className="song-detail__name">Tutoriál</div>
+        <div className="song-detail__name">Tréninková hra</div>
       )}
     </div>
   );

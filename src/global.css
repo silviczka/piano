@@ -16,7 +16,8 @@
   --text-color: white;
   --text-color-dark: rgba(38, 45, 66, 1);
   --font-main: 'Fredoka One', sans-serif;
-  --font-secondary: 'Happy Monkey', cursive;
+  /* --font-secondary: 'Happy Monkey', cursive; */
+  --font-secondary: 'Quicksand', sans-serif;
   --font-tertiary: 'Quicksand', sans-serif;
   --font-quaternary: 'Titan One', cursive;
   --radius: 8px;

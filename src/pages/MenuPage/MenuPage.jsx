@@ -8,7 +8,7 @@ const MenuPage = () => (
       <h1 className="menu-header">Piano Game</h1>
       <nav className="menu-options">
         <ModernLink to="/game" label="Hrát" className="menu-button" />
-        <ModernLink to="/tutorial" label="Tutoriál" className="menu-button" />
+        <ModernLink to="/tutorial" label="Trénink" className="menu-button" />
         <ModernLink to="/about" label="O projektu" className="menu-button" />
       </nav>
     </div>

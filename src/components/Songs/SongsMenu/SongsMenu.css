@@ -13,11 +13,12 @@
 }
 
 .songs-title {
-  font-family: 'Titan One', cursive;
+  font-family: var(--font-quaternary);
   font-size: 2rem;
   color: #262D42;
   padding: 2rem;
   background-color: #D0F0EF;
+  text-align: center;
 }
 
 .songs-header {
@@ -46,7 +47,7 @@
   align-items: flex-start;
   overflow-y: auto;
   width: 100%;
-  padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 2rem 2.5rem;
 }
 
 .back-icon {
@@ -77,4 +78,6 @@
     align-items: center;
 
   }
+
+  .songs-wrapper {}
 }

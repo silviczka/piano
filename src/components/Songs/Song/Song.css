@@ -22,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--main-color-dark);
-  font-family: 'Happy Monkey', cursive;
+  font-family: var(--font-tertiary);
   color: white;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
