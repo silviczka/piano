@@ -34,9 +34,13 @@
   background: linear-gradient(180deg, #FFFFFF 60%, var(--key-color) 100%);
 }
 
+.key-wrapper:hover .key.white.white-key_touch {
+  background: linear-gradient(180deg, #FFFFFF 60%, var(--key-color) 100%) !important;
+}
+
 .key-wrapper:hover .key.white,
 .key-wrapper:hover .key-extension {
-  box-shadow: none;
+  /* box-shadow: none; */
 }
 
 .key-wrapper:hover .key-extension {
@@ -53,4 +57,10 @@
   transform: scaleY(0.80);
   box-shadow: none;
   filter: brightness(0.8);
+}
+
+@media (hover: none) {
+  .key.white {
+    background: linear-gradient(180deg, #FFFFFF 0.95%, #FFFFFF 97.37%) !important;
+  }
 }

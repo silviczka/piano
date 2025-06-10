@@ -119,13 +119,32 @@ const Keyboard = ({
     onKeyInput(note);
   };
 
+  const handleTouchStart = (note) => {
+    if (note === undefined) return;
+    console.log("touch");
+
+    let classToggle = "white-key_touch";
+    if (note.includes("#")) {
+      classToggle = "black-key_touch";
+    }
+
+    keyRefs.current[note]?.classList.add(classToggle);
+  };
+
   const getHandlers = (note) => ({
     onMouseDown: (e) => {
       handleInteractionStart(note);
     },
+    onTouchStart: (e) => {
+      handleTouchStart(note);
+    },
     onTouchEnd: (e) => {
-      console.log("ontouchend");
       releaseNote(note);
+      let classToggle = "white-key_touch";
+      if (note.includes("#")) {
+        classToggle = "black-key_touch";
+      }
+      keyRefs.current[note]?.classList.remove(classToggle);
     },
   });
 

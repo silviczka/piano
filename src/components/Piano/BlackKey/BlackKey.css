@@ -28,3 +28,13 @@
 .key.black:focus {
   outline: none;
 }
+
+.key.black.black-key_touch {
+  background: linear-gradient(180deg, #323A56 40%, var(--key-color) 100%) !important;
+}
+
+@media (hover: none) {
+  .key.black {
+    background: linear-gradient(165.19deg, #232A3D 0.7%, #323A56 84.98%) !important;
+  }
+}
