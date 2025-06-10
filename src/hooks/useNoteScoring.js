@@ -13,8 +13,10 @@ const useNoteScoring = ({
   markNoteAsHit,
   mode,
   handleTutorialNoteHit,
+  isPaused,
 }) => {
   const evaluateNoteHit = (note) => {
+    if (isPaused) return;
     if (note.includes("#")) {
       note = note.replace("#", "Sharp");
     }

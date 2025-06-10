@@ -162,6 +162,7 @@ const GameLogic = ({ mode }) => {
     markNoteAsHit,
     mode,
     handleTutorialNoteHit,
+    isPaused,
   });
 
   const handleKeyInput = (note) => {
