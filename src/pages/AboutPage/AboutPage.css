@@ -14,6 +14,7 @@
 
 .about-text__cursive {
   font-style: italic;
+  padding-top: 0 !important;
 }
 
 

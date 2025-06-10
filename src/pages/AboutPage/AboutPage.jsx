@@ -12,7 +12,8 @@ const AboutPage = () => {
         notová osnova, po které plynou noty podle známých melodií – dítě má za
         úkol stisknout správnou klávesu ve správný čas. Aplikace funguje buď
         jako virtuální piano na displeji tabletu, nebo ji můžete propojit na
-        stolním počítači/laptopu s reálnou klaviaturou přes MIDI rozhraní.
+        stolním počítači/laptopu s reálnou klaviaturou (Akai MPK Mini mkII) přes
+        MIDI rozhraní.
       </p>
       <div className="about-text about-text__cursive">
         Autorky: Denisa Polesná, Silvia Stražovcová
