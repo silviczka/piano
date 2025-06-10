@@ -1,6 +1,6 @@
-import './AboutPage.css';
-import PageTemplate from '../../components/UI/PageTemplate/PageTemplate';
-import foxImg from './img/sittingFox.webp';
+import "./AboutPage.css";
+import PageTemplate from "../../components/UI/PageTemplate/PageTemplate";
+import foxImg from "./img/sittingFox.webp";
 
 const AboutPage = () => {
   return (
@@ -32,6 +32,9 @@ const AboutPage = () => {
       </p>
       <div className="about-text about-text__cursive">
         Autorky: Denisa Polesná, Silvia Stražovcová
+      </div>
+      <div className="about-text about-text__cursive">
+        Děkujeme mentorům: Aleš Malůšek, Lenka Hetflajšová
       </div>
       <img className="menu-fox-img" src={foxImg} alt="sitting fox" />
     </PageTemplate>

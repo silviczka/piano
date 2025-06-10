@@ -8,8 +8,9 @@
   background-position: center 95%;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
+  padding: 1rem;
 }
 
 

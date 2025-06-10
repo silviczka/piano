@@ -67,6 +67,7 @@
 }
 
 
+
 @media (max-width: 639px) {
   .menu-page {
     background-image: var(--background-image-mobile);
@@ -80,18 +81,18 @@
   }
 
   .menu-fox-img {
-    height: calc(100% / 5.5);
+    display: none;
   }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .menu-fox-img {
-    height: 35%;
+    display: none;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
   .menu-fox-img {
-    height: 40%;
+    height: 15rem;
   }
 }
