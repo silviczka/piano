@@ -1,5 +1,5 @@
-import './SongsMenu.css';
-import Song from '../Song/Song';
+import "./SongsMenu.css";
+import Song from "../Song/Song";
 
 const SongsMenu = ({
   songs,
@@ -10,7 +10,7 @@ const SongsMenu = ({
   isFirstSongSelected,
 }) => {
   return (
-    <div className={!isMenuOpen ? 'songs-menu__closed' : 'songs-menu__opened'}>
+    <div className={!isMenuOpen ? "songs-menu__closed" : "songs-menu__opened"}>
       <div className="songs">
         <div className="songs-header">
           {isFirstSongSelected && (
@@ -47,7 +47,7 @@ const SongsMenu = ({
               />
             </svg>
           )}
-          <div className="songs-title">Vyber si píšničku a začni hrát.</div>
+          <div className="songs-title">Vyber si písničku a začni hrát:</div>
         </div>
 
         {
