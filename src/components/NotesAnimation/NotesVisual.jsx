@@ -1,6 +1,6 @@
 import { motion, useAnimation } from 'motion/react';
 import { noteSvgs } from './ColoredNoteSvgs';
-import { HIT_THRESHOLD, NOTE_TRAVEL_TIME } from '../../constants/constants';
+import { NOTE_TRAVEL_TIME } from '../../constants/constants';
 import { useEffect } from 'react';
 
 const notesYandSizeMap = {
@@ -60,9 +60,6 @@ const NoteVisual = ({
   if (gameMode === 'tutorial') {
     hitZoneX = `${hitZoneCenter}px`;
   }
-
-  // const noteHeight = noteSizeMap[note] || "10vh";
-  // const bottom = `${noteYMap[note] || 10}%`;
 
   const entry = noteSvgs[note];
   const SvgNote = entry?.note;
