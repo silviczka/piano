@@ -1,4 +1,4 @@
-import HandlesetLoadedSong from "../utils/handlesetLoadedSong";
+import HandlesetLoadedSong from '../utils/handlesetLoadedSong';
 
 const useSongSwitcher = ({
   setLoadedSong,
@@ -28,15 +28,6 @@ const useSongSwitcher = ({
 
     await HandlesetLoadedSong(songName, songTracks, interceptSetLoadedSong);
 
-    // if (newSong) {
-    //   playbackStartRef.current = performance.now();
-    //   hasStartedRef.current = true;
-    //   setIsPaused(false);
-    //   playSong(newSong, 0);
-    // } else {
-    //   console.error('Song failed to load.');
-    // }
-
     if (newSong) {
       if (shouldAutoPlay) {
         playbackStartRef.current = performance.now();
@@ -50,7 +41,7 @@ const useSongSwitcher = ({
         }
       }
     } else {
-      console.error("Song failed to load.");
+      console.error('Song failed to load.');
     }
   };
 

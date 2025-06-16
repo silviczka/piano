@@ -19,14 +19,12 @@ const Song = ({
 
   return (
     <div className="song" onClick={handleSongSelect}>
-      {/* <div className="song-img-wrapper"> */}
       <img
         className="song-star"
         src={`/img/difficulty/${starImg}`}
         alt={stars}
       />
       <img className="song-img" src={`/img/songs/${img}`} alt={name} />
-      {/* </div> */}
 
       <div className="song-footer">
         <div>{formatDisplayedTime(totalTime)}</div>
